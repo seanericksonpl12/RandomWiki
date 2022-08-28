@@ -12,23 +12,28 @@ struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
     
     var body: some View {
-        
         VStack {
             HStack {
                 Spacer()
                 Button {
-                    viewModel.savedAction()
+                    viewModel.getArticle()
                 } label: {
-                    HStack {
-                        Text("Saved")
-                            .foregroundColor(.gray)
-                        Image(systemName: "star.circle.fill")
-                            .foregroundColor(.yellow)
-                            .padding()
-                    }
+                    Text("Saved")
+                        .foregroundColor(.gray)
+                    
                 }
-                .padding()
+                .padding(EdgeInsets(top: 15, leading: 0, bottom: 0, trailing: 20))
             }
+            
+            HStack {
+                Text("Daily Article")
+                    .scaledFont(name: "Montserrat", size: 32)
+                    .padding()
+                Spacer()
+            }
+            .padding(EdgeInsets(top: -40, leading: 0, bottom: 0, trailing: 0))
+            Divider()
+            WebView(url: viewModel.currentArticle!)
             Spacer()
         }
     }
