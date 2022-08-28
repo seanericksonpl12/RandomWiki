@@ -85,6 +85,12 @@
 		927CB7C828BBDFC300B6C07B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7C728BBDFC300B6C07B /* WebView.swift */; };
 		927CB7C928BBDFC300B6C07B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7C728BBDFC300B6C07B /* WebView.swift */; };
 		927CB7CA28BBDFC300B6C07B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7C728BBDFC300B6C07B /* WebView.swift */; };
+		927CB7CC28BC112100B6C07B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7CB28BC112100B6C07B /* MenuView.swift */; };
+		927CB7CD28BC112100B6C07B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7CB28BC112100B6C07B /* MenuView.swift */; };
+		927CB7CE28BC112100B6C07B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7CB28BC112100B6C07B /* MenuView.swift */; };
+		927CB7D028BC23C700B6C07B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7CF28BC23C700B6C07B /* SettingsView.swift */; };
+		927CB7D128BC23C700B6C07B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7CF28BC23C700B6C07B /* SettingsView.swift */; };
+		927CB7D228BC23C700B6C07B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7CF28BC23C700B6C07B /* SettingsView.swift */; };
 		92E2002528B99486009FDD4E /* RandomWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2002428B99486009FDD4E /* RandomWikiApp.swift */; };
 		92E2002728B99486009FDD4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2002628B99486009FDD4E /* ContentView.swift */; };
 		92E2002928B99487009FDD4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E2002828B99487009FDD4E /* Assets.xcassets */; };
@@ -145,6 +151,8 @@
 		927CB78328BBDBE800B6C07B /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		927CB78428BBDBE800B6C07B /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		927CB7C728BBDFC300B6C07B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		927CB7CB28BC112100B6C07B /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		927CB7CF28BC23C700B6C07B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		92E2002128B99486009FDD4E /* RandomWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2002428B99486009FDD4E /* RandomWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWikiApp.swift; sourceTree = "<group>"; };
 		92E2002628B99486009FDD4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -350,6 +358,8 @@
 			children = (
 				927CB75A28BADBBA00B6C07B /* NavigationBar.swift */,
 				927CB7C728BBDFC300B6C07B /* WebView.swift */,
+				927CB7CB28BC112100B6C07B /* MenuView.swift */,
+				927CB7CF28BC23C700B6C07B /* SettingsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -565,6 +575,8 @@
 				927CB7C828BBDFC300B6C07B /* WebView.swift in Sources */,
 				92E2002728B99486009FDD4E /* ContentView.swift in Sources */,
 				927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */,
+				927CB7CC28BC112100B6C07B /* MenuView.swift in Sources */,
+				927CB7D028BC23C700B6C07B /* SettingsView.swift in Sources */,
 				92E2002528B99486009FDD4E /* RandomWikiApp.swift in Sources */,
 				927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */,
 				927CB75B28BADBBA00B6C07B /* NavigationBar.swift in Sources */,
@@ -576,7 +588,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				927CB7D128BC23C700B6C07B /* SettingsView.swift in Sources */,
 				927CB7C928BBDFC300B6C07B /* WebView.swift in Sources */,
+				927CB7CD28BC112100B6C07B /* MenuView.swift in Sources */,
 				927CB76A28BBDAA200B6C07B /* ScaledFont.swift in Sources */,
 				92E2003628B99487009FDD4E /* RandomWikiTests.swift in Sources */,
 			);
@@ -586,8 +600,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				927CB7CE28BC112100B6C07B /* MenuView.swift in Sources */,
 				927CB76B28BBDAA200B6C07B /* ScaledFont.swift in Sources */,
 				927CB7CA28BBDFC300B6C07B /* WebView.swift in Sources */,
+				927CB7D228BC23C700B6C07B /* SettingsView.swift in Sources */,
 				92E2004028B99487009FDD4E /* RandomWikiUITests.swift in Sources */,
 				92E2004228B99487009FDD4E /* RandomWikiUITestsLaunchTests.swift in Sources */,
 			);

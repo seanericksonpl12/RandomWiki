@@ -11,9 +11,15 @@ import WebKit
 
 extension ContentView {
     @MainActor class ContentViewModel: ObservableObject {
-        @Published var savedAction: SimpleClosure = {}
+        // MARK: - Published Properties
         @Published var savedArticles: [URL] = []
         @Published var currentArticle: URL? = URL(string: "https://en.wikipedia.org/wiki/Special:Random")
+        @Published var menuOpen: Bool = false
+        @Published var settingsOpen: Bool = false
+        
+        // MARK: - Static Properties
+        var menuAction: SimpleClosure = { print("menu") }
+        var settingsAction: SimpleClosure = { print("settings") }
         
         func getArticle() -> URL? {
             guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return nil }

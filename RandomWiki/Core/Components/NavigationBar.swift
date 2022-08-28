@@ -9,22 +9,27 @@ import SwiftUI
 
 struct NavigationBar: View {
     // MARK: - Actions
-    var savedAction: SimpleClosure = {}
+    var menuAction: SimpleClosure = {}
+    var settingsAction: SimpleClosure = {}
     
     var body: some View {
-        HStack {
-            Spacer()
-            Button {
-                savedAction()
-            } label: {
-                HStack {
-                    Text("Saved")
+            HStack {
+                Button {
+                    menuAction()
+                } label: {
+                    Image(systemName: "slider.horizontal.3")
                         .foregroundColor(.gray)
-                    Image(systemName: "square.and.arrow.down")
                 }
+                .padding()
+                Spacer()
+                Button {
+                    settingsAction()
+                } label: {
+                    Image(systemName: "gearshape")
+                        .foregroundColor(.gray)
+                }
+                .padding()
             }
-            .padding()
-        }
     }
 }
 
