@@ -9,25 +9,31 @@ import SwiftUI
 
 struct NavigationBar: View {
     // MARK: - Actions
-    var savedAction: SimpleClosure = {}
+    var menuAction: SimpleClosure = {}
+    var settingsAction: SimpleClosure = {}
     
     var body: some View {
         HStack {
+            Button {
+                menuAction()
+            } label: {
+                Image(systemName: "slider.horizontal.3")
+                    .foregroundColor(.gray)
+            }
+            .padding()
             Spacer()
             Button {
-                savedAction()
+                settingsAction()
             } label: {
-                HStack {
-                    Text("Saved")
-                        .foregroundColor(.gray)
-                    Image(systemName: "square.and.arrow.down")
-                }
+                Image(systemName: "gearshape")
+                    .foregroundColor(.gray)
             }
             .padding()
         }
     }
 }
 
+// MARK: - Preview
 struct NavigationBar_Previews: PreviewProvider {
     static var previews: some View {
         NavigationBar()
