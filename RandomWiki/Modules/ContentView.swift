@@ -24,6 +24,7 @@ struct ContentView: View {
                             .foregroundColor(.gray)
                         Image(systemName: "star.circle.fill")
                             .foregroundColor(.yellow)
+                            .padding()
                     }
                 }
                 .padding()
