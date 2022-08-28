@@ -9,9 +9,8 @@ import SwiftUI
 import UserNotifications
 
 struct ContentView: View {
+    // MARK: - View Model
     @StateObject private var viewModel = ContentViewModel()
-    
-    var navigationBar: NavigationBar = NavigationBar()
     
     var body: some View {
         ZStack {
@@ -31,6 +30,8 @@ struct ContentView: View {
                 WebView(url: viewModel.currentArticle!)
                     .ignoresSafeArea()
             }
+            
+            // MARK: - Menu Side Panels
             MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu)
                 .animation(.easeIn, value: viewModel.menuOpen)
             SettingsView(width: 300, isOpen: viewModel.settingsOpen, settingClose: self.openSettings)
@@ -38,6 +39,7 @@ struct ContentView: View {
         }
     }
     
+    // MARK: - Menu Functions
     func openMenu() {
         viewModel.menuOpen.toggle()
     }
@@ -46,8 +48,10 @@ struct ContentView: View {
     }
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.portrait)
     }
 }

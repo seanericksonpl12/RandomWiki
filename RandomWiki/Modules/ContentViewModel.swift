@@ -17,10 +17,6 @@ extension ContentView {
         @Published var menuOpen: Bool = false
         @Published var settingsOpen: Bool = false
         
-        // MARK: - Static Properties
-        var menuAction: SimpleClosure = { print("menu") }
-        var settingsAction: SimpleClosure = { print("settings") }
-        
         func getArticle() -> URL? {
             guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return nil }
             let webView = WKWebView()
