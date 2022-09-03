@@ -7,23 +7,45 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 import WebKit
 
 extension ContentView {
     @MainActor class ContentViewModel: ObservableObject {
         // MARK: - Published Properties
-        @Published var savedArticles: [URL] = []
-        @Published var currentArticle: URL? = URL(string: "https://en.wikipedia.org/wiki/Special:Random")
+        @Published var savedArticles: [Article] = []
+        @Published var currentArticle: Article = Article(id: UUID(), url: URL(string: "https://en.wikipedia.org/wiki/Special:Random"), category: "", title: "")
         @Published var menuOpen: Bool = false
         @Published var settingsOpen: Bool = false
+        @Published var reload: Bool = false
         
-        func getArticle() -> URL? {
-            guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return nil }
-            let webView = WKWebView()
-            webView.load(URLRequest(url: url))
+        var loadedAction: URLClosure = {_ in}
+        
+        init() {
+            self.loadedAction = { [weak self] url in
+                guard let self = self else { return }
+                guard let url = url else { return }
+                self.getArticleData(url)
+            }
+        }
+    
+    
+        func getArticle() {
+            guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return }
+            currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
             
-          
-            return url
+        }
+        
+        func save() {
+            currentArticle.saved.toggle()
+            if currentArticle.saved { savedArticles.append(currentArticle) }
+            else { savedArticles.removeAll(where: {article in
+                 article.url == currentArticle.url
+            })}
+        }
+        
+        func getArticleData(_ url: URL) {
+            self.currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
         }
     }
 }
