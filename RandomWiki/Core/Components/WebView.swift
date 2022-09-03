@@ -10,9 +10,13 @@ import WebKit
 
 struct WebView: UIViewRepresentable {
     var url: URL
+    var loadedAction: URLClosure = {_ in}
     
     func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+        let webKit = WebKitLoader()
+        webKit.loadedAction = self.loadedAction
+        webKit.navigationDelegate = webKit
+        return webKit
     }
     
     func updateUIView(_ webView: WKWebView, context: Context) {
