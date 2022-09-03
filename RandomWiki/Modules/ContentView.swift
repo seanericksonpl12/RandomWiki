@@ -17,10 +17,6 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack {
-//                NavigationBar(menuAction: self.openMenu, settingsAction: self.openSettings)
-//                    .padding(EdgeInsets(top: 15, leading: 0, bottom: 0, trailing: 20))
-//                    .ignoresSafeArea()
-//                    .statusBar(hidden: true)
                 HStack {
                     Text("Daily Article")
                         .scaledFont(name: "Montserrat", size: 36)
@@ -44,7 +40,6 @@ struct ContentView: View {
                             }
                     }
                 }
-                //.padding(EdgeInsets(top: -70, leading: 0, bottom: 0, trailing: 0))
                 
                 Divider()
                 

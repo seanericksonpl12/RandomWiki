@@ -43,7 +43,7 @@ struct MenuView: View {
                 }
                 .frame(width: self.width)
                 .background(Color.white)
-            .offset(x: self.isOpen ? 0 : -self.width)
+                .offset(x: self.isOpen ? 0 : -self.width)
                 Spacer()
             }
         }

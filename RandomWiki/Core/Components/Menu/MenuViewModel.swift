@@ -13,6 +13,8 @@ extension MenuView {
     @MainActor class MenuViewModel: ObservableObject {
         @Published var filtersSelected: Bool = false
         @Published var backgroundSelected: Bool = true
+        // MARK: - Dropdown Menu
+        // TODO: - Add menu contents into separate file
         var dropDownContent: [DropDown] = [DropDown(id: 0, label: "Settings",
                                                     children: []),
                                            DropDown(id: 1, label: "Menu",

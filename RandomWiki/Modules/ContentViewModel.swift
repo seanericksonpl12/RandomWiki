@@ -19,8 +19,10 @@ extension ContentView {
         @Published var settingsOpen: Bool = false
         @Published var reload: Bool = false
         
+        // MARK: - Stored Properties
         var loadedAction: URLClosure = {_ in}
         
+        // MARK: - Init
         init() {
             self.loadedAction = { [weak self] url in
                 guard let self = self else { return }
@@ -29,11 +31,10 @@ extension ContentView {
             }
         }
     
-    
+        // MARK: - Public Functions
         func getArticle() {
             guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return }
             currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
-            
         }
         
         func save() {
@@ -45,6 +46,7 @@ extension ContentView {
         }
         
         func getArticleData(_ url: URL) {
+            // TODO: - Add string parsing for grabbing title
             self.currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
         }
     }

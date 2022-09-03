@@ -13,5 +13,9 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         loadedAction(webView.url)
+        webView.evaluateJavaScript("document.title") { html, error in
+            // TODO: - send title to ContentViewModel on load
+            print(html)
+        }
     }
 }
