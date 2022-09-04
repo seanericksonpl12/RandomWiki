@@ -20,15 +20,14 @@ extension ContentView {
         @Published var favoritesList: [Article]
         
         // MARK: - Stored Properties
-        var loadedAction: URLClosure = {_ in}
+        var loadedAction: ArticleClosure = {_ in}
         
         // MARK: - Init
         init() {
             self.favoritesList = UserDefaults.standard.loadArticles() ?? []
-            self.loadedAction = { [weak self] url in
+            self.loadedAction = { [weak self] article in
                 guard let self = self else { return }
-                guard let url = url else { return }
-                self.getArticleData(url)
+                self.currentArticle = article
             }
         }
     
@@ -48,12 +47,5 @@ extension ContentView {
                  article.url == currentArticle.url
             })}
         }
-        
-        func getArticleData(_ url: URL) {
-            // TODO: - Add string parsing for grabbing title
-            self.currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
-        }
-        
-        
     }
 }

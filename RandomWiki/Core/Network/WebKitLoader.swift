@@ -9,13 +9,16 @@ import WebKit
 
 class WebKitLoader: WKWebView, WKNavigationDelegate {
     
-    var loadedAction: URLClosure = {_ in}
+    var loadedAction: ArticleClosure = {_ in}
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        loadedAction(webView.url)
-        webView.evaluateJavaScript("document.title") { html, error in
+        
+        webView.evaluateJavaScript("document.title") { [weak self] html, error in
             // TODO: - send title to ContentViewModel on load
-           // print(html)
+            guard let self = self else { return }
+            
+            let article = Article(id: UUID(), url: webView.url, saved: false, category: "", title: html as? String ?? "")
+            self.loadedAction(article)
         }
     }
 }

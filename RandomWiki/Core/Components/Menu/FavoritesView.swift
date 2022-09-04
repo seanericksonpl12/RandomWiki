@@ -10,10 +10,24 @@ import SwiftUI
 struct FavoritesView: View {
     
     var favorites: [Article]
+    var onTap: ArticleClosure = {_ in}
     // TODO: - Add list of favorited articles, display them on tap
     var body: some View {
-        ForEach(favorites) { article in
-            Text(article.url!.relativeString)
+        ScrollView {
+            Divider()
+            ForEach(favorites) { article in
+                VStack {
+                HStack {
+                    Text(article.title)
+                        .padding()
+                    Spacer()
+                }
+                .onTapGesture {
+                    print("tapped")
+                }
+                Divider()
+                }
+            }
         }
     }
 }

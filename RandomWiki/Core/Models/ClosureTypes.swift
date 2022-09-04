@@ -10,4 +10,4 @@ import Foundation
 typealias SimpleClosure = () -> Void
 typealias StringClosure = (String) -> Void
 typealias IntClosure = (Int) -> Void
-typealias URLClosure = (URL?) -> Void
+typealias ArticleClosure = (Article) -> Void
