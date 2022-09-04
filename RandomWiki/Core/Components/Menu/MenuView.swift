@@ -9,12 +9,12 @@ import SwiftUI
 
 struct MenuView: View {
     @StateObject private var viewModel = MenuViewModel()
+    @Environment(\.dataBase.articles) var favorites: [Article]
     // MARK: - Properties
     let width: CGFloat
     let isOpen: Bool
     let menuClose: SimpleClosure
     let menuItems: [DropDown]
-    
     
     var body: some View {
         ZStack {
@@ -32,9 +32,10 @@ struct MenuView: View {
                     ScrollView {
                         Divider()
                         ForEach(viewModel.dropDownContent) { row in
-                            DropDownView(selected: viewModel.itemsSelected.contains(row), dropDown: row)
+                            DropDownView(selected: viewModel.itemsSelected.contains(row), dropDown: row, favorites: favorites)
                                 .onTapGesture {
                                     viewModel.select(row)
+                                  
                                 }
                                 .animation(.interactiveSpring(), value: viewModel.itemsSelected.contains(row))
                         }

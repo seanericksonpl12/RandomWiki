@@ -103,6 +103,8 @@
 		92E2005928B99AA6009FDD4E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 92E2005828B99AA6009FDD4E /* FirebaseAuth */; };
 		92E2005B28B99AA6009FDD4E /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 92E2005A28B99AA6009FDD4E /* FirebaseMessaging */; };
 		92E2005D28B99E72009FDD4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2005C28B99E72009FDD4E /* AppDelegate.swift */; };
+		92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7BEE28C507D9005BBA16 /* DataBase.swift */; };
+		92FC7BF428C546A6005BBA16 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +171,8 @@
 		92E2004128B99487009FDD4E /* RandomWikiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWikiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		92E2005428B99715009FDD4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92E2005C28B99E72009FDD4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92FC7BEE28C507D9005BBA16 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 		927CB75C28BADD9C00B6C07B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */,
 				927CB76828BBDAA200B6C07B /* ScaledFont.swift */,
 				927CB7D328BD707800B6C07B /* Article.swift */,
+				92FC7BEE28C507D9005BBA16 /* DataBase.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -604,9 +610,11 @@
 			files = (
 				927CB7D428BD707800B6C07B /* Article.swift in Sources */,
 				92E2005D28B99E72009FDD4E /* AppDelegate.swift in Sources */,
+				92FC7BF428C546A6005BBA16 /* UserDefaultsExtensions.swift in Sources */,
 				927CB7C828BBDFC300B6C07B /* WebView.swift in Sources */,
 				92E2002728B99486009FDD4E /* ContentView.swift in Sources */,
 				927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */,
+				92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */,
 				9236FD2528C3B1A300ADA10E /* FavoritesView.swift in Sources */,
 				927CB7D728BE617200B6C07B /* DropDownView.swift in Sources */,
 				927CB7CC28BC112100B6C07B /* MenuView.swift in Sources */,

@@ -10,9 +10,12 @@ import UserNotifications
 import WebKit
 
 struct ContentView: View {
+    
+    
     // MARK: - View Model
-    @StateObject private var viewModel = ContentViewModel()
+    @StateObject var viewModel: ContentViewModel = ContentViewModel()
     var webView: WebView = WebView(url: URL(string: "https://en.wikipedia.org/wiki/Special:Random")!)
+    @Environment(\.dataBase.articles) var data: [Article]
     
     var body: some View {
         ZStack {
@@ -28,6 +31,7 @@ struct ContentView: View {
                             .onTapGesture {
                                 viewModel.save()
                             }
+                            
                         Image(systemName: "arrow.clockwise")
                             .foregroundColor(.gray)
                             .onTapGesture {
@@ -50,7 +54,7 @@ struct ContentView: View {
             // MARK: - Menu Side Panel
             MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, menuItems: [])
                 .animation(.easeIn, value: viewModel.menuOpen)
-
+                .environment(\.dataBase.articles, viewModel.favoritesList)
         }
     }
     
@@ -69,7 +73,7 @@ struct ContentView: View {
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: ContentView.ContentViewModel())
             .previewInterfaceOrientation(.portrait)
     }
 }

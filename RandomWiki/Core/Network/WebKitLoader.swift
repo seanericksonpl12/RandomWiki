@@ -15,7 +15,7 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
         loadedAction(webView.url)
         webView.evaluateJavaScript("document.title") { html, error in
             // TODO: - send title to ContentViewModel on load
-            print(html)
+           // print(html)
         }
     }
 }

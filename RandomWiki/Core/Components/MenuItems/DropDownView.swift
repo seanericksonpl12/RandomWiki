@@ -10,6 +10,7 @@ import SwiftUI
 struct DropDownView: View {
     var selected: Bool
     var dropDown: DropDown
+    var favorites: [Article]
     
     var body: some View {
         HStack {
@@ -34,8 +35,8 @@ struct DropDownView: View {
             }
             if selected {
                 ForEach(dropDown.children) { child in
-                    NavigationLink(destination: EmptyView()) {
-                        Text(child.label)
+                    NavigationLink(destination: FavoritesView(favorites: favorites)) {
+                        Text("Favorites")
                     }
                 }
             }

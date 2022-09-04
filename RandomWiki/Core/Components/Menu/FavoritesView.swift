@@ -13,13 +13,13 @@ struct FavoritesView: View {
     // TODO: - Add list of favorited articles, display them on tap
     var body: some View {
         ForEach(favorites) { article in
-            Text(article.title)
+            Text(article.url!.relativeString)
         }
     }
 }
 
-struct FavoritesView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoritesView(favorites: [])
-    }
-}
+//struct FavoritesView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FavoritesView(favorites: $[])
+//    }
+//}
