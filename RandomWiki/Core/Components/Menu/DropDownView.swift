@@ -12,6 +12,9 @@ struct DropDownView: View {
     var dropDown: DropDown
     var favorites: [Article]
     
+    // MARK: - Actions
+    var favoriteAction: ArticleClosure
+    
     var body: some View {
         HStack {
             content
@@ -35,9 +38,10 @@ struct DropDownView: View {
             }
             if selected {
                 ForEach(dropDown.children) { child in
-                    NavigationLink(destination: FavoritesView(favorites: favorites)) {
+                    NavigationLink(destination: FavoritesView(favorites: favorites, onTap: favoriteAction).navigationBarTitleDisplayMode(.inline).navigationTitle("")) {
                         Text("Favorites")
                     }
+                    
                 }
             }
             

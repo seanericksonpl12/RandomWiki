@@ -107,6 +107,8 @@
 		92FC7BF428C546A6005BBA16 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */; };
 		92FC7BF728C54787005BBA16 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7DA28BE692F00B6C07B /* MenuViewModel.swift */; };
 		92FC7BF828C54787005BBA16 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7DA28BE692F00B6C07B /* MenuViewModel.swift */; };
+		92FC7C0128C66A27005BBA16 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92FC7C0028C66A27005BBA16 /* SwiftSoup */; };
+		92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +177,7 @@
 		92E2005C28B99E72009FDD4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92FC7BEE28C507D9005BBA16 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
+		92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContextMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E2005B28B99AA6009FDD4E /* FirebaseMessaging in Frameworks */,
+				92FC7C0128C66A27005BBA16 /* SwiftSoup in Frameworks */,
 				92E2005728B99AA6009FDD4E /* FirebaseAnalytics in Frameworks */,
 				92E2005928B99AA6009FDD4E /* FirebaseAuth in Frameworks */,
 			);
@@ -269,7 +273,6 @@
 		927CB7D928BE691600B6C07B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				9236FD2428C3B1A300ADA10E /* FavoritesView.swift */,
 				927CB7D628BE617200B6C07B /* DropDownView.swift */,
 			);
 			path = Menu;
@@ -387,6 +390,7 @@
 		92E2005328B99538009FDD4E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				92FC7C0228C68203005BBA16 /* Favorites */,
 				927CB7D928BE691600B6C07B /* Menu */,
 				92FC7BF928C547CF005BBA16 /* WebKit */,
 			);
@@ -419,6 +423,15 @@
 			path = WebKit;
 			sourceTree = "<group>";
 		};
+		92FC7C0228C68203005BBA16 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				9236FD2428C3B1A300ADA10E /* FavoritesView.swift */,
+				92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -439,6 +452,7 @@
 				92E2005628B99AA6009FDD4E /* FirebaseAnalytics */,
 				92E2005828B99AA6009FDD4E /* FirebaseAuth */,
 				92E2005A28B99AA6009FDD4E /* FirebaseMessaging */,
+				92FC7C0028C66A27005BBA16 /* SwiftSoup */,
 			);
 			productName = RandomWiki;
 			productReference = 92E2002128B99486009FDD4E /* RandomWiki.app */;
@@ -514,6 +528,7 @@
 			mainGroup = 92E2001828B99486009FDD4E;
 			packageReferences = (
 				92E2005528B99AA6009FDD4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				92FC7BFF28C66A27005BBA16 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 92E2002228B99486009FDD4E /* Products */;
 			projectDirPath = "";
@@ -633,6 +648,7 @@
 				92E2002728B99486009FDD4E /* ContentView.swift in Sources */,
 				927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */,
 				92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */,
+				92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */,
 				9236FD2528C3B1A300ADA10E /* FavoritesView.swift in Sources */,
 				927CB7D728BE617200B6C07B /* DropDownView.swift in Sources */,
 				927CB7CC28BC112100B6C07B /* MenuView.swift in Sources */,
@@ -987,6 +1003,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		92FC7BFF28C66A27005BBA16 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1004,6 +1028,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 92E2005528B99AA6009FDD4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		92FC7C0028C66A27005BBA16 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92FC7BFF28C66A27005BBA16 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
