@@ -4,13 +4,18 @@
 //
 //  Created by Sean Erickson on 8/30/22.
 //
-
 import SwiftUI
 
 struct DropDownView: View {
+    // MARK: - Properties
     var selected: Bool
     var dropDown: DropDown
+    var favorites: [Article]
     
+    // MARK: - Actions
+    var favoriteAction: ArticleClosure
+    
+    // MARK: - Body
     var body: some View {
         HStack {
             content
@@ -18,6 +23,7 @@ struct DropDownView: View {
         }
     }
     
+    // MARK: - Main Content
     var content: some View {
         VStack {
             HStack {
@@ -30,19 +36,16 @@ struct DropDownView: View {
                     .foregroundColor(.gray)
                     .rotationEffect(.degrees(selected ? 90 : 0))
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
-                
             }
             if selected {
                 ForEach(dropDown.children) { child in
-                    NavigationLink(destination: EmptyView()) {
-                        Text(child.label)
+                    NavigationLink(destination: FavoritesView(favorites: favorites, onTap: favoriteAction).navigationBarTitleDisplayMode(.inline).navigationTitle("")) {
+                        Text("favorites.title".localized)
+                            .foregroundColor(.black)
                     }
                 }
             }
-            
-            
             Divider()
-            
         }
     }
 }

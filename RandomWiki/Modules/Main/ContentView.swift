@@ -10,17 +10,23 @@ import UserNotifications
 import WebKit
 
 struct ContentView: View {
-    // MARK: - View Model
-    @StateObject private var viewModel = ContentViewModel()
-    var webView: WebView = WebView(url: URL(string: "https://en.wikipedia.org/wiki/Special:Random")!)
     
+    
+    // MARK: - Dependencies
+    @StateObject var viewModel: ContentViewModel = ContentViewModel()
+    @Environment(\.dataBase.articles) var data: [Article]
+    
+    // MARK: - Body
     var body: some View {
         ZStack {
             VStack {
                 HStack {
-                    Text("Daily Article")
-                        .scaledFont(name: "Montserrat", size: 36)
+                    Text("menu.title".localized)
+                        .scaledFont(name: "Montserrat-Bold", size: 36)
                         .padding()
+                        .onTapGesture {
+                            print(viewModel.currentArticle)
+                        }
                     
                     HStack(spacing: 20) {
                         Image(systemName: viewModel.currentArticle.saved ? "star.fill" : "star")
@@ -28,6 +34,7 @@ struct ContentView: View {
                             .onTapGesture {
                                 viewModel.save()
                             }
+                            
                         Image(systemName: "arrow.clockwise")
                             .foregroundColor(.gray)
                             .onTapGesture {
@@ -48,9 +55,9 @@ struct ContentView: View {
             }
             
             // MARK: - Menu Side Panel
-            MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, menuItems: [])
+            MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, menuItems: [], favoritesAction: viewModel.favoriteAction)
                 .animation(.easeIn, value: viewModel.menuOpen)
-
+                .environment(\.dataBase.articles, viewModel.favoritesList)
         }
     }
     
@@ -69,7 +76,7 @@ struct ContentView: View {
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: ContentView.ContentViewModel())
             .previewInterfaceOrientation(.portrait)
     }
 }

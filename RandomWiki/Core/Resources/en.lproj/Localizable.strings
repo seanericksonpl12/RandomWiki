@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  RandomWiki
+
+  Created by Sean Erickson on 9/6/22.
+  
+*/
+// MARK: - Menu
+"menu.title" = "Daily Article";
+
+// MARK: - Favorites
+"favorites.noDescription" = "Sorry, we couldn't seem to find a description.";
+"favorites.title" = "Favorites";

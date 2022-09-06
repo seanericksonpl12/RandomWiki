@@ -7,10 +7,27 @@
 
 import Foundation
 
-struct Article: Identifiable {
+struct Article: Identifiable, Codable, Hashable {
     var id: UUID
     var url: URL?
     var saved: Bool = false
-    var category: String
+    var category: String?
     var title: String
+    var description: String?
+    var expanded: Bool = false
+    
+    // MARK: - Computed Properties
+    var clippedTitle: String { String(title.dropLast(12)) }
+    
+    // MARK: - Functions
+    func toJSON() -> Data? {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(self)
+            return data
+        } catch { print(error) }
+        return nil
+    }
 }
+
+

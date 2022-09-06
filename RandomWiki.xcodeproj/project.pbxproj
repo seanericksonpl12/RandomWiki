@@ -103,6 +103,14 @@
 		92E2005928B99AA6009FDD4E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 92E2005828B99AA6009FDD4E /* FirebaseAuth */; };
 		92E2005B28B99AA6009FDD4E /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 92E2005A28B99AA6009FDD4E /* FirebaseMessaging */; };
 		92E2005D28B99E72009FDD4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2005C28B99E72009FDD4E /* AppDelegate.swift */; };
+		92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7BEE28C507D9005BBA16 /* DataBase.swift */; };
+		92FC7BF428C546A6005BBA16 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */; };
+		92FC7BF728C54787005BBA16 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7DA28BE692F00B6C07B /* MenuViewModel.swift */; };
+		92FC7BF828C54787005BBA16 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB7DA28BE692F00B6C07B /* MenuViewModel.swift */; };
+		92FC7C0128C66A27005BBA16 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92FC7C0028C66A27005BBA16 /* SwiftSoup */; };
+		92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */; };
+		92FC7C0828C79599005BBA16 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C0728C79599005BBA16 /* StringExtensions.swift */; };
+		92FC7C0928C79621005BBA16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92FC7C0B28C79621005BBA16 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +177,11 @@
 		92E2004128B99487009FDD4E /* RandomWikiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWikiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		92E2005428B99715009FDD4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92E2005C28B99E72009FDD4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92FC7BEE28C507D9005BBA16 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
+		92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContextMenu.swift; sourceTree = "<group>"; };
+		92FC7C0728C79599005BBA16 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		92FC7C0A28C79621005BBA16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E2005B28B99AA6009FDD4E /* FirebaseMessaging in Frameworks */,
+				92FC7C0128C66A27005BBA16 /* SwiftSoup in Frameworks */,
 				92E2005728B99AA6009FDD4E /* FirebaseAnalytics in Frameworks */,
 				92E2005928B99AA6009FDD4E /* FirebaseAuth in Frameworks */,
 			);
@@ -210,6 +224,8 @@
 		927CB75C28BADD9C00B6C07B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */,
+				92FC7C0728C79599005BBA16 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,20 +275,10 @@
 			path = static;
 			sourceTree = "<group>";
 		};
-		927CB7D528BE615900B6C07B /* MenuItems */ = {
-			isa = PBXGroup;
-			children = (
-				927CB7D628BE617200B6C07B /* DropDownView.swift */,
-			);
-			path = MenuItems;
-			sourceTree = "<group>";
-		};
 		927CB7D928BE691600B6C07B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				927CB7CB28BC112100B6C07B /* MenuView.swift */,
-				927CB7DA28BE692F00B6C07B /* MenuViewModel.swift */,
-				9236FD2428C3B1A300ADA10E /* FavoritesView.swift */,
+				927CB7D628BE617200B6C07B /* DropDownView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -360,8 +366,8 @@
 		92E2005028B994C2009FDD4E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				92E2002628B99486009FDD4E /* ContentView.swift */,
-				927CB76128BAE4D800B6C07B /* ContentViewModel.swift */,
+				92FC7BF628C5476B005BBA16 /* Main */,
+				92FC7BF528C54760005BBA16 /* Menu */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 			children = (
 				927CB76C28BBDBC800B6C07B /* Fonts */,
 				92E2002828B99487009FDD4E /* Assets.xcassets */,
+				92FC7C0B28C79621005BBA16 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -381,6 +388,7 @@
 				927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */,
 				927CB76828BBDAA200B6C07B /* ScaledFont.swift */,
 				927CB7D328BD707800B6C07B /* Article.swift */,
+				92FC7BEE28C507D9005BBA16 /* DataBase.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,11 +396,46 @@
 		92E2005328B99538009FDD4E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				92FC7C0228C68203005BBA16 /* Favorites */,
 				927CB7D928BE691600B6C07B /* Menu */,
-				927CB7D528BE615900B6C07B /* MenuItems */,
-				927CB7C728BBDFC300B6C07B /* WebView.swift */,
+				92FC7BF928C547CF005BBA16 /* WebKit */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		92FC7BF528C54760005BBA16 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				927CB7CB28BC112100B6C07B /* MenuView.swift */,
+				927CB7DA28BE692F00B6C07B /* MenuViewModel.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		92FC7BF628C5476B005BBA16 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				92E2002628B99486009FDD4E /* ContentView.swift */,
+				927CB76128BAE4D800B6C07B /* ContentViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		92FC7BF928C547CF005BBA16 /* WebKit */ = {
+			isa = PBXGroup;
+			children = (
+				927CB7C728BBDFC300B6C07B /* WebView.swift */,
+			);
+			path = WebKit;
+			sourceTree = "<group>";
+		};
+		92FC7C0228C68203005BBA16 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				9236FD2428C3B1A300ADA10E /* FavoritesView.swift */,
+				92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +458,7 @@
 				92E2005628B99AA6009FDD4E /* FirebaseAnalytics */,
 				92E2005828B99AA6009FDD4E /* FirebaseAuth */,
 				92E2005A28B99AA6009FDD4E /* FirebaseMessaging */,
+				92FC7C0028C66A27005BBA16 /* SwiftSoup */,
 			);
 			productName = RandomWiki;
 			productReference = 92E2002128B99486009FDD4E /* RandomWiki.app */;
@@ -490,6 +534,7 @@
 			mainGroup = 92E2001828B99486009FDD4E;
 			packageReferences = (
 				92E2005528B99AA6009FDD4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				92FC7BFF28C66A27005BBA16 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 92E2002228B99486009FDD4E /* Products */;
 			projectDirPath = "";
@@ -516,6 +561,7 @@
 				927CB7C128BBDBE800B6C07B /* OFL.txt in Resources */,
 				927CB7B828BBDBE800B6C07B /* Montserrat-Italic.ttf in Resources */,
 				927CB7BE28BBDBE800B6C07B /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				92FC7C0928C79621005BBA16 /* Localizable.strings in Resources */,
 				927CB7A028BBDBE800B6C07B /* Montserrat-Bold.ttf in Resources */,
 				927CB7AF28BBDBE800B6C07B /* Montserrat-ExtraBold.ttf in Resources */,
 				927CB7B528BBDBE800B6C07B /* Montserrat-Regular.ttf in Resources */,
@@ -604,9 +650,12 @@
 			files = (
 				927CB7D428BD707800B6C07B /* Article.swift in Sources */,
 				92E2005D28B99E72009FDD4E /* AppDelegate.swift in Sources */,
+				92FC7BF428C546A6005BBA16 /* UserDefaultsExtensions.swift in Sources */,
 				927CB7C828BBDFC300B6C07B /* WebView.swift in Sources */,
 				92E2002728B99486009FDD4E /* ContentView.swift in Sources */,
 				927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */,
+				92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */,
+				92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */,
 				9236FD2528C3B1A300ADA10E /* FavoritesView.swift in Sources */,
 				927CB7D728BE617200B6C07B /* DropDownView.swift in Sources */,
 				927CB7CC28BC112100B6C07B /* MenuView.swift in Sources */,
@@ -615,6 +664,7 @@
 				927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */,
 				927CB7DB28BE692F00B6C07B /* MenuViewModel.swift in Sources */,
 				927CB76928BBDAA200B6C07B /* ScaledFont.swift in Sources */,
+				92FC7C0828C79599005BBA16 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +675,7 @@
 				927CB7C928BBDFC300B6C07B /* WebView.swift in Sources */,
 				927CB7CD28BC112100B6C07B /* MenuView.swift in Sources */,
 				927CB76A28BBDAA200B6C07B /* ScaledFont.swift in Sources */,
+				92FC7BF728C54787005BBA16 /* MenuViewModel.swift in Sources */,
 				92E2003628B99487009FDD4E /* RandomWikiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +687,7 @@
 				927CB7CE28BC112100B6C07B /* MenuView.swift in Sources */,
 				927CB76B28BBDAA200B6C07B /* ScaledFont.swift in Sources */,
 				927CB7CA28BBDFC300B6C07B /* WebView.swift in Sources */,
+				92FC7BF828C54787005BBA16 /* MenuViewModel.swift in Sources */,
 				92E2004028B99487009FDD4E /* RandomWikiUITests.swift in Sources */,
 				92E2004228B99487009FDD4E /* RandomWikiUITestsLaunchTests.swift in Sources */,
 			);
@@ -655,6 +707,17 @@
 			targetProxy = 92E2003C28B99487009FDD4E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		92FC7C0B28C79621005BBA16 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92FC7C0A28C79621005BBA16 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		92E2004328B99487009FDD4E /* Debug */ = {
@@ -959,6 +1022,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		92FC7BFF28C66A27005BBA16 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -976,6 +1047,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 92E2005528B99AA6009FDD4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		92FC7C0028C66A27005BBA16 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92FC7BFF28C66A27005BBA16 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
