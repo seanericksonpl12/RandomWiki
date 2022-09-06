@@ -27,14 +27,13 @@ struct ContentView: View {
                         .onTapGesture {
                             print(viewModel.currentArticle)
                         }
-                    
+                    // MARK: - Icon Bar
                     HStack(spacing: 20) {
                         Image(systemName: viewModel.currentArticle.saved ? "star.fill" : "star")
                             .foregroundColor(.yellow)
                             .onTapGesture {
                                 viewModel.save()
                             }
-                            
                         Image(systemName: "arrow.clockwise")
                             .foregroundColor(.gray)
                             .onTapGesture {
@@ -47,11 +46,16 @@ struct ContentView: View {
                             }
                     }
                 }
-                
                 Divider()
-                
-                WebView(url: viewModel.currentArticle.url!, loadedAction: viewModel.loadedAction)
-                    .ignoresSafeArea()
+                // MARK: - Web Content
+                ZStack {
+                    WebView(url: viewModel.currentArticle.url!, loadedAction: viewModel.loadedAction)
+                        .ignoresSafeArea()
+                    if viewModel.loading {
+                        LoadingView()
+                            .ignoresSafeArea()
+                    }
+                }
             }
             
             // MARK: - Menu Side Panel
@@ -76,7 +80,7 @@ struct ContentView: View {
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentView.ContentViewModel())
+        ContentView()
             .previewInterfaceOrientation(.portrait)
     }
 }
