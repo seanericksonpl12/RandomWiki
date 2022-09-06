@@ -38,6 +38,7 @@ struct MenuView: View {
                         Divider()
                         ForEach(viewModel.dropDownContent) { row in
                             DropDownView(selected: viewModel.itemsSelected.contains(row), dropDown: row, favorites: favorites, favoriteAction: favoritesAction)
+                                .contentShape(Rectangle())
                                 .onTapGesture {
                                     viewModel.select(row)
                                 }

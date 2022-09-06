@@ -32,7 +32,7 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
         var title = ""
         var description = "favorites.noDescription".localized
         var doc: Document
-        do { doc = try SwiftSoup.parse(html); print(doc)} catch { return("", "") }
+        do { doc = try SwiftSoup.parse(html) } catch { return("", "") }
         do { title = try doc.title() } catch { print(error) }
         do {
             let text: Elements = try doc.select("p")

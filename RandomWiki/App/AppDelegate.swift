@@ -7,13 +7,14 @@
 
 import Firebase
 import UserNotifications
+import Lottie
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        
+        LottieLogger.shared = .printToConsole
         Messaging.messaging().delegate = self
         
         if #available(iOS 10.0, *) {

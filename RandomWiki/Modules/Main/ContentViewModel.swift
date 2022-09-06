@@ -17,6 +17,7 @@ extension ContentView {
         @Published var settingsOpen: Bool = false
         @Published var reload: Bool = false
         @Published var favoritesList: [Article]
+        @Published var loading: Bool = true
         
         // MARK: - Stored Properties
         var loadedAction: ArticleClosure = {_ in}
@@ -29,10 +30,12 @@ extension ContentView {
             self.loadedAction = { [weak self] article in
                 guard let self = self else { return }
                 self.currentArticle = article
+                self.loading = false
             }
             self.favoriteAction = { [weak self] article in
                 guard let self = self else { return }
                 self.currentArticle = article
+                self.loading = false
                 self.menuOpen = false
             }
         }
@@ -40,6 +43,7 @@ extension ContentView {
         // MARK: - Public Functions
         func getArticle() {
             guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return }
+            self.loading = true
             currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
         }
         
