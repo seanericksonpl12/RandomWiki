@@ -5,7 +5,6 @@
 //  Created by Sean Erickson on 9/4/22.
 //
 
-import Foundation
 import SwiftUI
 
 protocol DataBase {
@@ -14,7 +13,7 @@ protocol DataBase {
 
 struct TempDataBase: DataBase {
     var articles: [Article] = []
-    // TODO: - Add filters and search, ect.
+    // TODO: - Add whatever else I need in env
 }
 
 struct DataBaseKey: EnvironmentKey {

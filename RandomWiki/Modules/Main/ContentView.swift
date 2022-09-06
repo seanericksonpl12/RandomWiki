@@ -21,7 +21,7 @@ struct ContentView: View {
         ZStack {
             VStack {
                 HStack {
-                    Text("Daily Article")
+                    Text("menu.title".localized)
                         .scaledFont(name: "Montserrat-Bold", size: 36)
                         .padding()
                         .onTapGesture {

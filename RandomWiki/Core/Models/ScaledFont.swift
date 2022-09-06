@@ -7,7 +7,6 @@
 //  Code from: https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-dynamic-type-with-a-custom-font
 //
 
-import Foundation
 import SwiftUI
 
 @available(iOS 13, macCatalyst 13, tvOS 13, watchOS 6, *)

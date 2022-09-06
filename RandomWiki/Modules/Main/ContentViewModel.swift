@@ -5,7 +5,6 @@
 //  Created by Sean Erickson on 8/27/22.
 //
 
-import Foundation
 import SwiftUI
 import UIKit
 import WebKit

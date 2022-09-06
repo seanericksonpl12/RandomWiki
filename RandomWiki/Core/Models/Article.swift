@@ -19,6 +19,7 @@ struct Article: Identifiable, Codable, Hashable {
     // MARK: - Computed Properties
     var clippedTitle: String { String(title.dropLast(12)) }
     
+    // MARK: - Functions
     func toJSON() -> Data? {
         do {
             let encoder = JSONEncoder()

@@ -10,8 +10,10 @@ import SwiftSoup
 
 class WebKitLoader: WKWebView, WKNavigationDelegate {
     
+    // MARK: - Actions
     var loadedAction: ArticleClosure = {_ in}
     
+    // MARK: - Delegate Functions
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         let favorites = UserDefaults.standard.loadArticles()
         
@@ -24,10 +26,11 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
         }
     }
     
+    // MARK: - HTML Parsing
     func soupify(html: Any?) -> (String, String) {
         guard let html = html as? String else { return ("", "") }
         var title = ""
-        var description = ""
+        var description = "favorites.noDescription".localized
         var doc: Document
         do { doc = try SwiftSoup.parse(html); print(doc)} catch { return("", "") }
         do { title = try doc.title() } catch { print(error) }
