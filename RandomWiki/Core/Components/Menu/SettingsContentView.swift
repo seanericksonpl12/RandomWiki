@@ -37,7 +37,7 @@ struct SettingsContentView: View {
                     // TODO: - New custom view for each settings tab
                     MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "Notifications", destination: {EmptyView()})
                     MenuItem<EmptyView>(iconName: "textformat.size", iconColor: .blue, title: "Font Size", destination: {EmptyView()})
-                    MenuItem<ClearDataView>(iconName: "trash.fill", iconColor: .gray, title: "Clear Data", destination: {ClearDataView(clearDataAction: clearData)})
+                    MenuAlertItem(iconName: "trash.fill", iconColor: .gray, title: "Clear Data", alertTitle: "Clear All Data?", alertAction: clearData)
                     MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .gray, title: "Donations :)", destination: {EmptyView()})
                 }
             }

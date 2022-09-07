@@ -119,7 +119,7 @@
 		92FC7C2028C8DA01005BBA16 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C1F28C8DA01005BBA16 /* MenuItem.swift */; };
 		92FC7C2328C91D79005BBA16 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2228C91D79005BBA16 /* NotificationsView.swift */; };
 		92FC7C2528C91D8A005BBA16 /* FontSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */; };
-		92FC7C2728C91D98005BBA16 /* ClearDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2628C91D98005BBA16 /* ClearDataView.swift */; };
+		92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,7 +198,7 @@
 		92FC7C1F28C8DA01005BBA16 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		92FC7C2228C91D79005BBA16 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeView.swift; sourceTree = "<group>"; };
-		92FC7C2628C91D98005BBA16 /* ClearDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearDataView.swift; sourceTree = "<group>"; };
+		92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAlertItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +300,7 @@
 				927CB7D628BE617200B6C07B /* MenuContentsView.swift */,
 				92FC7C1728C7E4D9005BBA16 /* SettingsContentView.swift */,
 				92FC7C1F28C8DA01005BBA16 /* MenuItem.swift */,
+				92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -475,7 +476,6 @@
 			children = (
 				92FC7C2228C91D79005BBA16 /* NotificationsView.swift */,
 				92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */,
-				92FC7C2628C91D98005BBA16 /* ClearDataView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -702,8 +702,8 @@
 				927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */,
 				92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */,
 				92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */,
+				92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */,
 				92FC7C2528C91D8A005BBA16 /* FontSizeView.swift in Sources */,
-				92FC7C2728C91D98005BBA16 /* ClearDataView.swift in Sources */,
 				9236FD2528C3B1A300ADA10E /* FavoritesView.swift in Sources */,
 				927CB7D728BE617200B6C07B /* MenuContentsView.swift in Sources */,
 				927CB7CC28BC112100B6C07B /* MenuView.swift in Sources */,

@@ -63,6 +63,7 @@ extension ContentView {
         func clearData() {
             UserDefaults.standard.clear()
             self.favoritesList = []
+            self.currentArticle.saved = false
         }
     }
 }
