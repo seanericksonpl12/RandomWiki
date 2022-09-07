@@ -1,19 +1,14 @@
 //
-//  DropDownView.swift
+//  SettingsContentView.swift
 //  RandomWiki
 //
-//  Created by Sean Erickson on 8/30/22.
+//  Created by Sean Erickson on 9/6/22.
 //
+
 import SwiftUI
 
-struct DropDownView: View {
-    // MARK: - Properties
+struct SettingsContentView: View {
     var selected: Bool
-    var dropDown: DropDown
-    var favorites: [Article]
-    
-    // MARK: - Actions
-    var favoriteAction: ArticleClosure
     
     // MARK: - Body
     var body: some View {
@@ -27,7 +22,7 @@ struct DropDownView: View {
     var content: some View {
         VStack {
             HStack {
-                Text(dropDown.label)
+                Text("Settings")
                     .foregroundColor(.black)
                     .scaledFont(name: "montserrat", size: 16.0)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
@@ -38,26 +33,18 @@ struct DropDownView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
             }
             if selected {
-                ForEach(dropDown.children) { child in
-                    NavigationLink(destination: FavoritesView(favorites: favorites, onTap: favoriteAction).navigationBarTitleDisplayMode(.inline).navigationTitle("")) {
-                        Text("favorites.title".localized)
-                            .foregroundColor(.black)
-                    }
-                }
+                MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "Notifications", destination: {EmptyView()})
+                MenuItem<EmptyView>(iconName: "textformat.size", iconColor: .blue, title: "Font Size", destination: {EmptyView()})
+                MenuItem<EmptyView>(iconName: "trash.fill", iconColor: .gray, title: "Clear Data", destination: {EmptyView()})
+                MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .gray, title: "Donations :)", destination: {EmptyView()})
             }
             Divider()
         }
     }
 }
 
-struct DropDown: Identifiable, Hashable {
-    var id: Int
-    var label: String
-    var children: [DropDown]
-}
-
-//struct DropDownView_Previews: PreviewProvider {
+//struct SettingsContentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        DropDownView(selected: false)
+//        SettingsContentView()
 //    }
 //}
