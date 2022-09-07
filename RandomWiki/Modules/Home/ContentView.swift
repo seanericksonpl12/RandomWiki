@@ -60,7 +60,7 @@ struct ContentView: View {
                 }
                 
                 // MARK: - Menu Side Panel
-                MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction)
+                MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction, clearData: {viewModel.clearData()})
                     .animation(.easeInOut, value: viewModel.menuOpen)
                     .environment(\.dataBase.articles, viewModel.favoritesList)
             }

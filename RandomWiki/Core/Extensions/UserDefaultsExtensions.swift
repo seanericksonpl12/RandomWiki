@@ -31,4 +31,8 @@ extension UserDefaults {
         }
         return articles
     }
+    
+    func clear() {
+        removeObject(forKey: "favorites")
+    }
 }

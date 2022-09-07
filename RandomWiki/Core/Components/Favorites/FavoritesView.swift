@@ -65,6 +65,7 @@ struct FavoritesView: View {
                 }
             }
         }
+        .onTapGesture { isShowing = false }
     }
 }
 

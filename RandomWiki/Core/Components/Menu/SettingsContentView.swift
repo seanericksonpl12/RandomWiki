@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsContentView: View {
     var selected: Bool
-    
+    var clearData: SimpleClosure
     // MARK: - Body
     var body: some View {
         HStack {
@@ -33,10 +33,13 @@ struct SettingsContentView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
             }
             if selected {
-                MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "Notifications", destination: {EmptyView()})
-                MenuItem<EmptyView>(iconName: "textformat.size", iconColor: .blue, title: "Font Size", destination: {EmptyView()})
-                MenuItem<EmptyView>(iconName: "trash.fill", iconColor: .gray, title: "Clear Data", destination: {EmptyView()})
-                MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .gray, title: "Donations :)", destination: {EmptyView()})
+                VStack(spacing: 5) {
+                    // TODO: - New custom view for each settings tab
+                    MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "Notifications", destination: {EmptyView()})
+                    MenuItem<EmptyView>(iconName: "textformat.size", iconColor: .blue, title: "Font Size", destination: {EmptyView()})
+                    MenuItem<ClearDataView>(iconName: "trash.fill", iconColor: .gray, title: "Clear Data", destination: {ClearDataView(clearDataAction: clearData)})
+                    MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .gray, title: "Donations :)", destination: {EmptyView()})
+                }
             }
             Divider()
         }

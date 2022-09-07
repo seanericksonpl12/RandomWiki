@@ -59,5 +59,10 @@ extension ContentView {
                 UserDefaults.standard.saveArticles(favoritesList)
             }
         }
+        
+        func clearData() {
+            UserDefaults.standard.clear()
+            self.favoritesList = []
+        }
     }
 }

@@ -19,6 +19,7 @@ struct MenuView: View {
     
     // MARK: - Actions
     var favoritesAction: ArticleClosure
+    var clearData: SimpleClosure
     
     var body: some View {
         
@@ -40,7 +41,7 @@ struct MenuView: View {
                                 Divider()
                                 MenuContentsView(selected: viewModel.menuSelected, favorites: favorites, favoriteAction: favoritesAction)
                                     .modifier(MenuItemModifier(selected: $viewModel.menuSelected))
-                                SettingsContentView(selected: viewModel.settingsSelected)
+                                SettingsContentView(selected: viewModel.settingsSelected, clearData: clearData)
                                     .modifier(MenuItemModifier(selected: $viewModel.settingsSelected))
                             }
                             .frame(width: self.width)
