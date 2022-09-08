@@ -15,6 +15,8 @@ struct MenuAlertItem: View {
     var title: String
     var alertTitle: String
     var alertAction: SimpleClosure
+    
+    // MARK: - State Properties
     @State private var alert: Bool = false
     
     // MARK: - Body

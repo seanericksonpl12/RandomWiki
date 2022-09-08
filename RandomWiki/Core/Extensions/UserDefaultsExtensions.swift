@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension UserDefaults {
+    
     func saveArticles(_ articles: [Article]) {
         var data: [Data] = []
         for article in articles {

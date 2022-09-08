@@ -234,6 +234,7 @@
 		9236FD2728C3B63B00ADA10E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				92FC7C2A28CA416A005BBA16 /* Javascript Models */,
 				9236FD2828C3B65000ADA10E /* WebKitLoader.swift */,
 			);
 			path = Network;
@@ -478,6 +479,13 @@
 				92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		92FC7C2A28CA416A005BBA16 /* Javascript Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Javascript Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

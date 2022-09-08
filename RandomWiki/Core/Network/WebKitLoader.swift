@@ -5,10 +5,13 @@
 //  Created by Sean Erickson on 9/3/22.
 //
 import UIKit
+import SwiftUI
 import WebKit
 import SwiftSoup
 
 class WebKitLoader: WKWebView, WKNavigationDelegate {
+    var frameInfo: WKFrameInfo = WKFrameInfo()
+    var jscriptFontSize: String { (UIFontMetrics.default.scaledValue(for: 16)).formatted() + "px" }
     
     // MARK: - Actions
     var loadedAction: ArticleClosure = {_ in}
@@ -16,7 +19,10 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     // MARK: - Delegate Functions
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         let favorites = UserDefaults.standard.loadArticles()
-        
+
+        webView.callAsyncJavaScript("document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"",
+                                    in: self.frameInfo,
+                                    in: WKContentWorld.page)
         webView.evaluateJavaScript("document.documentElement.outerHTML") { [weak self] html, error in
             guard let self = self else { return }
             let saved = favorites?.contains(where: {article in article.url == webView.url}) ?? false
