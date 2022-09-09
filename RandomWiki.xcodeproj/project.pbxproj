@@ -120,6 +120,7 @@
 		92FC7C2328C91D79005BBA16 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2228C91D79005BBA16 /* NotificationsView.swift */; };
 		92FC7C2528C91D8A005BBA16 /* FontSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */; };
 		92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */; };
+		92FC7C3128CAA6F0005BBA16 /* LockerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +200,7 @@
 		92FC7C2228C91D79005BBA16 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeView.swift; sourceTree = "<group>"; };
 		92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAlertItem.swift; sourceTree = "<group>"; };
+		92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockerSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +421,7 @@
 		92E2005328B99538009FDD4E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				92FC7C2D28CA9B03005BBA16 /* UI */,
 				92FC7C2128C91D63005BBA16 /* Settings */,
 				92FC7C0228C68203005BBA16 /* Favorites */,
 				927CB7D928BE691600B6C07B /* Menu */,
@@ -459,7 +462,6 @@
 			isa = PBXGroup;
 			children = (
 				9236FD2428C3B1A300ADA10E /* FavoritesView.swift */,
-				92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -486,6 +488,15 @@
 			children = (
 			);
 			path = "Javascript Models";
+			sourceTree = "<group>";
+		};
+		92FC7C2D28CA9B03005BBA16 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */,
+				92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -718,6 +729,7 @@
 				92E2002528B99486009FDD4E /* RandomWikiApp.swift in Sources */,
 				9236FD2928C3B65000ADA10E /* WebKitLoader.swift in Sources */,
 				92FC7C2328C91D79005BBA16 /* NotificationsView.swift in Sources */,
+				92FC7C3128CAA6F0005BBA16 /* LockerSlider.swift in Sources */,
 				927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */,
 				927CB7DB28BE692F00B6C07B /* MenuViewModel.swift in Sources */,
 				927CB76928BBDAA200B6C07B /* ScaledFont.swift in Sources */,

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// MARK: - Favorites List
 extension UserDefaults {
     
     func saveArticles(_ articles: [Article]) {
@@ -36,5 +37,29 @@ extension UserDefaults {
     
     func clear() {
         removeObject(forKey: "favorites")
+    }
+}
+
+// MARK: - Scaled Font
+extension UserDefaults {
+    
+    func setScaledFontEnabled(_ enabled: Bool) {
+        set(enabled, forKey: "scaledFontEnabled")
+    }
+    
+    func scaledFontEnabled() -> Bool {
+        return bool(forKey: "scaledFontEnabled")
+    }
+}
+
+// MARK: - Custom Font Size
+extension UserDefaults {
+    
+    func setFontSize(_ size: Float) {
+        set(size, forKey: "customFontSize")
+    }
+    
+    func fontSize() -> Float {
+        return float(forKey: "customFontSize")
     }
 }
