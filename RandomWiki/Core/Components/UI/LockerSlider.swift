@@ -95,7 +95,7 @@ struct LockerSlider<V>: View where V : BinaryFloatingPoint, V.Stride : BinaryFlo
         
         // Ratio
         var ratio = point / delta
-   
+        
         // Step
         if step != 1 {
             let unit = CGFloat(step) / CGFloat(bounds.upperBound)

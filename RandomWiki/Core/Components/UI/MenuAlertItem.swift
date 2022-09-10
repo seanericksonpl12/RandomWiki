@@ -21,26 +21,26 @@ struct MenuAlertItem: View {
     
     // MARK: - Body
     var body: some View {
-            HStack(spacing: 5) {
-                Image(systemName: iconName)
-                    .padding(.leading, 40)
-                    .scaleEffect(0.75)
-                    .foregroundColor(iconColor)
-                Text(title)
-                    .foregroundColor(.black)
-                    .scaledFont(name: "Montserrat-Light", size: 14)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                    .foregroundColor(.gray)
-                    .scaleEffect(0.75)
-            }
-            .onTapGesture {
-                alert = true
-            }
-            .alert(alertTitle, isPresented: $alert){
-                Button("Yes", role: .destructive){ alertAction() }
-            }
+        HStack(spacing: 5) {
+            Image(systemName: iconName)
+                .padding(.leading, 40)
+                .scaleEffect(0.75)
+                .foregroundColor(iconColor)
+            Text(title)
+                .foregroundColor(.black)
+                .scaledFont(name: "Montserrat-Light", size: 14)
+            Spacer()
+            Image(systemName: "chevron.right")
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                .foregroundColor(.gray)
+                .scaleEffect(0.75)
+        }
+        .onTapGesture {
+            alert = true
+        }
+        .alert(alertTitle, isPresented: $alert){
+            Button("Yes", role: .destructive){ alertAction() }
+        }
     }
 }
 

@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct NotificationsView: View {
+    
+    // MARK: - Stored Properties
     var options: [NotificationOptions] = [.daily, .weekly, .disabled]
     var day: [Int] = [1, 2, 3, 4, 5, 6, 7]
+    // MARK: - State Properties
     @State var selectedDay: Int = UserDefaults.standard.getWeeklyNotification()
     @State var selectedOption: NotificationOptions = UserDefaults.standard.getNotificationOptions() ?? .daily
     
+    // MARK: - Body
     var body: some View {
         ScrollView {
             HStack {
