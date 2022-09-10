@@ -45,7 +45,14 @@ struct FontSizeView: View {
                 .padding()
         }
         .animation(.linear(duration: 0.2), value: fontToggle)
-       
+        .onAppear() {
+            self.fontToggle = UserDefaults.standard.scaledFontEnabled()
+            self.fontSize = UserDefaults.standard.fontSize()
+        }
+        .onDisappear() {
+            self.fontToggle = UserDefaults.standard.scaledFontEnabled()
+            self.fontSize = UserDefaults.standard.fontSize()
+        }
     }
 }
 

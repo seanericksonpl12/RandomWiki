@@ -121,6 +121,7 @@
 		92FC7C2528C91D8A005BBA16 /* FontSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */; };
 		92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */; };
 		92FC7C3128CAA6F0005BBA16 /* LockerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */; };
+		92FC7C3328CBFB7A005BBA16 /* NotificationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeView.swift; sourceTree = "<group>"; };
 		92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAlertItem.swift; sourceTree = "<group>"; };
 		92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockerSlider.swift; sourceTree = "<group>"; };
+		92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +238,6 @@
 		9236FD2728C3B63B00ADA10E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				92FC7C2A28CA416A005BBA16 /* Javascript Models */,
 				9236FD2828C3B65000ADA10E /* WebKitLoader.swift */,
 			);
 			path = Network;
@@ -302,8 +303,6 @@
 			children = (
 				927CB7D628BE617200B6C07B /* MenuContentsView.swift */,
 				92FC7C1728C7E4D9005BBA16 /* SettingsContentView.swift */,
-				92FC7C1F28C8DA01005BBA16 /* MenuItem.swift */,
-				92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -414,6 +413,7 @@
 				927CB76828BBDAA200B6C07B /* ScaledFont.swift */,
 				927CB7D328BD707800B6C07B /* Article.swift */,
 				92FC7BEE28C507D9005BBA16 /* DataBase.swift */,
+				92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -483,16 +483,11 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		92FC7C2A28CA416A005BBA16 /* Javascript Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Javascript Models";
-			sourceTree = "<group>";
-		};
 		92FC7C2D28CA9B03005BBA16 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */,
+				92FC7C1F28C8DA01005BBA16 /* MenuItem.swift */,
 				92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */,
 				92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */,
 			);
@@ -711,6 +706,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FC7C3328CBFB7A005BBA16 /* NotificationOptions.swift in Sources */,
 				927CB7D428BD707800B6C07B /* Article.swift in Sources */,
 				92FC7C1D28C7EEE5005BBA16 /* MenuItemModifier.swift in Sources */,
 				92FC7C1228C7AD51005BBA16 /* LottieView.swift in Sources */,

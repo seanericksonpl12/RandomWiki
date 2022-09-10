@@ -63,3 +63,50 @@ extension UserDefaults {
         return float(forKey: "customFontSize")
     }
 }
+
+// MARK: - Notifications
+extension UserDefaults {
+    
+    func shouldRecieveNotification() -> Bool {
+            guard let settings = getNotificationOptions() else { return true }
+            switch settings {
+            case .daily:
+                return true
+            case .weekly:
+                let day = integer(forKey: "notificationDate")
+                guard let today = Calendar.current.dateComponents([.weekday], from: Date()).weekday else { return false }
+                if day == today {
+                    return true
+                } else { return false }
+            case .disabled:
+                return false
+            }
+    }
+    
+    func setWeeklyNotification(to date: Int) {
+        set(date, forKey: "notificationDate")
+    }
+    
+    func getWeeklyNotification() -> Int {
+        return integer(forKey: "notificationDate")
+    }
+    
+    func setNotifications(to notification: NotificationOptions) {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(notification)
+            set(data, forKey: "notificationSettings")
+        } catch { print(error) }
+    }
+    
+    func getNotificationOptions() -> NotificationOptions? {
+        guard let data = data(forKey: "notificationSettings") else { return nil }
+        
+        do {
+            let decoder = JSONDecoder()
+            let settings = try decoder.decode(NotificationOptions.self, from: data)
+            return settings
+        } catch { print(error)
+            return nil }
+    }
+}

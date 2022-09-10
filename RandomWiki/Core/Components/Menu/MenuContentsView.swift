@@ -29,12 +29,12 @@ struct MenuContentsView: View {
                 Text("Menu")
                     .foregroundColor(.black)
                     .scaledFont(name: "montserrat", size: 16.0)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 14, trailing: 20))
                 Spacer()
                 Image(systemName: "chevron.right")
                     .foregroundColor(.gray)
                     .rotationEffect(.degrees(selected ? 90 : 0))
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 14, trailing: 20))
             }
             if selected {
                 MenuItem<FavoritesView>(iconName: "star.fill",
