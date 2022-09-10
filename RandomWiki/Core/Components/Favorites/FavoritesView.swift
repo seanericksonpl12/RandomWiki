@@ -25,35 +25,47 @@ struct FavoritesView: View {
             .blur(radius: isShowing ? 5 : 0)
             .onTapGesture { isShowing = false }
         ScrollView {
-            Divider()
-            ForEach(favorites) { article in
-                VStack {
-                    HStack {
-                        Text(article.clippedTitle)
-                            .padding()
-                            .scaledFont(name: "Montserrat-Medium", size: 15)
-                        Spacer()
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        if isShowing { isShowing = false }
-                        else { onTap(article) }
-                    }
-                    .onLongPressGesture {
-                        itemSelected = article
-                        isShowing = true
-                    }
-                    if let description = article.description {
-                        if itemSelected == article && isShowing {
-                            CustomContextMenu<Text>(shows: $isShowing, content: {Text(description)})
+            ScrollViewReader { value in
+                Divider()
+                ForEach(favorites) { article in
+                    VStack {
+                        HStack {
+                            Text(article.clippedTitle)
+                                .padding()
+                                .scaledFont(name: "Montserrat-Medium", size: 15)
+                            Spacer()
                         }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if isShowing {
+                                isShowing = false
+                                withAnimation {
+                                    value.scrollTo(article.id, anchor: .top)
+                                }
+                            }
+                            else { onTap(article) }
+                        }
+                        .onLongPressGesture {
+                            itemSelected = article
+                            isShowing = true
+                            withAnimation {
+                                value.scrollTo(article.id, anchor: .top)
+                            }
+                        }
+                        if let description = article.description {
+                            if itemSelected == article && isShowing {
+                                CustomContextMenu<Text>(shows: $isShowing, content: {Text(description)})
+                                    .animation(.easeIn, value: isShowing)
+                            }
+                        }
+                        if !isShowing { Divider() }
                     }
-                    Divider()
+                    .animation(.spring(), value: isShowing)
+                    .blur(radius: (itemSelected != article && isShowing) ? 7.5 : 0)
                 }
-                .animation(.spring(), value: isShowing)
-                .blur(radius: (itemSelected != article && isShowing) ? 7.5 : 0)
             }
         }
+        .onTapGesture { isShowing = false }
     }
 }
 

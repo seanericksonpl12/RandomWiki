@@ -64,8 +64,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         print(userInfo)
         
-        // Change this to your preferred presentation option
-        completionHandler([[.banner, .badge, .sound]])
+        // Check User notification settings
+        if UserDefaults.standard.shouldRecieveNotification() {
+            completionHandler([[.banner, .badge, .sound]])
+        }
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

@@ -6,10 +6,9 @@
 //
 import SwiftUI
 
-struct DropDownView: View {
+struct MenuContentsView: View {
     // MARK: - Properties
     var selected: Bool
-    var dropDown: DropDown
     var favorites: [Article]
     
     // MARK: - Actions
@@ -27,22 +26,21 @@ struct DropDownView: View {
     var content: some View {
         VStack {
             HStack {
-                Text(dropDown.label)
+                Text("Menu")
                     .foregroundColor(.black)
                     .scaledFont(name: "montserrat", size: 16.0)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 14, trailing: 20))
                 Spacer()
                 Image(systemName: "chevron.right")
                     .foregroundColor(.gray)
                     .rotationEffect(.degrees(selected ? 90 : 0))
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 4, trailing: 20))
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 14, trailing: 20))
             }
             if selected {
-                ForEach(dropDown.children) { child in
-                    NavigationLink(destination: FavoritesView(favorites: favorites, onTap: favoriteAction).navigationBarTitleDisplayMode(.inline).navigationTitle("")) {
-                        Text("favorites.title".localized)
-                            .foregroundColor(.black)
-                    }
+                MenuItem<FavoritesView>(iconName: "star.fill",
+                                        iconColor: .yellow,
+                                        title: "favorites.title".localized) {
+                    FavoritesView(favorites: favorites, onTap: favoriteAction)
                 }
             }
             Divider()
@@ -50,11 +48,6 @@ struct DropDownView: View {
     }
 }
 
-struct DropDown: Identifiable, Hashable {
-    var id: Int
-    var label: String
-    var children: [DropDown]
-}
 
 //struct DropDownView_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -21,6 +21,7 @@ struct CustomContextMenu<Content: View>: View {
                     content
                         .padding()
                         .onTapGesture { shows = false }
+                        .lineLimit(10)
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
             }
