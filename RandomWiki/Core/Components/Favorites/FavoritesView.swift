@@ -9,11 +9,10 @@ import SwiftUI
 
 struct FavoritesView: View {
     // MARK: - State
-    @State var itemSelected: Article?
+    @State var itemSelected: ArticleModel?
     @State var isShowing: Bool = false
-    
-    // MARK: - Properties
-    var favorites: [Article]
+    @FetchRequest(sortDescriptors: []) var favoritesList: FetchedResults<ArticleModel>
+    @Environment(\.managedObjectContext) var context
     
     // MARK: - Actions
     var onTap: ArticleClosure = {_ in}
@@ -27,10 +26,10 @@ struct FavoritesView: View {
         ScrollView {
             ScrollViewReader { value in
                 Divider()
-                ForEach(favorites) { article in
+                ForEach(favoritesList) { article in
                     VStack {
                         HStack {
-                            Text(article.clippedTitle)
+                            Text(article.title ?? "")
                                 .padding()
                                 .scaledFont(name: "Montserrat-Medium", size: 15)
                             Spacer()
@@ -43,7 +42,16 @@ struct FavoritesView: View {
                                     value.scrollTo(article.id, anchor: .top)
                                 }
                             }
-                            else { onTap(article) }
+                            else {
+                                let generatedArticle = Article(id: article.id ?? UUID(),
+                                                               url: article.url,
+                                                               saved: article.saved,
+                                                               category: "",
+                                                               title: article.title ?? "",
+                                                               description: article.descrptn,
+                                                               expanded: article.expanded)
+                                onTap(generatedArticle)
+                            }
                         }
                         .onLongPressGesture {
                             itemSelected = article
@@ -52,7 +60,7 @@ struct FavoritesView: View {
                                 value.scrollTo(article.id, anchor: .top)
                             }
                         }
-                        if let description = article.description {
+                        if let description = article.descrptn {
                             if itemSelected == article && isShowing {
                                 CustomContextMenu<Text>(shows: $isShowing, content: {Text(description)})
                                     .animation(.easeIn, value: isShowing)

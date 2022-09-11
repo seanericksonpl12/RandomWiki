@@ -30,7 +30,6 @@ struct FontSizeView: View {
                     Image(systemName: "textformat.size")
                         .scaleEffect(1+(CGFloat(fontSize)/10))
                         .padding()
-                    
                     LockerSlider(value: $fontSize, in: 10...22, step: 2)
                         .padding(EdgeInsets(top: 20, leading: 60, bottom: 20, trailing: 60))
                         .onChange(of: fontSize) { value in

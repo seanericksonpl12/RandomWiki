@@ -16,30 +16,31 @@ extension ContentView {
         @Published var menuOpen: Bool = false
         @Published var settingsOpen: Bool = false
         @Published var reload: Bool = false
-        @Published var favoritesList: [Article]
         @Published var loading: Bool = true
         
         // MARK: - Stored Properties
-        var loadedAction: ArticleClosure = {_ in}
+        var loadedAction: DetailsClosure = {_ in}
         var favoriteAction: ArticleClosure = {_ in}
         
         // MARK: - Init
         init() {
             self.currentArticle =  Article(id: UUID(), url: URL(string: "https://en.wikipedia.org/wiki/Special:Random"), category: "", title: "")
-            self.favoritesList = UserDefaults.standard.loadArticles() ?? []
-            self.loadedAction = { [weak self] article in
+            self.loadedAction = { [weak self] details in
                 guard let self = self else { return }
-                self.currentArticle = article
+                self.currentArticle.title = details.title
+                self.currentArticle.url = details.url
+                self.currentArticle.description = details.description
                 self.loading = false
             }
             self.favoriteAction = { [weak self] article in
                 guard let self = self else { return }
                 self.currentArticle = article
+                self.currentArticle.saved = true
                 self.loading = false
                 self.menuOpen = false
             }
         }
-    
+        
         // MARK: - Public Functions
         func getArticle() {
             guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return }
@@ -49,20 +50,9 @@ extension ContentView {
         
         func save() {
             currentArticle.saved.toggle()
-            if currentArticle.saved {
-                favoritesList.append(currentArticle)
-                UserDefaults.standard.saveArticles(favoritesList)
-            }
-            else { favoritesList.removeAll(where: { article in
-                 article.url == currentArticle.url
-            })
-                UserDefaults.standard.saveArticles(favoritesList)
-            }
         }
         
         func clearData() {
-            UserDefaults.standard.clear()
-            self.favoritesList = []
             self.currentArticle.saved = false
         }
     }

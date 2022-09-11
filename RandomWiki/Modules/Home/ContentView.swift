@@ -11,10 +11,12 @@ import WebKit
 
 struct ContentView: View {
     
-    
     // MARK: - Dependencies
     @StateObject var viewModel: ContentViewModel = ContentViewModel()
-    @Environment(\.dataBase.articles) var data: [Article]
+    
+    // MARK: - Core Data
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(sortDescriptors: []) var favorites: FetchedResults<ArticleModel>
     
     // MARK: - Body
     var body: some View {
@@ -33,7 +35,7 @@ struct ContentView: View {
                             Image(systemName: viewModel.currentArticle.saved ? "star.fill" : "star")
                                 .foregroundColor(.yellow)
                                 .onTapGesture {
-                                    viewModel.save()
+                                    saveCoreData(viewModel.currentArticle)
                                 }
                             Image(systemName: "arrow.clockwise")
                                 .foregroundColor(.gray)
@@ -50,8 +52,9 @@ struct ContentView: View {
                     Divider()
                     // MARK: - Web Content
                     ZStack {
-                        WebView(url: viewModel.currentArticle.url!, loadedAction: viewModel.loadedAction)
-                            .ignoresSafeArea()
+                        WebView(url: viewModel.currentArticle.url!,
+                                loadedAction: viewModel.loadedAction)
+                        .ignoresSafeArea()
                         if viewModel.loading {
                             LoadingView()
                                 .ignoresSafeArea()
@@ -60,9 +63,8 @@ struct ContentView: View {
                 }
                 
                 // MARK: - Menu Side Panel
-                MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction, clearData: {viewModel.clearData()})
+                MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction)
                     .animation(.easeInOut, value: viewModel.menuOpen)
-                    .environment(\.dataBase.articles, viewModel.favoritesList)
             }
             .navigationBarHidden(true)
         }
@@ -77,6 +79,29 @@ struct ContentView: View {
     }
     func reload() {
         viewModel.reload.toggle()
+    }
+    
+    // MARK: - Core Data Functions
+    private func saveCoreData(_ save: Article) {
+        do {
+            // Check if item is already in favorites list
+            if save.saved {
+                if let item = favorites.first(where: {item in item.id == save.id}) {
+                    managedObjectContext.delete(item)
+                } else { print("Error: Duplicate item not found") }
+            }
+            else {
+                let article = ArticleModel(context: managedObjectContext)
+                article.descrptn = save.description ?? ""
+                article.title = save.title
+                article.saved = save.saved
+                article.id = save.id
+                article.url = save.url
+                article.expanded = save.expanded
+            }
+            try managedObjectContext.save()
+            viewModel.save()
+        } catch { print(error.localizedDescription) }
     }
 }
 

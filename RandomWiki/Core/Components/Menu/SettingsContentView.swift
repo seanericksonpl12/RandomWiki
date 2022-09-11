@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct SettingsContentView: View {
+    // MARK: - Core Data
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(sortDescriptors: []) var favorites: FetchedResults<ArticleModel>
+    
+    // MARK: - Stored Properties
     var selected: Bool
-    var clearData: SimpleClosure
+    //var clearData: SimpleClosure
+    
     // MARK: - Body
     var body: some View {
         HStack {
@@ -43,6 +49,13 @@ struct SettingsContentView: View {
             }
             Divider()
         }
+    }
+    
+    private func clearData() {
+        for item in favorites {
+            context.delete(item)
+        }
+        try? context.save()
     }
 }
 

@@ -9,7 +9,6 @@ import SwiftUI
 struct MenuContentsView: View {
     // MARK: - Properties
     var selected: Bool
-    var favorites: [Article]
     
     // MARK: - Actions
     var favoriteAction: ArticleClosure
@@ -40,7 +39,7 @@ struct MenuContentsView: View {
                 MenuItem<FavoritesView>(iconName: "star.fill",
                                         iconColor: .yellow,
                                         title: "favorites.title".localized) {
-                    FavoritesView(favorites: favorites, onTap: favoriteAction)
+                    FavoritesView(onTap: favoriteAction)
                 }
             }
             Divider()

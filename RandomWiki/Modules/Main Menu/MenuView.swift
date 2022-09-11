@@ -10,7 +10,6 @@ import SwiftUI
 struct MenuView: View {
     // MARK: - Dependencies
     @StateObject private var viewModel = MenuViewModel()
-    @Environment(\.dataBase.articles) var favorites: [Article]
     
     // MARK: - Properties
     let width: CGFloat
@@ -19,7 +18,6 @@ struct MenuView: View {
     
     // MARK: - Actions
     var favoritesAction: ArticleClosure
-    var clearData: SimpleClosure
     
     var body: some View {
         
@@ -39,9 +37,9 @@ struct MenuView: View {
                             // MARK: - Menu Content
                             VStack {
                                 Divider()
-                                MenuContentsView(selected: viewModel.menuSelected, favorites: favorites, favoriteAction: favoritesAction)
+                                MenuContentsView(selected: viewModel.menuSelected, favoriteAction: favoritesAction)
                                     .modifier(MenuItemModifier(selected: $viewModel.menuSelected))
-                                SettingsContentView(selected: viewModel.settingsSelected, clearData: clearData)
+                                SettingsContentView(selected: viewModel.settingsSelected)
                                     .modifier(MenuItemModifier(selected: $viewModel.settingsSelected))
                             }
                             .frame(width: self.width)
