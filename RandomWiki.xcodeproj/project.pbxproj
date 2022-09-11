@@ -122,6 +122,9 @@
 		92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */; };
 		92FC7C3128CAA6F0005BBA16 /* LockerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */; };
 		92FC7C3328CBFB7A005BBA16 /* NotificationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */; };
+		92FC7C3628CCB145005BBA16 /* DataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3428CCB145005BBA16 /* DataStorage.xcdatamodeld */; };
+		92FC7C3928CCB271005BBA16 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3828CCB271005BBA16 /* DataController.swift */; };
+		92FC7C3B28CE2482005BBA16 /* ArticleDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3A28CE2482005BBA16 /* ArticleDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +206,9 @@
 		92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAlertItem.swift; sourceTree = "<group>"; };
 		92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockerSlider.swift; sourceTree = "<group>"; };
 		92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptions.swift; sourceTree = "<group>"; };
+		92FC7C3528CCB145005BBA16 /* DataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataStorage.xcdatamodel; sourceTree = "<group>"; };
+		92FC7C3828CCB271005BBA16 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		92FC7C3A28CE2482005BBA16 /* ArticleDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +384,7 @@
 		92E2004F28B994BD009FDD4E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				92FC7C3728CCB262005BBA16 /* Storage */,
 				9236FD2728C3B63B00ADA10E /* Network */,
 				927CB75C28BADD9C00B6C07B /* Extensions */,
 				92E2005328B99538009FDD4E /* Components */,
@@ -402,6 +409,7 @@
 				927CB76C28BBDBC800B6C07B /* Fonts */,
 				92E2002828B99487009FDD4E /* Assets.xcassets */,
 				92FC7C0B28C79621005BBA16 /* Localizable.strings */,
+				92FC7C3428CCB145005BBA16 /* DataStorage.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -414,6 +422,7 @@
 				927CB7D328BD707800B6C07B /* Article.swift */,
 				92FC7BEE28C507D9005BBA16 /* DataBase.swift */,
 				92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */,
+				92FC7C3A28CE2482005BBA16 /* ArticleDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,6 +501,14 @@
 				92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		92FC7C3728CCB262005BBA16 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				92FC7C3828CCB271005BBA16 /* DataController.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -719,6 +736,7 @@
 				92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */,
 				92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */,
 				92FC7C2528C91D8A005BBA16 /* FontSizeView.swift in Sources */,
+				92FC7C3928CCB271005BBA16 /* DataController.swift in Sources */,
 				9236FD2528C3B1A300ADA10E /* FavoritesView.swift in Sources */,
 				927CB7D728BE617200B6C07B /* MenuContentsView.swift in Sources */,
 				927CB7CC28BC112100B6C07B /* MenuView.swift in Sources */,
@@ -729,10 +747,12 @@
 				927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */,
 				927CB7DB28BE692F00B6C07B /* MenuViewModel.swift in Sources */,
 				927CB76928BBDAA200B6C07B /* ScaledFont.swift in Sources */,
+				92FC7C3628CCB145005BBA16 /* DataStorage.xcdatamodeld in Sources */,
 				92FC7C0828C79599005BBA16 /* StringExtensions.swift in Sources */,
 				92FC7C2028C8DA01005BBA16 /* MenuItem.swift in Sources */,
 				92FC7C0D28C7A80D005BBA16 /* LoadingView.swift in Sources */,
 				92FC7C1828C7E4D9005BBA16 /* SettingsContentView.swift in Sources */,
+				92FC7C3B28CE2482005BBA16 /* ArticleDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1135,6 +1155,19 @@
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		92FC7C3428CCB145005BBA16 /* DataStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92FC7C3528CCB145005BBA16 /* DataStorage.xcdatamodel */,
+			);
+			currentVersion = 92FC7C3528CCB145005BBA16 /* DataStorage.xcdatamodel */;
+			path = DataStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 92E2001928B99486009FDD4E /* Project object */;
 }

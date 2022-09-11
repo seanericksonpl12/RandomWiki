@@ -11,3 +11,4 @@ typealias SimpleClosure = () -> Void
 typealias StringClosure = (String) -> Void
 typealias IntClosure = (Int) -> Void
 typealias ArticleClosure = (Article) -> Void
+typealias DetailsClosure = (ArticleDetails) -> Void
