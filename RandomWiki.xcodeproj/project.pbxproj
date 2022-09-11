@@ -125,6 +125,7 @@
 		92FC7C3628CCB145005BBA16 /* DataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3428CCB145005BBA16 /* DataStorage.xcdatamodeld */; };
 		92FC7C3928CCB271005BBA16 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3828CCB271005BBA16 /* DataController.swift */; };
 		92FC7C3B28CE2482005BBA16 /* ArticleDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3A28CE2482005BBA16 /* ArticleDetails.swift */; };
+		92FC7C3D28CE8711005BBA16 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FC7C3C28CE8711005BBA16 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,7 @@
 		92FC7C3528CCB145005BBA16 /* DataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataStorage.xcdatamodel; sourceTree = "<group>"; };
 		92FC7C3828CCB271005BBA16 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		92FC7C3A28CE2482005BBA16 /* ArticleDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetails.swift; sourceTree = "<group>"; };
+		92FC7C3C28CE8711005BBA16 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +379,7 @@
 			children = (
 				92E2002428B99486009FDD4E /* RandomWikiApp.swift */,
 				92E2005C28B99E72009FDD4E /* AppDelegate.swift */,
+				92FC7C3C28CE8711005BBA16 /* Launch Screen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				927CB79128BBDBE800B6C07B /* Montserrat-BoldItalic.ttf in Resources */,
 				927CB78828BBDBE800B6C07B /* Montserrat-Italic-VariableFont_wght.ttf in Resources */,
 				927CB7A328BBDBE800B6C07B /* Montserrat-MediumItalic.ttf in Resources */,
+				92FC7C3D28CE8711005BBA16 /* Launch Screen.storyboard in Resources */,
 				927CB7A628BBDBE800B6C07B /* Montserrat-BlackItalic.ttf in Resources */,
 				927CB78528BBDBE800B6C07B /* Montserrat-VariableFont_wght.ttf in Resources */,
 				927CB79428BBDBE800B6C07B /* Montserrat-Light.ttf in Resources */,
@@ -937,7 +941,7 @@
 				INFOPLIST_FILE = RandomWiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -968,7 +972,7 @@
 				INFOPLIST_FILE = RandomWiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
