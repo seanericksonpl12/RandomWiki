@@ -13,6 +13,8 @@ struct ContentView: View {
     
     // MARK: - Dependencies
     @StateObject var viewModel: ContentViewModel = ContentViewModel()
+    
+    // MARK: - Core Data
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(sortDescriptors: []) var favorites: FetchedResults<ArticleModel>
     
@@ -52,7 +54,7 @@ struct ContentView: View {
                     ZStack {
                         WebView(url: viewModel.currentArticle.url!,
                                 loadedAction: viewModel.loadedAction)
-                            .ignoresSafeArea()
+                        .ignoresSafeArea()
                         if viewModel.loading {
                             LoadingView()
                                 .ignoresSafeArea()
@@ -61,7 +63,7 @@ struct ContentView: View {
                 }
                 
                 // MARK: - Menu Side Panel
-                MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction, clearData: {viewModel.clearData()})
+                MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction)
                     .animation(.easeInOut, value: viewModel.menuOpen)
             }
             .navigationBarHidden(true)
@@ -80,16 +82,13 @@ struct ContentView: View {
     }
     
     // MARK: - Core Data Functions
-    func delete() {
-        
-    }
     func saveCoreData(_ save: Article) {
         do {
             // Check if item is already in favorites list
             if save.saved {
                 if let item = favorites.first(where: {item in item.id == save.id}) {
                     managedObjectContext.delete(item)
-                } else { print("Error: Duplicate item not found")}
+                } else { print("Error: Duplicate item not found") }
             }
             else {
                 let article = ArticleModel(context: managedObjectContext)
