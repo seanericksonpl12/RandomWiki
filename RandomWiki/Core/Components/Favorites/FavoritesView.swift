@@ -75,14 +75,6 @@ struct FavoritesView: View {
         }
         .onTapGesture { isShowing = false }
     }
-    
-    private func delete(at offsets: IndexSet) {
-        for index in offsets {
-            let article = favoritesList[index]
-            context.delete(article)
-        }
-        try? context.save()
-    }
 }
 
 //struct FavoritesView_Previews: PreviewProvider {
