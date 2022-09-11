@@ -82,7 +82,7 @@ struct ContentView: View {
     }
     
     // MARK: - Core Data Functions
-    func saveCoreData(_ save: Article) {
+    private func saveCoreData(_ save: Article) {
         do {
             // Check if item is already in favorites list
             if save.saved {

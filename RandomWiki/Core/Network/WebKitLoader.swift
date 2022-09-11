@@ -23,22 +23,13 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     
     // MARK: - Delegate Functions
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-
-            webView.callAsyncJavaScript("document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"",
-                                        in: self.frameInfo,
-                                        in: WKContentWorld.page)
+        
+        webView.callAsyncJavaScript("document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"",
+                                    in: self.frameInfo,
+                                    in: WKContentWorld.page)
         webView.evaluateJavaScript("document.documentElement.outerHTML") { [weak self] html, error in
             guard let self = self else { return }
-            
-            // TODO: - Fix article creation
             let tup = self.soupify(html: html)
-//            var id = UUID()
-//            var saved = false
-////            if let newId = self.checkIDAction(webView.url) {
-////                id = newId
-////                saved = true
-////            } else { id = UUID() }
-//            let article = Article(id: id, url: webView.url, saved: saved, category: "", title: tup.0, description: tup.1)
             let details = ArticleDetails(url: webView.url, title: tup.0, description: tup.1)
             self.loadedAction(details)
         }

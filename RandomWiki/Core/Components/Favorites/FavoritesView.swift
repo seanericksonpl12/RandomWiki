@@ -71,7 +71,6 @@ struct FavoritesView: View {
                     .animation(.spring(), value: isShowing)
                     .blur(radius: (itemSelected != article && isShowing) ? 7.5 : 0)
                 }
-//                .onDelete(perform: delete(at:))
             }
         }
         .onTapGesture { isShowing = false }

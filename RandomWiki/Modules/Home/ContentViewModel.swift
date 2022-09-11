@@ -40,7 +40,7 @@ extension ContentView {
                 self.menuOpen = false
             }
         }
-    
+        
         // MARK: - Public Functions
         func getArticle() {
             guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return }
