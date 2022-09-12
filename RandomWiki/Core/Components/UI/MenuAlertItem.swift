@@ -39,7 +39,7 @@ struct MenuAlertItem: View {
             alert = true
         }
         .alert(alertTitle, isPresented: $alert){
-            Button("Yes", role: .destructive){ alertAction() }
+            Button("yes.upper".localized, role: .destructive){ alertAction() }
         }
     }
 }

@@ -28,7 +28,7 @@ struct SettingsContentView: View {
     var content: some View {
         VStack {
             HStack {
-                Text("Settings")
+                Text("settings.title".localized)
                     .foregroundColor(.black)
                     .scaledFont(name: "montserrat", size: 16.0)
                     .padding(EdgeInsets(top: 10, leading: 20, bottom: 14, trailing: 20))
@@ -41,9 +41,9 @@ struct SettingsContentView: View {
             // MARK: - Dropdown Menu
             if selected {
                 VStack(spacing: 5) {
-                    MenuItem<NotificationsView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "Notifications", destination: {NotificationsView()})
-                    MenuItem<FontSizeView>(iconName: "textformat.size", iconColor: .blue, title: "Font Size", destination: {FontSizeView()})
-                    MenuAlertItem(iconName: "trash.fill", iconColor: .gray, title: "Clear Data", alertTitle: "Clear All Data?", alertAction: clearData)
+                    MenuItem<NotificationsView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "notifications.title".localized, destination: {NotificationsView()})
+                    MenuItem<FontSizeView>(iconName: "textformat.size", iconColor: .blue, title: "font.size".localized, destination: {FontSizeView()})
+                    MenuAlertItem(iconName: "trash.fill", iconColor: .gray, title: "settings.clear".localized, alertTitle: "settings.clearTitle".localized, alertAction: clearData)
                     MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .gray, title: "Donations :)", destination: {EmptyView()})
                 }
             }

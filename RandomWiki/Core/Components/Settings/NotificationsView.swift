@@ -21,14 +21,14 @@ struct NotificationsView: View {
     // MARK: - Body
     var body: some View {
         List {
-            Toggle(isOn: $notificationsAllowed, label: {Text("Notifications Allowed:")})
+            Toggle(isOn: $notificationsAllowed, label: {Text("notifications.allowed".localized)})
                 .onChange(of: notificationsAllowed) { value in
                     UserDefaults.standard.setNotificationsEnabled(to: value)
                 }
             
             if notificationsAllowed {
                 Section {
-                    Picker("Notifications", selection: $selectedOption) {
+                    Picker("notifications.title".localized, selection: $selectedOption) {
                         ForEach(options, id: \.self) {
                             Text($0.rawValue.capitalized)
                         }
@@ -38,7 +38,7 @@ struct NotificationsView: View {
                     }
                     
                     if selectedOption == .weekly {
-                        Picker("Day of the Week:", selection: $selectedDay) {
+                        Picker("day.dayOfWeek".localized, selection: $selectedDay) {
                             ForEach(day, id: \.self) {
                                 Text("day.\(String($0))".localized)
                             }

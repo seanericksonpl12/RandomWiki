@@ -14,7 +14,7 @@ struct FontSizeView: View {
         ScrollView {
             Divider()
             HStack {
-                Toggle("Adjust to Scaled Font", isOn: $fontToggle)
+                Toggle("font.adjust".localized, isOn: $fontToggle)
                     .onChange(of: fontToggle) { value in
                         UserDefaults.standard.setScaledFontEnabled(value)
                     }
@@ -24,7 +24,7 @@ struct FontSizeView: View {
             Spacer()
             if !fontToggle {
                 Group {
-                    Text("Font Size")
+                    Text("font.size".localized)
                         .padding()
                         .scaledFont(name: "Montserrat-Medium", size: 18)
                     Image(systemName: "textformat.size")
@@ -39,7 +39,7 @@ struct FontSizeView: View {
                 }
                 .transition(.scale)
             }
-            
+            // TODO: - Finish View
             Text("Example")
                 .padding()
         }
