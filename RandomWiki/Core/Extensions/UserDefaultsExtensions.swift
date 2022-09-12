@@ -37,19 +37,18 @@ extension UserDefaults {
 extension UserDefaults {
     
     func shouldRecieveNotification() -> Bool {
-            guard let settings = getNotificationOptions() else { return true }
-            switch settings {
-            case .daily:
+        if !notificationsEnabled() { return false }
+        guard let settings = getNotificationOptions() else { return true }
+        switch settings {
+        case .daily:
+            return true
+        case .weekly:
+            let day = integer(forKey: "notificationDate")
+            guard let today = Calendar.current.dateComponents([.weekday], from: Date()).weekday else { return false }
+            if day == today {
                 return true
-            case .weekly:
-                let day = integer(forKey: "notificationDate")
-                guard let today = Calendar.current.dateComponents([.weekday], from: Date()).weekday else { return false }
-                if day == today {
-                    return true
-                } else { return false }
-            case .disabled:
-                return false
-            }
+            } else { return false }
+        }
     }
     
     func setWeeklyNotification(to date: Int) {
@@ -77,5 +76,13 @@ extension UserDefaults {
             return settings
         } catch { print(error)
             return nil }
+    }
+    
+    func setNotificationsEnabled(to val: Bool) {
+        set(val, forKey: "notificationsEnabled")
+    }
+    
+    func notificationsEnabled() -> Bool {
+        return bool(forKey: "notificationsEnabled")
     }
 }

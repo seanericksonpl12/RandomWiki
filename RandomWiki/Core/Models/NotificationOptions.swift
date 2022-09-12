@@ -8,5 +8,5 @@
 import SwiftUI
 
 enum NotificationOptions: String, Codable {
-    case daily, weekly, disabled
+    case daily, weekly
 }
