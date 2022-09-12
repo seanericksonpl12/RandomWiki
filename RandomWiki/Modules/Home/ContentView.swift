@@ -92,7 +92,7 @@ struct ContentView: View {
             }
             else {
                 let article = ArticleModel(context: managedObjectContext)
-                article.descrptn = save.description ?? ""
+                article.descrptn = save.description ?? "favorites.noDescription".localized
                 article.title = save.title
                 article.saved = save.saved
                 article.id = save.id
