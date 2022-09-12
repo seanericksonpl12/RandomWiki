@@ -15,32 +15,37 @@ struct NotificationsView: View {
     // MARK: - State Properties
     @State var selectedDay: Int = UserDefaults.standard.getWeeklyNotification()
     @State var selectedOption: NotificationOptions = UserDefaults.standard.getNotificationOptions() ?? .daily
+    @State var notificationsAllowed: Bool = UserDefaults.standard.getNotificationOptions() == .disabled
     
     // MARK: - Body
     var body: some View {
-        ScrollView {
-            HStack {
-                Text("Notifications:")
-                    .padding()
-                Picker("Notifications", selection: $selectedOption) {
-                    ForEach(options, id: \.self) {
-                        Text($0.rawValue.capitalized)
+        
+        List {
+            Toggle(isOn: $notificationsAllowed, label: {Text("Notifications Allowed:")})
+            
+            if notificationsAllowed {
+                Section {
+                    Picker("Notifications", selection: $selectedOption) {
+                        ForEach(options, id: \.self) {
+                            Text($0.rawValue.capitalized)
+                        }
+                    }
+                    .onChange(of: selectedOption) { value in
+                        UserDefaults.standard.setNotifications(to: value)
+                    }
+                    
+                    if selectedOption == .weekly {
+                        Picker("Day of the Week:", selection: $selectedDay) {
+                            ForEach(day, id: \.self) {
+                                Text(dayOfTheWeek($0) ?? "")
+                            }
+                        }
+                        .onChange(of: selectedDay) { day in
+                            UserDefaults.standard.setWeeklyNotification(to: day)
+                        }
                     }
                 }
-                .onChange(of: selectedOption) { value in
-                    UserDefaults.standard.setNotifications(to: value)
-                }
-            }
-            if selectedOption == .weekly {
-                Text("day of the week:")
-                Picker("Notifications", selection: $selectedDay) {
-                    ForEach(day, id: \.self) {
-                        Text(dayOfTheWeek($0) ?? "")
-                    }
-                }
-                .onChange(of: selectedDay) { day in
-                    UserDefaults.standard.setWeeklyNotification(to: day)
-                }
+                
             }
         }
         .onAppear() {
@@ -48,6 +53,7 @@ struct NotificationsView: View {
             self.selectedOption = UserDefaults.standard.getNotificationOptions() ?? .daily
         }
         .animation(.easeIn, value: selectedOption == .weekly)
+        .animation(.easeIn, value: notificationsAllowed)
     }
     
     func dayOfTheWeek(_ int: Int) -> String? {
