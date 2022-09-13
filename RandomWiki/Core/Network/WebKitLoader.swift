@@ -15,7 +15,7 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     var jscriptFontSize: String {
         if UserDefaults.standard.scaledFontEnabled() {
             return (UIFontMetrics.default.scaledValue(for: 16)).formatted() + "px"
-        } else { return "16px" }
+        } else { return "\(UserDefaults.standard.fontSize())px" }
     }
     
     // MARK: - Actions
