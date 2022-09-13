@@ -11,37 +11,33 @@ struct FontSizeView: View {
     @State private var fontToggle: Bool = UserDefaults.standard.scaledFontEnabled()
     @State private var fontSize: Float = UserDefaults.standard.fontSize()
     var body: some View {
-        ScrollView {
-            Divider()
-            HStack {
-                Toggle("font.adjust".localized, isOn: $fontToggle)
-                    .onChange(of: fontToggle) { value in
-                        UserDefaults.standard.setScaledFontEnabled(value)
-                    }
-                    .padding()
+        List {
+            Toggle(isOn: $fontToggle) {
+                Text("font.adjust".localized)
+                    .scaledFont(name: "Montserrat-Medium", size:  16)
             }
-            Divider()
-            Spacer()
+            .onChange(of: fontToggle) { value in
+                UserDefaults.standard.setScaledFontEnabled(value)
+            }
             if !fontToggle {
-                Group {
-                    Text("font.size".localized)
-                        .padding()
-                        .scaledFont(name: "Montserrat-Medium", size: 18)
-                    Image(systemName: "textformat.size")
-                        .scaleEffect(1+(CGFloat(fontSize)/10))
-                        .padding()
-                    LockerSlider(value: $fontSize, in: 10...22, step: 2)
-                        .padding(EdgeInsets(top: 20, leading: 60, bottom: 20, trailing: 60))
-                        .onChange(of: fontSize) { value in
-                            UserDefaults.standard.setFontSize(value)
-                        }
-                    Divider()
+                Section {
+                    VStack {
+                        Text("font.size".localized)
+                            .padding()
+                            .scaledFont(name: "Montserrat-Medium", size: 22)
+                        Divider()
+                        Image(systemName: "textformat.size")
+                            .scaleEffect(1+(CGFloat(fontSize)/10))
+                            .padding(.top)
+                        LockerSlider(value: $fontSize, in: 10...22, step: 2)
+                            .padding(EdgeInsets(top: 25, leading: 60, bottom: 20, trailing: 60))
+                            .onChange(of: fontSize) { value in
+                                UserDefaults.standard.setFontSize(value)
+                            }
+                    }
                 }
                 .transition(.scale)
             }
-            // TODO: - Finish View
-            Text("Example")
-                .padding()
         }
         .animation(.linear(duration: 0.2), value: fontToggle)
         .onAppear() {
