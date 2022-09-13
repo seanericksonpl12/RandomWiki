@@ -21,27 +21,37 @@ struct NotificationsView: View {
     // MARK: - Body
     var body: some View {
         List {
-            Toggle(isOn: $notificationsAllowed, label: {Text("notifications.allowed".localized)})
-                .onChange(of: notificationsAllowed) { value in
-                    UserDefaults.standard.setNotificationsEnabled(to: value)
-                }
-            
+            Toggle(isOn: $notificationsAllowed) {
+                Text("notifications.allowed".localized)
+                    .scaledFont(name: "Montserrat-Medium", size:  16)
+            }
+            .onChange(of: notificationsAllowed) { value in
+                UserDefaults.standard.setNotificationsEnabled(to: value)
+            }
+            // MARK: - Notification Selection
             if notificationsAllowed {
                 Section {
-                    Picker("notifications.title".localized, selection: $selectedOption) {
+                    Picker(selection: $selectedOption) {
                         ForEach(options, id: \.self) {
                             Text($0.rawValue.capitalized)
+                                .scaledFont(name: "Montserrat-Medium", size:  16)
                         }
+                    } label: {
+                        Text("notifications.title".localized)
+                            .scaledFont(name: "Montserrat-Medium", size:  16)
                     }
                     .onChange(of: selectedOption) { value in
                         UserDefaults.standard.setNotifications(to: value)
                     }
-                    
                     if selectedOption == .weekly {
-                        Picker("day.dayOfWeek".localized, selection: $selectedDay) {
+                        Picker(selection: $selectedDay) {
                             ForEach(day, id: \.self) {
                                 Text("day.\(String($0))".localized)
+                                    .scaledFont(name: "Montserrat-Medium", size:  16)
                             }
+                        } label: {
+                            Text("day.dayOfWeek".localized)
+                                .scaledFont(name: "Montserrat-Medium", size:  16)
                         }
                         .onChange(of: selectedDay) { day in
                             UserDefaults.standard.setWeeklyNotification(to: day)
