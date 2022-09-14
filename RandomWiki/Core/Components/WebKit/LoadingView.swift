@@ -10,7 +10,7 @@ import SwiftUI
 struct LoadingView: View {
     var body: some View {
         ZStack {
-            Color(.white)
+            Color("Background")
             LottieView(animationName: "reloading")
                 .frame(width: 50)
         }

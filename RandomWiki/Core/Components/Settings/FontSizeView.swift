@@ -16,8 +16,8 @@ struct FontSizeView: View {
                 Text("font.adjust".localized)
                     .scaledFont(name: "Montserrat-Medium", size:  16)
             }
-            .onChange(of: fontToggle) { value in
-                UserDefaults.standard.setScaledFontEnabled(value)
+            .onChange(of: fontToggle) {
+                UserDefaults.standard.setScaledFontEnabled($0)
             }
             if !fontToggle {
                 Section {
@@ -31,8 +31,8 @@ struct FontSizeView: View {
                             .padding(.top)
                         LockerSlider(value: $fontSize, in: 10...22, step: 2)
                             .padding(EdgeInsets(top: 25, leading: 60, bottom: 20, trailing: 60))
-                            .onChange(of: fontSize) { value in
-                                UserDefaults.standard.setFontSize(value)
+                            .onChange(of: fontSize) {
+                                UserDefaults.standard.setFontSize($0)
                             }
                     }
                 }

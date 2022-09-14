@@ -51,7 +51,7 @@ struct LockerSlider<V>: View where V : BinaryFloatingPoint, V.Stride : BinaryFlo
                 
                 // Thumb
                 Circle()
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("Text"))
                     .frame(width: length, height: length)
                     .offset(x: (proxy.size.width - length) * ratio)
                     .gesture(DragGesture(minimumDistance: 0)
