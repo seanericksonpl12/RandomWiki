@@ -25,8 +25,8 @@ struct NotificationsView: View {
                 Text("notifications.allowed".localized)
                     .scaledFont(name: "Montserrat-Medium", size:  16)
             }
-            .onChange(of: notificationsAllowed) { value in
-                UserDefaults.standard.setNotificationsEnabled(to: value)
+            .onChange(of: notificationsAllowed) {
+                UserDefaults.standard.setNotificationsEnabled(to: $0)
             }
             // MARK: - Notification Selection
             if notificationsAllowed {
@@ -40,8 +40,8 @@ struct NotificationsView: View {
                         Text("notifications.title".localized)
                             .scaledFont(name: "Montserrat-Medium", size:  16)
                     }
-                    .onChange(of: selectedOption) { value in
-                        UserDefaults.standard.setNotifications(to: value)
+                    .onChange(of: selectedOption) {
+                        UserDefaults.standard.setNotifications(to: $0)
                     }
                     if selectedOption == .weekly {
                         Picker(selection: $selectedDay) {
@@ -53,8 +53,8 @@ struct NotificationsView: View {
                             Text("day.dayOfWeek".localized)
                                 .scaledFont(name: "Montserrat-Medium", size:  16)
                         }
-                        .onChange(of: selectedDay) { day in
-                            UserDefaults.standard.setWeeklyNotification(to: day)
+                        .onChange(of: selectedDay) {
+                            UserDefaults.standard.setWeeklyNotification(to: $0)
                         }
                     }
                 }

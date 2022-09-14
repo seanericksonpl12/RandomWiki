@@ -11,12 +11,19 @@ import Lottie
 struct LottieView: UIViewRepresentable {
     // MARK: - Properties
     var animationName: String
+    @Environment(\.colorScheme) var colorMode
     
     // MARK: - UIKit Adaptors
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         let view = UIView(frame: .zero)
         let animationView = AnimationView()
+        let keyPath = AnimationKeypath(keypath: "**.Rectangle 1.Fill 1.Color")
+        let color = ColorValueProvider(UIColor.white.lottieColorValue)
         animationView.animation = Animation.named(animationName)
+        animationView.logHierarchyKeypaths()
+        if self.colorMode == .dark {
+            animationView.setValueProvider(color, keypath: keyPath)
+        }
         animationView.contentMode = .scaleAspectFit
         animationView.play()
         animationView.loopMode = .loop

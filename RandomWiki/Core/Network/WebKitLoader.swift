@@ -10,8 +10,12 @@ import WebKit
 import SwiftSoup
 
 class WebKitLoader: WKWebView, WKNavigationDelegate {
+    
+    var jScriptFile: String? = Bundle.main.path(forResource: "webInjection", ofType: "js")
     var frameInfo: WKFrameInfo = WKFrameInfo()
     
+    // MARK: - Calculated Properties
+    var darkModeEnabled: Bool { UserDefaults.standard.darkModeEnabled() }
     var jscriptFontSize: String {
         if UserDefaults.standard.scaledFontEnabled() {
             return (UIFontMetrics.default.scaledValue(for: 16)).formatted() + "px"
@@ -23,10 +27,7 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     
     // MARK: - Delegate Functions
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
-        webView.callAsyncJavaScript("document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"",
-                                    in: self.frameInfo,
-                                    in: WKContentWorld.page)
+        runJavascript(on: webView)
         webView.evaluateJavaScript("document.documentElement.outerHTML") { [weak self] html, error in
             guard let self = self else { return }
             let tup = self.soupify(html: html)
@@ -36,7 +37,7 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     }
     
     // MARK: - HTML Parsing
-    func soupify(html: Any?) -> (String, String) {
+    private func soupify(html: Any?) -> (String, String) {
         guard let html = html as? String else { return ("", "") }
         var title = ""
         var description = "favorites.noDescription".localized
@@ -52,5 +53,17 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
             }
         } catch { print(error) }
         return (title, description)
+    }
+    
+    private func runJavascript(on webView: WKWebView) {
+        webView.callAsyncJavaScript("document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"",
+                                    in: self.frameInfo,
+                                    in: WKContentWorld.page)
+        if darkModeEnabled {
+            do {
+                let javaScript = try String(contentsOfFile: jScriptFile ?? "")
+                webView.callAsyncJavaScript(javaScript, in: self.frameInfo, in: WKContentWorld.page)
+            } catch { print(error) }
+        }
     }
 }

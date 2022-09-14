@@ -43,7 +43,7 @@ struct MenuView: View {
                                     .modifier(MenuItemModifier(selected: $viewModel.settingsSelected))
                             }
                             .frame(width: self.width)
-                            .background(Color.white)
+                            .background(Color("Background"))
                             .cornerRadius(15)
                             Spacer()
                         }
