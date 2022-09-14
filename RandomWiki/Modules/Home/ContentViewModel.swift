@@ -15,7 +15,6 @@ extension ContentView {
         @Published var currentArticle: Article
         @Published var menuOpen: Bool = false
         @Published var settingsOpen: Bool = false
-        @Published var reload: Bool = false
         @Published var loading: Bool = true
         
         // MARK: - Stored Properties

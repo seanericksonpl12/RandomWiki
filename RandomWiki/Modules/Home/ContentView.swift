@@ -52,7 +52,7 @@ struct ContentView: View {
                     Divider()
                     // MARK: - Web Content
                     ZStack {
-                        WebView(url: viewModel.currentArticle.url!,
+                        WebView(url: viewModel.currentArticle.url,
                                 loadedAction: viewModel.loadedAction)
                         .ignoresSafeArea()
                         if viewModel.loading {
@@ -76,9 +76,6 @@ struct ContentView: View {
     }
     func openSettings() {
         viewModel.settingsOpen.toggle()
-    }
-    func reload() {
-        viewModel.reload.toggle()
     }
     
     // MARK: - Core Data Functions

@@ -56,14 +56,13 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     }
     
     private func runJavascript(on webView: WKWebView) {
-        webView.callAsyncJavaScript("document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"",
-                                    in: self.frameInfo,
-                                    in: WKContentWorld.page)
-        if darkModeEnabled {
-            do {
-                let javaScript = try String(contentsOfFile: jScriptFile ?? "")
-                webView.callAsyncJavaScript(javaScript, in: self.frameInfo, in: WKContentWorld.page)
-            } catch { print(error) }
-        }
+        do {
+            var jscriptString = "document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\""
+            if darkModeEnabled {
+                let dark = try String(contentsOfFile: jScriptFile ?? "")
+                jscriptString = "document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"; \(dark)"
+            }
+            webView.callAsyncJavaScript(jscriptString, in: self.frameInfo, in: WKContentWorld.page)
+        } catch { print(error) }
     }
 }
