@@ -27,7 +27,7 @@ struct MenuAlertItem: View {
                 .scaleEffect(0.75)
                 .foregroundColor(iconColor)
             Text(title)
-                .foregroundColor(.black)
+                .foregroundColor(Color("Text"))
                 .scaledFont(name: "Montserrat-Light", size: 14)
             Spacer()
             Image(systemName: "chevron.right")

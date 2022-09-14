@@ -16,6 +16,7 @@ struct RandomWikiApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+            
         }
     }
 }

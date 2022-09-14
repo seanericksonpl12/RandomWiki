@@ -26,7 +26,6 @@ struct MenuContentsView: View {
         VStack {
             HStack {
                 Text("menu.self".localized)
-                    .foregroundColor(.black)
                     .scaledFont(name: "montserrat", size: 16.0)
                     .padding(EdgeInsets(top: 10, leading: 20, bottom: 14, trailing: 20))
                 Spacer()
