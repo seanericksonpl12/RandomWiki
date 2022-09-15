@@ -9,7 +9,6 @@ import SwiftUI
 import WebKit
 
 struct WebView: UIViewRepresentable {
-    @Environment(\.colorScheme) var colorScheme
     var url: URL?
     var loadedAction: DetailsClosure = {_ in}
     
