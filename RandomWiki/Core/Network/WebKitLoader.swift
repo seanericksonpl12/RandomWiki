@@ -10,12 +10,11 @@ import WebKit
 import SwiftSoup
 
 class WebKitLoader: WKWebView, WKNavigationDelegate {
-    
-    var jScriptFile: String? = Bundle.main.path(forResource: "webInjection", ofType: "js")
+    // MARK: - Stored Properties
+    var cssFile: String? = Bundle.main.path(forResource: "styleSheet", ofType: "css")
     var frameInfo: WKFrameInfo = WKFrameInfo()
     
     // MARK: - Calculated Properties
-    var darkModeEnabled: Bool { UserDefaults.standard.darkModeEnabled() }
     var jscriptFontSize: String {
         if UserDefaults.standard.scaledFontEnabled() {
             return (UIFontMetrics.default.scaledValue(for: 16)).formatted() + "px"
@@ -57,12 +56,9 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     
     private func runJavascript(on webView: WKWebView) {
         do {
-            var jscriptString = "document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\""
-            if darkModeEnabled {
-                let dark = try String(contentsOfFile: jScriptFile ?? "")
-                jscriptString = "document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"; \(dark)"
-            }
-            webView.callAsyncJavaScript(jscriptString, in: self.frameInfo, in: WKContentWorld.page)
+            let css = try "\"" + String(contentsOfFile: cssFile!).trimmingCharacters(in: CharacterSet.newlines) + "main {font-size: \(jscriptFontSize)}\""
+            let jsString = "var style=document.createElement('style');style.innerHTML=\(css);document.head.appendChild(style);"
+            webView.callAsyncJavaScript(jsString, in: self.frameInfo, in: WKContentWorld.page)
         } catch { print(error) }
     }
 }
