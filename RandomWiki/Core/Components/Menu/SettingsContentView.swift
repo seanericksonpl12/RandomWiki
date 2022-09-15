@@ -39,14 +39,16 @@ struct SettingsContentView: View {
             }
             // MARK: - Dropdown Menu
             if selected {
-                VStack(spacing: 5) {
+                VStack(spacing: 10) {
                     MenuItem<NotificationsView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "notifications.title".localized, destination: {NotificationsView()})
+                    Divider().padding(.leading)
                     MenuItem<FontSizeView>(iconName: "textformat.size", iconColor: .blue, title: "font.size".localized, destination: {FontSizeView()})
+                    Divider().padding(.leading)
                     MenuAlertItem(iconName: "trash.fill", iconColor: .gray, title: "settings.clear".localized, alertTitle: "settings.clearTitle".localized, alertAction: clearData)
-                    MenuItem<EmptyView>(iconName: "bell.badge.fill", iconColor: .gray, title: "Donations :)", destination: {EmptyView()})
+                        .padding(.bottom)
                 }
             }
-            Divider()
+            //Divider()
         }
     }
     

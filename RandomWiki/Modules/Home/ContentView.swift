@@ -27,9 +27,6 @@ struct ContentView: View {
                         Text("menu.title".localized)
                             .scaledFont(name: "Montserrat-Bold", size: 36)
                             .padding()
-                            .onTapGesture {
-                                print(viewModel.currentArticle)
-                            }
                         // MARK: - Icon Bar
                         HStack(spacing: 20) {
                             Image(systemName: viewModel.currentArticle.saved ? "star.fill" : "star")
@@ -49,7 +46,6 @@ struct ContentView: View {
                                 }
                         }
                     }
-                    Divider()
                     // MARK: - Web Content
                     ZStack {
                         WebView(url: viewModel.currentArticle.url,
@@ -61,6 +57,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .background(Color("Background-Light"))
                 
                 // MARK: - Menu Side Panel
                 MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction)
