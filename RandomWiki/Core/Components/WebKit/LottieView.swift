@@ -20,7 +20,6 @@ struct LottieView: UIViewRepresentable {
         let keyPath = AnimationKeypath(keypath: "**.Rectangle 1.Fill 1.Color")
         let color = ColorValueProvider(UIColor.white.lottieColorValue)
         animationView.animation = Animation.named(animationName)
-        animationView.logHierarchyKeypaths()
         if self.colorMode == .dark {
             animationView.setValueProvider(color, keypath: keyPath)
         }

@@ -10,12 +10,11 @@ import WebKit
 import SwiftSoup
 
 class WebKitLoader: WKWebView, WKNavigationDelegate {
-    
-    var jScriptFile: String? = Bundle.main.path(forResource: "webInjection", ofType: "js")
+    // MARK: - Stored Properties
+    var cssFile: String? = Bundle.main.path(forResource: "styleSheet", ofType: "css")
     var frameInfo: WKFrameInfo = WKFrameInfo()
     
     // MARK: - Calculated Properties
-    var darkModeEnabled: Bool { UserDefaults.standard.darkModeEnabled() }
     var jscriptFontSize: String {
         if UserDefaults.standard.scaledFontEnabled() {
             return (UIFontMetrics.default.scaledValue(for: 16)).formatted() + "px"
@@ -24,10 +23,16 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     
     // MARK: - Actions
     var loadedAction: DetailsClosure = {_ in}
+}
+
+// MARK: - Delegate Functions
+extension WebKitLoader {
     
-    // MARK: - Delegate Functions
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         runJavascript(on: webView)
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.evaluateJavaScript("document.documentElement.outerHTML") { [weak self] html, error in
             guard let self = self else { return }
             let tup = self.soupify(html: html)
@@ -35,8 +40,11 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
             self.loadedAction(details)
         }
     }
+}
+
+// MARK: - HTML Parsing Functions
+extension WebKitLoader {
     
-    // MARK: - HTML Parsing
     private func soupify(html: Any?) -> (String, String) {
         guard let html = html as? String else { return ("", "") }
         var title = ""
@@ -56,14 +64,10 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     }
     
     private func runJavascript(on webView: WKWebView) {
-        webView.callAsyncJavaScript("document.getElementById(\"bodyContent\").style.fontSize = \"\(jscriptFontSize)\"",
-                                    in: self.frameInfo,
-                                    in: WKContentWorld.page)
-        if darkModeEnabled {
-            do {
-                let javaScript = try String(contentsOfFile: jScriptFile ?? "")
-                webView.callAsyncJavaScript(javaScript, in: self.frameInfo, in: WKContentWorld.page)
-            } catch { print(error) }
-        }
+        do {
+            let css = try "\"" + String(contentsOfFile: cssFile!).trimmingCharacters(in: CharacterSet.newlines) + "main {font-size: \(jscriptFontSize)}\""
+            let jsString = "var style=document.createElement('style');style.innerHTML=\(css);document.head.appendChild(style);"
+            webView.callAsyncJavaScript(jsString, in: self.frameInfo, in: WKContentWorld.page)
+        } catch { print(error) }
     }
 }
