@@ -39,6 +39,7 @@ extension WebKitLoader {
             let details = ArticleDetails(url: webView.url, title: tup.0, description: tup.1)
             self.loadedAction(details)
         }
+        webView.allowsBackForwardNavigationGestures = true
     }
 }
 
