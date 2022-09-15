@@ -4,7 +4,7 @@
 //
 //  Code snippet created by Paul Hudson
 //  Twitter: @twostraws
-//  Code from: https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-dynamic-type-with-a-custom-font
+//  Starting Code from: https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-dynamic-type-with-a-custom-font
 //
 
 import SwiftUI
@@ -14,10 +14,15 @@ struct ScaledFont: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory
     var name: String
     var size: Double
-
+    
     func body(content: Content) -> some View {
-       let scaledSize = UIFontMetrics.default.scaledValue(for: size)
-        return content.font(.custom(name, size: scaledSize))
+        if UserDefaults.standard.scaledFontEnabled() {
+            let scaledSize = UIFontMetrics.default.scaledValue(for: size)
+            return content.font(.custom(name, size: scaledSize))
+        } else {
+            let ratio = size / 16.0
+            return content.font(.custom(name, size: CGFloat(UserDefaults.standard.fontSize() * Float(ratio))))
+        }
     }
 }
 
