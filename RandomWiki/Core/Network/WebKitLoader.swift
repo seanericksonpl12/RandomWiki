@@ -70,9 +70,4 @@ extension WebKitLoader {
             webView.callAsyncJavaScript(jsString, in: self.frameInfo, in: WKContentWorld.page)
         } catch { print(error) }
     }
-    
-    // Async Functions
-    private func checkDidLoad(webKit: WKWebView, completion: SimpleClosure) {
-        
-    }
 }
