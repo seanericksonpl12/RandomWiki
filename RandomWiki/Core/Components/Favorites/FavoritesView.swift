@@ -54,10 +54,11 @@ struct FavoritesView: View {
                             }
                         }
                         .onLongPressGesture {
+                            UISelectionFeedbackGenerator().selectionChanged()
                             itemSelected = article
                             isShowing = true
                             withAnimation {
-                                value.scrollTo(article.id, anchor: .top)
+                                value.scrollTo(article.id, anchor: .bottom)
                             }
                         }
                         if let description = article.descrptn {
