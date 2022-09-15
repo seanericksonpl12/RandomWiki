@@ -21,7 +21,6 @@ struct WebView: UIViewRepresentable {
     }
     
     func updateUIView(_ webView: WKWebView, context: Context) {
-        UserDefaults.standard.setDarkMode(to: (colorScheme == .dark))
         guard let url = url else { return }
         let request = URLRequest(url: url)
         webView.load(request)

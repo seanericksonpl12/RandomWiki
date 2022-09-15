@@ -86,14 +86,3 @@ extension UserDefaults {
         return bool(forKey: "notificationsEnabled")
     }
 }
-
-extension UserDefaults {
-    
-    func darkModeEnabled() -> Bool {
-        return bool(forKey: "darkMode")
-    }
-    
-    func setDarkMode(to mode: Bool) {
-        set(mode, forKey: "darkMode")
-    }
-}
