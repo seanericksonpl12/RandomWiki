@@ -15,8 +15,6 @@
 		927CB76528BBC84200B6C07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76328BBC84200B6C07B /* GoogleService-Info.plist */; };
 		927CB76628BBC84200B6C07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76328BBC84200B6C07B /* GoogleService-Info.plist */; };
 		927CB76928BBDAA200B6C07B /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB76828BBDAA200B6C07B /* ScaledFont.swift */; };
-		927CB76A28BBDAA200B6C07B /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB76828BBDAA200B6C07B /* ScaledFont.swift */; };
-		927CB76B28BBDAA200B6C07B /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB76828BBDAA200B6C07B /* ScaledFont.swift */; };
 		927CB78528BBDBE800B6C07B /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76E28BBDBE800B6C07B /* Montserrat-VariableFont_wght.ttf */; };
 		927CB78628BBDBE800B6C07B /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76E28BBDBE800B6C07B /* Montserrat-VariableFont_wght.ttf */; };
 		927CB78728BBDBE800B6C07B /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76E28BBDBE800B6C07B /* Montserrat-VariableFont_wght.ttf */; };
@@ -432,7 +430,6 @@
 			isa = PBXGroup;
 			children = (
 				927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */,
-				927CB76828BBDAA200B6C07B /* ScaledFont.swift */,
 				927CB7D328BD707800B6C07B /* Article.swift */,
 				92FC7BEE28C507D9005BBA16 /* DataBase.swift */,
 				92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */,
@@ -492,6 +489,7 @@
 		92FC7C1E28C7F263005BBA16 /* View Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				927CB76828BBDAA200B6C07B /* ScaledFont.swift */,
 				92FC7C1C28C7EEE5005BBA16 /* MenuItemModifier.swift */,
 			);
 			path = "View Modifiers";
@@ -778,7 +776,6 @@
 			files = (
 				927CB7C928BBDFC300B6C07B /* WebView.swift in Sources */,
 				927CB7CD28BC112100B6C07B /* MenuView.swift in Sources */,
-				927CB76A28BBDAA200B6C07B /* ScaledFont.swift in Sources */,
 				92FC7BF728C54787005BBA16 /* MenuViewModel.swift in Sources */,
 				92E2003628B99487009FDD4E /* RandomWikiTests.swift in Sources */,
 			);
@@ -789,7 +786,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				927CB7CE28BC112100B6C07B /* MenuView.swift in Sources */,
-				927CB76B28BBDAA200B6C07B /* ScaledFont.swift in Sources */,
 				927CB7CA28BBDFC300B6C07B /* WebView.swift in Sources */,
 				92FC7BF828C54787005BBA16 /* MenuViewModel.swift in Sources */,
 				92E2004028B99487009FDD4E /* RandomWikiUITests.swift in Sources */,
