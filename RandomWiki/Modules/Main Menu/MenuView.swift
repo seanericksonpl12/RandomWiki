@@ -42,6 +42,7 @@ struct MenuView: View {
                                 SettingsContentView(selected: viewModel.settingsSelected)
                                     .modifier(MenuItemModifier(selected: $viewModel.settingsSelected))
                             }
+                            
                             .frame(width: self.width)
                             .background(Color("Background"))
                             .cornerRadius(15)
@@ -50,6 +51,8 @@ struct MenuView: View {
                         .padding(.top, 20)
                         Spacer()
                     }
+                    .animation(.spring(), value: viewModel.settingsSelected)
+                    .animation(.spring(), value: viewModel.menuSelected)
                 }
             }
         }

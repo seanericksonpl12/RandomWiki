@@ -24,6 +24,7 @@
 
 // MARK: - Favorites
 "favorites.noDescription" = "Sorry, we couldn't seem to find a description.";
+"favorites.empty" = "Nothing here yet...";
 "favorites.title" = "Favorites";
 
 // MARK: - Notifications

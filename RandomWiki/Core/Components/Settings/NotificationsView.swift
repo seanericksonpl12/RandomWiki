@@ -67,6 +67,7 @@ struct NotificationsView: View {
         }
         .animation(.easeIn, value: selectedOption == .weekly)
         .animation(.easeIn, value: notificationsAllowed)
+        .navigationTitle("Notifications")
     }
 }
 

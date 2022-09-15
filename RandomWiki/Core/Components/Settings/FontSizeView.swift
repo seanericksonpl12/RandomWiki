@@ -48,6 +48,7 @@ struct FontSizeView: View {
             self.fontToggle = UserDefaults.standard.scaledFontEnabled()
             self.fontSize = UserDefaults.standard.fontSize() - 10
         }
+        .navigationTitle("Font")
     }
 }
 
