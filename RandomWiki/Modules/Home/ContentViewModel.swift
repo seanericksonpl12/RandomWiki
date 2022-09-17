@@ -18,13 +18,13 @@ extension ContentView {
         @Published var loading: Bool = true
         
         // MARK: - Stored Properties
-        var loadedAction: DetailsClosure = {_ in}
         var favoriteAction: ArticleClosure = {_ in}
+        var loader: WebKitLoader = WebKitLoader()
         
         // MARK: - Init
         init() {
             self.currentArticle =  Article(id: UUID(), url: URL(string: "https://en.wikipedia.org/wiki/Special:Random"), category: "", title: "")
-            self.loadedAction = { [weak self] details in
+            self.loader.loadedAction = { [weak self] details in
                 guard let self = self else { return }
                 self.currentArticle.title = details.title
                 self.currentArticle.url = details.url
@@ -44,6 +44,7 @@ extension ContentView {
         func getArticle() {
             guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return }
             self.loading = true
+            self.loader.canGoBackWithRefresh = false
             currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
         }
         

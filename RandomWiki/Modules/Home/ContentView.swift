@@ -49,7 +49,7 @@ struct ContentView: View {
                     // MARK: - Web Content
                     ZStack {
                         WebView(url: viewModel.currentArticle.url,
-                                loadedAction: viewModel.loadedAction)
+                                loader: viewModel.loader)
                         .ignoresSafeArea()
                         if viewModel.loading {
                             LoadingView()
@@ -76,7 +76,7 @@ struct ContentView: View {
     }
     
     // MARK: - Core Data Functions
-    private func saveCoreData(_ save: Article) {
+    func saveCoreData(_ save: Article) {
         do {
             // Check if item is already in favorites list
             if save.saved {
