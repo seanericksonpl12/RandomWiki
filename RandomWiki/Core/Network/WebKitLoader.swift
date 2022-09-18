@@ -56,7 +56,7 @@ extension WebKitLoader {
 // MARK: - HTML Parsing Functions
 extension WebKitLoader {
     
-    private func soupify(html: Any?) -> (String, String) {
+    func soupify(html: Any?) -> (String, String) {
         guard let html = html as? String else { return ("", "") }
         var title = ""
         var description = "favorites.noDescription".localized
