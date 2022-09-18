@@ -98,6 +98,10 @@
 		92AE03D528D4E0AC00C6305B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92FC7C0B28C79621005BBA16 /* Localizable.strings */; };
 		92AE03D628D4E0E400C6305B /* RandomWikiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2003F28B99487009FDD4E /* RandomWikiUITests.swift */; };
 		92AE03D728D4E0E600C6305B /* RandomWikiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2004128B99487009FDD4E /* RandomWikiUITestsLaunchTests.swift */; };
+		92AE03DA28D50F2200C6305B /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 92AE03D928D50F2200C6305B /* ViewInspector */; };
+		92AE03DF28D553A800C6305B /* MenuViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03DE28D553A800C6305B /* MenuViewTests.swift */; };
+		92AE03E128D555C300C6305B /* WebLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03E028D555C300C6305B /* WebLoaderTests.swift */; };
+		92AE03E528D79D9100C6305B /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03E428D79D9100C6305B /* CoreDataTests.swift */; };
 		92E2002528B99486009FDD4E /* RandomWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2002428B99486009FDD4E /* RandomWikiApp.swift */; };
 		92E2002728B99486009FDD4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2002628B99486009FDD4E /* ContentView.swift */; };
 		92E2002928B99487009FDD4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E2002828B99487009FDD4E /* Assets.xcassets */; };
@@ -183,6 +187,9 @@
 		927CB7DA28BE692F00B6C07B /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		92950E1128D3536700D81431 /* styleSheet.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = styleSheet.css; sourceTree = "<group>"; };
 		92AE03C228D3EB3600C6305B /* ContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTests.swift; sourceTree = "<group>"; };
+		92AE03DE28D553A800C6305B /* MenuViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewTests.swift; sourceTree = "<group>"; };
+		92AE03E028D555C300C6305B /* WebLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLoaderTests.swift; sourceTree = "<group>"; };
+		92AE03E428D79D9100C6305B /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		92E2002128B99486009FDD4E /* RandomWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2002428B99486009FDD4E /* RandomWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWikiApp.swift; sourceTree = "<group>"; };
 		92E2002628B99486009FDD4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -232,6 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AE03DA28D50F2200C6305B /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +337,7 @@
 		92AE03BA28D3EA9600C6305B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				92AE03DB28D51C1000C6305B /* Storage */,
 				92AE03BF28D3EACA00C6305B /* Network */,
 				92AE03BE28D3EAC300C6305B /* Extensions */,
 				92AE03BD28D3EAB600C6305B /* Components */,
@@ -340,8 +349,8 @@
 		92AE03BB28D3EA9F00C6305B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				92AE03C128D3EADC00C6305B /* Home */,
-				92AE03C028D3EAD500C6305B /* Main Menu */,
+				92AE03C228D3EB3600C6305B /* ContentViewTests.swift */,
+				92AE03DE28D553A800C6305B /* MenuViewTests.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -370,23 +379,17 @@
 		92AE03BF28D3EACA00C6305B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				92AE03E028D555C300C6305B /* WebLoaderTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		92AE03C028D3EAD500C6305B /* Main Menu */ = {
+		92AE03DB28D51C1000C6305B /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				92AE03E428D79D9100C6305B /* CoreDataTests.swift */,
 			);
-			path = "Main Menu";
-			sourceTree = "<group>";
-		};
-		92AE03C128D3EADC00C6305B /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				92AE03C228D3EB3600C6305B /* ContentViewTests.swift */,
-			);
-			path = Home;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		92E2001828B99486009FDD4E = {
@@ -630,6 +633,9 @@
 				92E2003328B99487009FDD4E /* PBXTargetDependency */,
 			);
 			name = RandomWikiTests;
+			packageProductDependencies = (
+				92AE03D928D50F2200C6305B /* ViewInspector */,
+			);
 			productName = RandomWikiTests;
 			productReference = 92E2003128B99487009FDD4E /* RandomWikiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -688,6 +694,7 @@
 				92E2005528B99AA6009FDD4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				92FC7BFF28C66A27005BBA16 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				92FC7C0E28C7ABE5005BBA16 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				92AE03D828D50F2200C6305B /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = 92E2002228B99486009FDD4E /* Products */;
 			projectDirPath = "";
@@ -843,9 +850,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				92AE03C728D4DF5400C6305B /* NotificationOptions.swift in Sources */,
+				92AE03E128D555C300C6305B /* WebLoaderTests.swift in Sources */,
 				92AE03C828D4DF5400C6305B /* ArticleDetails.swift in Sources */,
+				92AE03E528D79D9100C6305B /* CoreDataTests.swift in Sources */,
 				92AE03D228D4E09F00C6305B /* DataStorage.xcdatamodeld in Sources */,
 				92AE03C328D3EB3600C6305B /* ContentViewTests.swift in Sources */,
+				92AE03DF28D553A800C6305B /* MenuViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,6 +1192,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		92AE03D828D50F2200C6305B /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.1;
+			};
+		};
 		92E2005528B99AA6009FDD4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1209,6 +1227,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		92AE03D928D50F2200C6305B /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92AE03D828D50F2200C6305B /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
 		92E2005628B99AA6009FDD4E /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 92E2005528B99AA6009FDD4E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
