@@ -13,6 +13,10 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
     // MARK: - Stored Properties
     var cssFile: String? = Bundle.main.path(forResource: "styleSheet", ofType: "css")
     var frameInfo: WKFrameInfo = WKFrameInfo()
+    var canGoBackWithRefresh: Bool = false
+    
+    // MARK: - Overrides
+    override var canGoBack: Bool { return canGoBackWithRefresh }
     
     // MARK: - Calculated Properties
     var jscriptFontSize: String {
@@ -28,25 +32,31 @@ class WebKitLoader: WKWebView, WKNavigationDelegate {
 // MARK: - Delegate Functions
 extension WebKitLoader {
     
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if navigationAction.navigationType == .linkActivated { self.canGoBackWithRefresh = true }
+        decisionHandler(.allow)
+    }
+    
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         runJavascript(on: webView)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
         webView.evaluateJavaScript("document.documentElement.outerHTML") { [weak self] html, error in
             guard let self = self else { return }
             let tup = self.soupify(html: html)
             let details = ArticleDetails(url: webView.url, title: tup.0, description: tup.1)
             self.loadedAction(details)
         }
-        webView.allowsBackForwardNavigationGestures = true
+        webView.allowsBackForwardNavigationGestures = self.canGoBack
     }
 }
 
 // MARK: - HTML Parsing Functions
 extension WebKitLoader {
     
-    private func soupify(html: Any?) -> (String, String) {
+    func soupify(html: Any?) -> (String, String) {
         guard let html = html as? String else { return ("", "") }
         var title = ""
         var description = "favorites.noDescription".localized

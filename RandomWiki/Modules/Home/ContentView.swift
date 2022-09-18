@@ -32,7 +32,7 @@ struct ContentView: View {
                             Image(systemName: viewModel.currentArticle.saved ? "star.fill" : "star")
                                 .foregroundColor(.yellow)
                                 .onTapGesture {
-                                    saveCoreData(viewModel.currentArticle)
+                                    viewModel.saveCoreData(viewModel.currentArticle, context: managedObjectContext, list: favorites)
                                 }
                             Image(systemName: "arrow.clockwise")
                                 .foregroundColor(.gray)
@@ -49,7 +49,7 @@ struct ContentView: View {
                     // MARK: - Web Content
                     ZStack {
                         WebView(url: viewModel.currentArticle.url,
-                                loadedAction: viewModel.loadedAction)
+                                loader: viewModel.loader)
                         .ignoresSafeArea()
                         if viewModel.loading {
                             LoadingView()
@@ -73,29 +73,6 @@ struct ContentView: View {
     }
     func openSettings() {
         viewModel.settingsOpen.toggle()
-    }
-    
-    // MARK: - Core Data Functions
-    private func saveCoreData(_ save: Article) {
-        do {
-            // Check if item is already in favorites list
-            if save.saved {
-                if let item = favorites.first(where: {item in item.id == save.id}) {
-                    managedObjectContext.delete(item)
-                } else { print("Error: Duplicate item not found") }
-            }
-            else {
-                let article = ArticleModel(context: managedObjectContext)
-                article.descrptn = save.description ?? "favorites.noDescription".localized
-                article.title = save.title
-                article.saved = save.saved
-                article.id = save.id
-                article.url = save.url
-                article.expanded = save.expanded
-            }
-            try managedObjectContext.save()
-            viewModel.save()
-        } catch { print(error.localizedDescription) }
     }
 }
 

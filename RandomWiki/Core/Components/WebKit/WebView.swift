@@ -10,11 +10,10 @@ import WebKit
 
 struct WebView: UIViewRepresentable {
     var url: URL?
-    var loadedAction: DetailsClosure = {_ in}
+    var loader: WebKitLoader
     
     func makeUIView(context: Context) -> WKWebView {
-        let webKit = WebKitLoader()
-        webKit.loadedAction = self.loadedAction
+        let webKit = loader
         webKit.navigationDelegate = webKit
         return webKit
     }

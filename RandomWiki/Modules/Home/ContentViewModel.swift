@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import WebKit
+import CoreData
 
 extension ContentView {
     @MainActor class ContentViewModel: ObservableObject {
@@ -18,13 +19,13 @@ extension ContentView {
         @Published var loading: Bool = true
         
         // MARK: - Stored Properties
-        var loadedAction: DetailsClosure = {_ in}
         var favoriteAction: ArticleClosure = {_ in}
+        var loader: WebKitLoader = WebKitLoader()
         
         // MARK: - Init
         init() {
             self.currentArticle =  Article(id: UUID(), url: URL(string: "https://en.wikipedia.org/wiki/Special:Random"), category: "", title: "")
-            self.loadedAction = { [weak self] details in
+            self.loader.loadedAction = { [weak self] details in
                 guard let self = self else { return }
                 self.currentArticle.title = details.title
                 self.currentArticle.url = details.url
@@ -44,6 +45,7 @@ extension ContentView {
         func getArticle() {
             guard let url = URL(string: "https://en.wikipedia.org/wiki/Special:Random") else { return }
             self.loading = true
+            self.loader.canGoBackWithRefresh = false
             currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
         }
         
@@ -53,6 +55,29 @@ extension ContentView {
         
         func clearData() {
             self.currentArticle.saved = false
+        }
+        
+        // MARK: - Core Data
+        func saveCoreData(_ save: Article, context: NSManagedObjectContext, list: FetchedResults<ArticleModel>) {
+            do {
+                // Check if item is already in favorites list
+                if save.saved {
+                    if let item = list.first(where: {item in item.id == save.id}) {
+                        context.delete(item)
+                    } else { print("Error: Duplicate item not found") }
+                }
+                else {
+                    let article = ArticleModel(context: context)
+                    article.descrptn = save.description ?? "favorites.noDescription".localized
+                    article.title = save.title
+                    article.saved = save.saved
+                    article.id = save.id
+                    article.url = save.url
+                    article.expanded = save.expanded
+                }
+                try context.save()
+                self.save()
+            } catch { print(error.localizedDescription) }
         }
     }
 }
