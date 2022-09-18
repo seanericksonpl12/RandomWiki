@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import WebKit
+import CoreData
 
 extension ContentView {
     @MainActor class ContentViewModel: ObservableObject {
@@ -54,6 +55,29 @@ extension ContentView {
         
         func clearData() {
             self.currentArticle.saved = false
+        }
+        
+        // MARK: - Core Data
+        func saveCoreData(_ save: Article, context: NSManagedObjectContext, list: FetchedResults<ArticleModel>) {
+            do {
+                // Check if item is already in favorites list
+                if save.saved {
+                    if let item = list.first(where: {item in item.id == save.id}) {
+                        context.delete(item)
+                    } else { print("Error: Duplicate item not found") }
+                }
+                else {
+                    let article = ArticleModel(context: context)
+                    article.descrptn = save.description ?? "favorites.noDescription".localized
+                    article.title = save.title
+                    article.saved = save.saved
+                    article.id = save.id
+                    article.url = save.url
+                    article.expanded = save.expanded
+                }
+                try context.save()
+                self.save()
+            } catch { print(error.localizedDescription) }
         }
     }
 }

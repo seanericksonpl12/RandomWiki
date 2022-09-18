@@ -8,7 +8,6 @@
 import SwiftUI
 import UserNotifications
 import WebKit
-import CoreData
 
 struct ContentView: View {
     
@@ -33,7 +32,7 @@ struct ContentView: View {
                             Image(systemName: viewModel.currentArticle.saved ? "star.fill" : "star")
                                 .foregroundColor(.yellow)
                                 .onTapGesture {
-                                    saveCoreData(viewModel.currentArticle, context: managedObjectContext)
+                                    viewModel.saveCoreData(viewModel.currentArticle, context: managedObjectContext, list: favorites)
                                 }
                             Image(systemName: "arrow.clockwise")
                                 .foregroundColor(.gray)
@@ -74,29 +73,6 @@ struct ContentView: View {
     }
     func openSettings() {
         viewModel.settingsOpen.toggle()
-    }
-    
-    // MARK: - Core Data Functions
-    func saveCoreData(_ save: Article, context: NSManagedObjectContext) {
-        do {
-            // Check if item is already in favorites list
-            if save.saved {
-                if let item = favorites.first(where: {item in item.id == save.id}) {
-                    context.delete(item)
-                } else { print("Error: Duplicate item not found") }
-            }
-            else {
-                let article = ArticleModel(context: context)
-                article.descrptn = save.description ?? "favorites.noDescription".localized
-                article.title = save.title
-                article.saved = save.saved
-                article.id = save.id
-                article.url = save.url
-                article.expanded = save.expanded
-            }
-            try context.save()
-            viewModel.save()
-        } catch { print(error.localizedDescription) }
     }
 }
 
