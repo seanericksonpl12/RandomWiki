@@ -14,7 +14,7 @@ import SwiftUI
 extension FavoritesView: Inspectable {}
 extension Inspection: InspectionEmissary {}
 
-final class TestFavoritesView: XCTestCase {
+final class FavoritesViewTests: XCTestCase {
     
     var view: FavoritesView!
     var context: DataController!

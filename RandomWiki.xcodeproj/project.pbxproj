@@ -102,8 +102,9 @@
 		92AE03DF28D553A800C6305B /* MenuViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03DE28D553A800C6305B /* MenuViewTests.swift */; };
 		92AE03E128D555C300C6305B /* WebLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03E028D555C300C6305B /* WebLoaderTests.swift */; };
 		92AE03E528D79D9100C6305B /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03E428D79D9100C6305B /* CoreDataTests.swift */; };
-		92AE03E728D8B05B00C6305B /* TestFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03E628D8B05B00C6305B /* TestFavoritesView.swift */; };
+		92AE03E728D8B05B00C6305B /* FavoritesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03E628D8B05B00C6305B /* FavoritesViewTests.swift */; };
 		92AE03EA28D8B41E00C6305B /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03E928D8B41E00C6305B /* Inspection.swift */; };
+		92AE03EC28D8D39200C6305B /* NotificationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE03EB28D8D39200C6305B /* NotificationViewTests.swift */; };
 		92E2002528B99486009FDD4E /* RandomWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2002428B99486009FDD4E /* RandomWikiApp.swift */; };
 		92E2002728B99486009FDD4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2002628B99486009FDD4E /* ContentView.swift */; };
 		92E2002928B99487009FDD4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E2002828B99487009FDD4E /* Assets.xcassets */; };
@@ -192,8 +193,9 @@
 		92AE03DE28D553A800C6305B /* MenuViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewTests.swift; sourceTree = "<group>"; };
 		92AE03E028D555C300C6305B /* WebLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLoaderTests.swift; sourceTree = "<group>"; };
 		92AE03E428D79D9100C6305B /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
-		92AE03E628D8B05B00C6305B /* TestFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFavoritesView.swift; sourceTree = "<group>"; };
+		92AE03E628D8B05B00C6305B /* FavoritesViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewTests.swift; sourceTree = "<group>"; };
 		92AE03E928D8B41E00C6305B /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
+		92AE03EB28D8D39200C6305B /* NotificationViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewTests.swift; sourceTree = "<group>"; };
 		92E2002128B99486009FDD4E /* RandomWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2002428B99486009FDD4E /* RandomWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWikiApp.swift; sourceTree = "<group>"; };
 		92E2002628B99486009FDD4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -369,7 +371,8 @@
 		92AE03BD28D3EAB600C6305B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				92AE03E628D8B05B00C6305B /* TestFavoritesView.swift */,
+				92AE03E628D8B05B00C6305B /* FavoritesViewTests.swift */,
+				92AE03EB28D8D39200C6305B /* NotificationViewTests.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -864,10 +867,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92AE03E728D8B05B00C6305B /* TestFavoritesView.swift in Sources */,
+				92AE03E728D8B05B00C6305B /* FavoritesViewTests.swift in Sources */,
 				92AE03C728D4DF5400C6305B /* NotificationOptions.swift in Sources */,
 				92AE03E128D555C300C6305B /* WebLoaderTests.swift in Sources */,
 				92AE03C828D4DF5400C6305B /* ArticleDetails.swift in Sources */,
+				92AE03EC28D8D39200C6305B /* NotificationViewTests.swift in Sources */,
 				92AE03E528D79D9100C6305B /* CoreDataTests.swift in Sources */,
 				92AE03D228D4E09F00C6305B /* DataStorage.xcdatamodeld in Sources */,
 				92AE03C328D3EB3600C6305B /* ContentViewTests.swift in Sources */,
