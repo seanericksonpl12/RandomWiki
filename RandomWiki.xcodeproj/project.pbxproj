@@ -10,6 +10,7 @@
 		9236FD2528C3B1A300ADA10E /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236FD2428C3B1A300ADA10E /* FavoritesView.swift */; };
 		9236FD2928C3B65000ADA10E /* WebKitLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236FD2828C3B65000ADA10E /* WebKitLoader.swift */; };
 		923CD6AB28D8E8830092A96C /* FontSizeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */; };
+		923CD6AD28D8F4640092A96C /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AC28D8F4640092A96C /* MenuItemTests.swift */; };
 		927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */; };
 		927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB76128BAE4D800B6C07B /* ContentViewModel.swift */; };
 		927CB76428BBC84200B6C07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76328BBC84200B6C07B /* GoogleService-Info.plist */; };
@@ -158,6 +159,7 @@
 		9236FD2428C3B1A300ADA10E /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		9236FD2828C3B65000ADA10E /* WebKitLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitLoader.swift; sourceTree = "<group>"; };
 		923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeViewTests.swift; sourceTree = "<group>"; };
+		923CD6AC28D8F4640092A96C /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 		927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureTypes.swift; sourceTree = "<group>"; };
 		927CB76128BAE4D800B6C07B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		927CB76328BBC84200B6C07B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				92AE03E628D8B05B00C6305B /* FavoritesViewTests.swift */,
 				92AE03EB28D8D39200C6305B /* NotificationViewTests.swift */,
 				923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */,
+				923CD6AC28D8F4640092A96C /* MenuItemTests.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				923CD6AB28D8E8830092A96C /* FontSizeViewTests.swift in Sources */,
 				92AE03D228D4E09F00C6305B /* DataStorage.xcdatamodeld in Sources */,
 				92AE03C328D3EB3600C6305B /* ContentViewTests.swift in Sources */,
+				923CD6AD28D8F4640092A96C /* MenuItemTests.swift in Sources */,
 				92AE03DF28D553A800C6305B /* MenuViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
