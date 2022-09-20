@@ -12,6 +12,7 @@
 		923CD6AB28D8E8830092A96C /* FontSizeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */; };
 		923CD6AD28D8F4640092A96C /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AC28D8F4640092A96C /* MenuItemTests.swift */; };
 		92437DCF28D9F5F500E72D8E /* SettingsContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437DCE28D9F5F500E72D8E /* SettingsContentViewTests.swift */; };
+		92437DD328DA52C700E72D8E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437DD228DA52C700E72D8E /* CustomSlider.swift */; };
 		927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */; };
 		927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB76128BAE4D800B6C07B /* ContentViewModel.swift */; };
 		927CB76428BBC84200B6C07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76328BBC84200B6C07B /* GoogleService-Info.plist */; };
@@ -131,7 +132,6 @@
 		92FC7C2328C91D79005BBA16 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2228C91D79005BBA16 /* NotificationsView.swift */; };
 		92FC7C2528C91D8A005BBA16 /* FontSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */; };
 		92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */; };
-		92FC7C3128CAA6F0005BBA16 /* LockerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */; };
 		92FC7C3328CBFB7A005BBA16 /* NotificationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */; };
 		92FC7C3628CCB145005BBA16 /* DataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3428CCB145005BBA16 /* DataStorage.xcdatamodeld */; };
 		92FC7C3928CCB271005BBA16 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C3828CCB271005BBA16 /* DataController.swift */; };
@@ -162,6 +162,7 @@
 		923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeViewTests.swift; sourceTree = "<group>"; };
 		923CD6AC28D8F4640092A96C /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 		92437DCE28D9F5F500E72D8E /* SettingsContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentViewTests.swift; sourceTree = "<group>"; };
+		92437DD228DA52C700E72D8E /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureTypes.swift; sourceTree = "<group>"; };
 		927CB76128BAE4D800B6C07B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		927CB76328BBC84200B6C07B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -226,7 +227,6 @@
 		92FC7C2228C91D79005BBA16 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeView.swift; sourceTree = "<group>"; };
 		92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAlertItem.swift; sourceTree = "<group>"; };
-		92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockerSlider.swift; sourceTree = "<group>"; };
 		92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptions.swift; sourceTree = "<group>"; };
 		92FC7C3528CCB145005BBA16 /* DataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataStorage.xcdatamodel; sourceTree = "<group>"; };
 		92FC7C3828CCB271005BBA16 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -589,7 +589,7 @@
 				92FC7C2828C94002005BBA16 /* MenuAlertItem.swift */,
 				92FC7C1F28C8DA01005BBA16 /* MenuItem.swift */,
 				92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */,
-				92FC7C3028CAA6F0005BBA16 /* LockerSlider.swift */,
+				92437DD228DA52C700E72D8E /* CustomSlider.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -833,6 +833,7 @@
 				927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */,
 				92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */,
 				92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */,
+				92437DD328DA52C700E72D8E /* CustomSlider.swift in Sources */,
 				92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */,
 				92FC7C2528C91D8A005BBA16 /* FontSizeView.swift in Sources */,
 				92FC7C3928CCB271005BBA16 /* DataController.swift in Sources */,
@@ -843,7 +844,6 @@
 				9236FD2928C3B65000ADA10E /* WebKitLoader.swift in Sources */,
 				92FC7C2328C91D79005BBA16 /* NotificationsView.swift in Sources */,
 				92AE03EA28D8B41E00C6305B /* Inspection.swift in Sources */,
-				92FC7C3128CAA6F0005BBA16 /* LockerSlider.swift in Sources */,
 				927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */,
 				927CB7DB28BE692F00B6C07B /* MenuViewModel.swift in Sources */,
 				927CB76928BBDAA200B6C07B /* ScaledFont.swift in Sources */,
