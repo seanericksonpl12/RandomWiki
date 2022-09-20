@@ -14,8 +14,5 @@ extension MenuView {
         @Published var backgroundSelected: Bool = true
         @Published var menuSelected: Bool = false
         @Published var settingsSelected: Bool = false
-        // MARK: - Dropdown Menu
-        // TODO: - Add menu contents into separate file
-       
     }
 }

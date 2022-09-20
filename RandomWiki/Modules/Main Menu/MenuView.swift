@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     // MARK: - Dependencies
-    @StateObject private var viewModel = MenuViewModel()
+    @StateObject var viewModel = MenuViewModel()
     
     // MARK: - Properties
     let width: CGFloat
@@ -18,6 +18,9 @@ struct MenuView: View {
     
     // MARK: - Actions
     var favoritesAction: ArticleClosure
+    
+    // MARK: - View Inspector
+    internal let inspection = Inspection<Self>()
     
     var body: some View {
         
@@ -56,6 +59,7 @@ struct MenuView: View {
                 }
             }
         }
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 

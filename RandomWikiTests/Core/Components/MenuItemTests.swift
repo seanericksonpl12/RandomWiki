@@ -24,13 +24,13 @@ class MenuItemTests: XCTestCase {
     
     func testTitle() {
         do {
-            try view.inspect().find(text: "Test")
+            let _ = try view.inspect().find(text: "Test")
         } catch { XCTFail() }
     }
     
     func testImage() {
         do {
-            try view.inspect().findAll(ViewType.Image.self, where: { try $0.actualImage().name() == "TestIcon"})
+            let _ = try view.inspect().findAll(ViewType.Image.self, where: { try $0.actualImage().name() == "TestIcon"})
         } catch { XCTFail() }
     }
 }
