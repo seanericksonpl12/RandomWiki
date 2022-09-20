@@ -15,7 +15,7 @@ final class CoreDataTests: XCTestCase {
     var coreDataStack: DataController!
     var view: ContentView!
     @FetchRequest(sortDescriptors: []) var empty: FetchedResults<RandomWiki.ArticleModel>
-
+    
     override func setUp() {
         super.setUp()
         coreDataStack = DataController(.inMemory)
@@ -40,5 +40,5 @@ final class CoreDataTests: XCTestCase {
         coreDataStack.container.viewContext.delete(fetched[0])
         XCTAssertEqual(0, count)
     }
-
+    
 }

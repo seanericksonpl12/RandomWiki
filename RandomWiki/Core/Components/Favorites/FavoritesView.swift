@@ -17,6 +17,9 @@ struct FavoritesView: View {
     // MARK: - Actions
     var onTap: ArticleClosure = {_ in}
     
+    // MARK: - View Inspector
+    internal let inspection = Inspection<Self>()
+    
     // MARK: - Body
     var body: some View {
         VStack {
@@ -84,6 +87,7 @@ struct FavoritesView: View {
             .background(Color("Background"))
         }
         .background(Color("Background-Light"))
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 

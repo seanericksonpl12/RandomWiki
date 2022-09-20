@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct FontSizeView: View {
-    @State private var fontToggle: Bool = UserDefaults.standard.scaledFontEnabled()
-    @State private var fontSize: Float = UserDefaults.standard.fontSize()
+    @State var fontToggle: Bool = UserDefaults.standard.scaledFontEnabled()
+    @State var fontSize: Float = UserDefaults.standard.fontSize()
+    
+    // MARK: - Testing
+    internal let inspection = Inspection<Self>()
+    
+    // MARK: - Body
     var body: some View {
         List {
             Toggle(isOn: $fontToggle) {
@@ -49,6 +54,7 @@ struct FontSizeView: View {
             self.fontSize = UserDefaults.standard.fontSize() - 10
         }
         .navigationTitle("Font")
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 

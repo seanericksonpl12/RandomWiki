@@ -18,6 +18,9 @@ struct NotificationsView: View {
     @State var selectedOption: NotificationOptions = UserDefaults.standard.getNotificationOptions() ?? .daily
     @State var notificationsAllowed: Bool = UserDefaults.standard.notificationsEnabled()
     
+    // MARK: - Testing
+    internal let inspection = Inspection<Self>()
+    
     // MARK: - Body
     var body: some View {
         List {
@@ -68,6 +71,7 @@ struct NotificationsView: View {
         .animation(.easeIn, value: selectedOption == .weekly)
         .animation(.easeIn, value: notificationsAllowed)
         .navigationTitle("Notifications")
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 
