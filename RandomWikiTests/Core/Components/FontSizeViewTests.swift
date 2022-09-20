@@ -10,7 +10,7 @@ import ViewInspector
 @testable import RandomWiki
 
 extension FontSizeView: Inspectable {}
-extension LockerSlider: Inspectable {}
+extension CustomSlider: Inspectable {}
 
 class FontSizeViewTests: XCTestCase {
     
@@ -37,9 +37,9 @@ class FontSizeViewTests: XCTestCase {
         let exp = view.inspection.inspect { view in
             UserDefaults.standard.setFontSize(12)
             try view.list().callOnAppear()
-            XCTAssertEqual(try view.actualView().fontSize, 2)
+            XCTAssertEqual(try view.actualView().fontSize, 12)
             try view.actualView().fontToggle = false
-            try view.list().section(1).vStack(0).view(RandomWiki.LockerSlider<Swift.Float>.self, 3).callOnChange(newValue: Float(10))
+            try view.list().section(1).vStack(0).view(RandomWiki.CustomSlider.self, 3).callOnChange(newValue: Float(20))
             try view.list().callOnAppear()
             XCTAssertEqual(UserDefaults.standard.fontSize(), 20)
         }

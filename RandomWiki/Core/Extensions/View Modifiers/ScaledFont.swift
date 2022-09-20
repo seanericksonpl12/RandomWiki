@@ -12,6 +12,7 @@ import SwiftUI
 @available(iOS 13, macCatalyst 13, tvOS 13, watchOS 6, *)
 struct ScaledFont: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory
+    @AppStorage("customFontSize") var fontSize: Double = Double(UserDefaults.standard.fontSize())
     var name: String
     var size: Double
     
@@ -21,7 +22,7 @@ struct ScaledFont: ViewModifier {
             return content.font(.custom(name, size: scaledSize))
         } else {
             let ratio = size / 16.0
-            return content.font(.custom(name, size: CGFloat(UserDefaults.standard.fontSize() * Float(ratio))))
+            return content.font(.custom(name, size: CGFloat(Float(fontSize) * Float(ratio))))
         }
     }
 }
