@@ -56,9 +56,3 @@ struct SettingsContentView: View {
         try? context.save()
     }
 }
-
-//struct SettingsContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingsContentView()
-//    }
-//}

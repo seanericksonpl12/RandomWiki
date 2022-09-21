@@ -25,10 +25,9 @@ class NotificationViewTests: XCTestCase {
     func testSwitch() {
         let exp = view.inspection.inspect { view in
             try view.actualView().notificationsAllowed = false
-            XCTAssertFalse(try view.actualView().notificationsAllowed)
-            try view.list().toggle(0).callOnChange(newValue: true)
-            try view.list().callOnAppear()
-            XCTAssertTrue(try view.actualView().notificationsAllowed)
+            XCTAssertFalse(UserDefaults.standard.notificationsEnabled())
+            try view.actualView().notificationsAllowed = true
+            XCTAssertTrue(UserDefaults.standard.notificationsEnabled())
         }
         ViewHosting.host(view: view)
         wait(for: [exp], timeout: 5)
@@ -37,12 +36,10 @@ class NotificationViewTests: XCTestCase {
     func testWeekly() {
         let exp = view.inspection.inspect { view in
             try view.actualView().notificationsAllowed = true
-            UserDefaults.standard.setNotifications(to: .weekly)
-            try view.list().callOnAppear()
-            UserDefaults.standard.setWeeklyNotification(to: 1)
-            try view.list().section(1).picker(1).callOnChange(newValue: 2)
-            try view.list().callOnAppear()
-            XCTAssertEqual(2, UserDefaults.standard.getWeeklyNotification())
+            try view.actualView().selectedDay = 1
+            XCTAssertEqual(UserDefaults.standard.getWeeklyNotification(), 1)
+            try view.actualView().selectedDay = 2
+            XCTAssertEqual(UserDefaults.standard.getWeeklyNotification(), 2)
         }
         ViewHosting.host(view: view)
         wait(for: [exp], timeout: 5)

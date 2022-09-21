@@ -25,8 +25,8 @@ class FontSizeViewTests: XCTestCase {
     func testFontToggle() {
         let exp = view.inspection.inspect { view in
             try view.actualView().fontToggle = false
-            try view.list().toggle(0).callOnChange(newValue: true)
-            try view.list().callOnAppear()
+            XCTAssertFalse(UserDefaults.standard.scaledFontEnabled())
+            try view.actualView().fontToggle = true
             XCTAssertTrue(UserDefaults.standard.scaledFontEnabled())
         }
         ViewHosting.host(view: view)
@@ -35,13 +35,11 @@ class FontSizeViewTests: XCTestCase {
     
     func testFontSize() {
         let exp = view.inspection.inspect { view in
-            UserDefaults.standard.setFontSize(12)
-            try view.list().callOnAppear()
+            try view.actualView().fontSize = 12
             XCTAssertEqual(try view.actualView().fontSize, 12)
             try view.actualView().fontToggle = false
-            try view.list().section(1).vStack(0).view(RandomWiki.CustomSlider.self, 3).callOnChange(newValue: Float(20))
-            try view.list().callOnAppear()
-            XCTAssertEqual(UserDefaults.standard.fontSize(), 20)
+            try view.actualView().fontSize = 20
+            XCTAssertEqual(try view.list().section(1).vStack(0).view(RandomWiki.CustomSlider.self, 3).actualView().value, 20)
         }
         ViewHosting.host(view: view)
         wait(for: [exp], timeout: 5)

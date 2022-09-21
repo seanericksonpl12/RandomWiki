@@ -14,9 +14,9 @@ struct NotificationsView: View {
     var day: [Int] = [1, 2, 3, 4, 5, 6, 7]
     
     // MARK: - State Properties
-    @State var selectedDay: Int = UserDefaults.standard.getWeeklyNotification()
     @State var selectedOption: NotificationOptions = UserDefaults.standard.getNotificationOptions() ?? .daily
-    @State var notificationsAllowed: Bool = UserDefaults.standard.notificationsEnabled()
+    @AppStorage("notificationsEnabled") var notificationsAllowed: Bool = UserDefaults.standard.notificationsEnabled()
+    @AppStorage("notificationDate") var selectedDay: Int = UserDefaults.standard.getWeeklyNotification()
     
     // MARK: - Testing
     internal let inspection = Inspection<Self>()
@@ -27,9 +27,6 @@ struct NotificationsView: View {
             Toggle(isOn: $notificationsAllowed) {
                 Text("notifications.allowed".localized)
                     .scaledFont(name: "Montserrat-Medium", size:  16)
-            }
-            .onChange(of: notificationsAllowed) {
-                UserDefaults.standard.setNotificationsEnabled(to: $0)
             }
             // MARK: - Notification Selection
             if notificationsAllowed {
@@ -56,17 +53,12 @@ struct NotificationsView: View {
                             Text("day.dayOfWeek".localized)
                                 .scaledFont(name: "Montserrat-Medium", size:  16)
                         }
-                        .onChange(of: selectedDay) {
-                            UserDefaults.standard.setWeeklyNotification(to: $0)
-                        }
                     }
                 }
             }
         }
         .onAppear() {
-            self.selectedDay = UserDefaults.standard.getWeeklyNotification()
             self.selectedOption = UserDefaults.standard.getNotificationOptions() ?? .daily
-            self.notificationsAllowed = UserDefaults.standard.notificationsEnabled()
         }
         .animation(.easeIn, value: selectedOption == .weekly)
         .animation(.easeIn, value: notificationsAllowed)

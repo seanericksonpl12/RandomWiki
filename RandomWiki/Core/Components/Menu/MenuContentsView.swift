@@ -45,10 +45,3 @@ struct MenuContentsView: View {
         }
     }
 }
-
-
-//struct DropDownView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DropDownView(selected: false)
-//    }
-//}

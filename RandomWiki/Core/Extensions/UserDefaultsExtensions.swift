@@ -24,12 +24,12 @@ extension UserDefaults {
 // MARK: - Custom Font Size
 extension UserDefaults {
     
-    func setFontSize(_ size: Float) {
+    func setFontSize(_ size: Double) {
         set(size, forKey: "customFontSize")
     }
     
-    func fontSize() -> Float {
-        return float(forKey: "customFontSize")
+    func fontSize() -> Double {
+        return double(forKey: "customFontSize")
     }
 }
 
