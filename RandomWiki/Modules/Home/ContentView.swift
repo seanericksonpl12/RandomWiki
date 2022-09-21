@@ -24,9 +24,12 @@ struct ContentView: View {
             ZStack {
                 VStack {
                     HStack {
-                        Text("menu.title".localized)
-                            .scaledFont(name: "Montserrat-Bold", size: 36)
-                            .padding()
+                        HStack {
+                            Text("menu.title".localized)
+                                .scaledFont(name: "Montserrat-Bold", size: 36)
+                        }
+                        .padding(.leading, 10)
+                        Spacer()
                         // MARK: - Icon Bar
                         HStack(spacing: 20) {
                             Image(systemName: viewModel.currentArticle.saved ? "star.fill" : "star")
@@ -45,6 +48,7 @@ struct ContentView: View {
                                     openMenu()
                                 }
                         }
+                        .padding(.trailing, 10)
                     }
                     // MARK: - Web Content
                     ZStack {

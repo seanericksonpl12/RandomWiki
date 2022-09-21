@@ -35,6 +35,7 @@ struct MenuAlertItem: View {
                 .foregroundColor(.gray)
                 .scaleEffect(0.75)
         }
+        .contentShape(Rectangle())
         .onTapGesture {
             alert = true
         }

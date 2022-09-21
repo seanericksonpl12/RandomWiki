@@ -15,9 +15,6 @@ struct Article: Identifiable, Codable, Hashable {
     var title: String
     var description: String?
     var expanded: Bool = false
-
-    // MARK: - Computed Properties
-    var clippedTitle: String { String(title.dropLast(12)) }
 }
 
 

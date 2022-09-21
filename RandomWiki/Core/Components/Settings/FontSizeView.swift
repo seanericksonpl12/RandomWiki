@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct FontSizeView: View {
-    @State var fontToggle: Bool = UserDefaults.standard.scaledFontEnabled()
-    @State var fontSize: Float = UserDefaults.standard.fontSize()
+    
+    @AppStorage("fontSize") var fontSize: Double = UserDefaults.standard.fontSize()
+    @AppStorage("scaledFontEnabled") var fontToggle: Bool = UserDefaults.standard.scaledFontEnabled()
     
     // MARK: - Testing
     internal let inspection = Inspection<Self>()
@@ -17,12 +18,14 @@ struct FontSizeView: View {
     // MARK: - Body
     var body: some View {
         List {
-            Toggle(isOn: $fontToggle) {
-                Text("font.adjust".localized)
-                    .scaledFont(name: "Montserrat-Medium", size:  16)
-            }
-            .onChange(of: fontToggle) {
-                UserDefaults.standard.setScaledFontEnabled($0)
+            Section {
+                Toggle(isOn: $fontToggle) {
+                    Text("font.adjust".localized)
+                        .scaledFont(name: "Montserrat-Medium", size:  16)
+                }
+            } footer: {
+                Text("font.footer".localized)
+                    .scaledFont(name: "Montserrat", size: 13)
             }
             if !fontToggle {
                 Section {
@@ -40,19 +43,14 @@ struct FontSizeView: View {
                                 UserDefaults.standard.setFontSize($0)
                             }
                     }
+                } footer: {
+                    Text("font.custom.footer".localized)
+                        .scaledFont(name: "Montserrat", size: 13)
                 }
                 .transition(.scale)
             }
         }
         .animation(.linear(duration: 0.2), value: fontToggle)
-        .onAppear() {
-            self.fontToggle = UserDefaults.standard.scaledFontEnabled()
-            self.fontSize = UserDefaults.standard.fontSize()
-        }
-        .onDisappear() {
-            self.fontToggle = UserDefaults.standard.scaledFontEnabled()
-            self.fontSize = UserDefaults.standard.fontSize()
-        }
         .navigationTitle("Font")
         .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }

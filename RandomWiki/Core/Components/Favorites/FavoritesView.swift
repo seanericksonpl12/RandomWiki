@@ -33,7 +33,7 @@ struct FavoritesView: View {
                     ForEach(favoritesList) { article in
                         VStack {
                             HStack {
-                                Text(article.title ?? "")
+                                Text(String(article.title?.dropLast(12) ?? ""))
                                     .padding()
                                     .scaledFont(name: "Montserrat-Medium", size: 15)
                                 Spacer()

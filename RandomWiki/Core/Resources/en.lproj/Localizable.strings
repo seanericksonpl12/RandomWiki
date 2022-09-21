@@ -34,6 +34,8 @@
 // MARK: - Fonts
 "font.size" = "Font Size";
 "font.adjust" = "Adjust to Scaled Font";
+"font.footer" = "Scales the font to your device's settings";
+"font.custom.footer" = "Set a custom font size";
 
 // MARK: - Days of the Week
 "day.dayOfWeek" = "Day of the Week";

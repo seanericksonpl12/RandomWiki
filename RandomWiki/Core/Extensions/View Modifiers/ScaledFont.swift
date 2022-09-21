@@ -12,12 +12,13 @@ import SwiftUI
 @available(iOS 13, macCatalyst 13, tvOS 13, watchOS 6, *)
 struct ScaledFont: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory
-    @AppStorage("customFontSize") var fontSize: Double = Double(UserDefaults.standard.fontSize())
+    @AppStorage("customFontSize") var fontSize: Double = UserDefaults.standard.fontSize()
+    @AppStorage("scaledFontEnabled") var scaledFontEnabled: Bool = UserDefaults.standard.scaledFontEnabled()
     var name: String
     var size: Double
     
     func body(content: Content) -> some View {
-        if UserDefaults.standard.scaledFontEnabled() {
+        if scaledFontEnabled {
             let scaledSize = UIFontMetrics.default.scaledValue(for: size)
             return content.font(.custom(name, size: scaledSize))
         } else {

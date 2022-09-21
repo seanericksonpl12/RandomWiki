@@ -117,7 +117,6 @@
 		92E2005928B99AA6009FDD4E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 92E2005828B99AA6009FDD4E /* FirebaseAuth */; };
 		92E2005B28B99AA6009FDD4E /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 92E2005A28B99AA6009FDD4E /* FirebaseMessaging */; };
 		92E2005D28B99E72009FDD4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2005C28B99E72009FDD4E /* AppDelegate.swift */; };
-		92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7BEE28C507D9005BBA16 /* DataBase.swift */; };
 		92FC7BF428C546A6005BBA16 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */; };
 		92FC7C0128C66A27005BBA16 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 92FC7C0028C66A27005BBA16 /* SwiftSoup */; };
 		92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */; };
@@ -214,7 +213,6 @@
 		92E2004128B99487009FDD4E /* RandomWikiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWikiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		92E2005428B99715009FDD4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92E2005C28B99E72009FDD4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		92FC7BEE28C507D9005BBA16 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		92FC7C0328C6821D005BBA16 /* CustomContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContextMenu.swift; sourceTree = "<group>"; };
 		92FC7C0728C79599005BBA16 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -510,7 +508,6 @@
 			children = (
 				927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */,
 				927CB7D328BD707800B6C07B /* Article.swift */,
-				92FC7BEE28C507D9005BBA16 /* DataBase.swift */,
 				92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */,
 				92FC7C3A28CE2482005BBA16 /* ArticleDetails.swift */,
 			);
@@ -831,7 +828,6 @@
 				927CB7C828BBDFC300B6C07B /* WebView.swift in Sources */,
 				92E2002728B99486009FDD4E /* ContentView.swift in Sources */,
 				927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */,
-				92FC7BEF28C507D9005BBA16 /* DataBase.swift in Sources */,
 				92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */,
 				92437DD328DA52C700E72D8E /* CustomSlider.swift in Sources */,
 				92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */,
