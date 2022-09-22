@@ -11,6 +11,9 @@
 		9236FD2928C3B65000ADA10E /* WebKitLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236FD2828C3B65000ADA10E /* WebKitLoader.swift */; };
 		923CD6AB28D8E8830092A96C /* FontSizeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */; };
 		923CD6AD28D8F4640092A96C /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AC28D8F4640092A96C /* MenuItemTests.swift */; };
+		923F72F928DCA79300259C01 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F72F828DCA79300259C01 /* NotificationHandler.swift */; };
+		923F72FB28DCD02700259C01 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F72FA28DCD02700259C01 /* NotificationsViewModel.swift */; };
+		923F72FD28DD255700259C01 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F72FC28DD255700259C01 /* NotificationNameExtension.swift */; };
 		92437DCF28D9F5F500E72D8E /* SettingsContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437DCE28D9F5F500E72D8E /* SettingsContentViewTests.swift */; };
 		92437DD328DA52C700E72D8E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437DD228DA52C700E72D8E /* CustomSlider.swift */; };
 		927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */; };
@@ -160,6 +163,9 @@
 		9236FD2828C3B65000ADA10E /* WebKitLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitLoader.swift; sourceTree = "<group>"; };
 		923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeViewTests.swift; sourceTree = "<group>"; };
 		923CD6AC28D8F4640092A96C /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
+		923F72F828DCA79300259C01 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		923F72FA28DCD02700259C01 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		923F72FC28DD255700259C01 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		92437DCE28D9F5F500E72D8E /* SettingsContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentViewTests.swift; sourceTree = "<group>"; };
 		92437DD228DA52C700E72D8E /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureTypes.swift; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 				92FC7C1E28C7F263005BBA16 /* View Modifiers */,
 				92FC7BF328C546A6005BBA16 /* UserDefaultsExtensions.swift */,
 				92FC7C0728C79599005BBA16 /* StringExtensions.swift */,
+				923F72FC28DD255700259C01 /* NotificationNameExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -510,6 +517,7 @@
 				927CB7D328BD707800B6C07B /* Article.swift */,
 				92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */,
 				92FC7C3A28CE2482005BBA16 /* ArticleDetails.swift */,
+				923F72F828DCA79300259C01 /* NotificationHandler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -576,6 +584,7 @@
 			children = (
 				92FC7C2228C91D79005BBA16 /* NotificationsView.swift */,
 				92FC7C2428C91D8A005BBA16 /* FontSizeView.swift */,
+				923F72FA28DCD02700259C01 /* NotificationsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -830,12 +839,14 @@
 				927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */,
 				92FC7C0428C6821D005BBA16 /* CustomContextMenu.swift in Sources */,
 				92437DD328DA52C700E72D8E /* CustomSlider.swift in Sources */,
+				923F72F928DCA79300259C01 /* NotificationHandler.swift in Sources */,
 				92FC7C2928C94002005BBA16 /* MenuAlertItem.swift in Sources */,
 				92FC7C2528C91D8A005BBA16 /* FontSizeView.swift in Sources */,
 				92FC7C3928CCB271005BBA16 /* DataController.swift in Sources */,
 				9236FD2528C3B1A300ADA10E /* FavoritesView.swift in Sources */,
 				927CB7D728BE617200B6C07B /* MenuContentsView.swift in Sources */,
 				927CB7CC28BC112100B6C07B /* MenuView.swift in Sources */,
+				923F72FD28DD255700259C01 /* NotificationNameExtension.swift in Sources */,
 				92E2002528B99486009FDD4E /* RandomWikiApp.swift in Sources */,
 				9236FD2928C3B65000ADA10E /* WebKitLoader.swift in Sources */,
 				92FC7C2328C91D79005BBA16 /* NotificationsView.swift in Sources */,
@@ -847,6 +858,7 @@
 				92FC7C0828C79599005BBA16 /* StringExtensions.swift in Sources */,
 				92FC7C2028C8DA01005BBA16 /* MenuItem.swift in Sources */,
 				92FC7C0D28C7A80D005BBA16 /* LoadingView.swift in Sources */,
+				923F72FB28DCD02700259C01 /* NotificationsViewModel.swift in Sources */,
 				92FC7C1828C7E4D9005BBA16 /* SettingsContentView.swift in Sources */,
 				92FC7C3B28CE2482005BBA16 /* ArticleDetails.swift in Sources */,
 			);

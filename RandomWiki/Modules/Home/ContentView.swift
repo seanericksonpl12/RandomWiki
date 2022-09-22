@@ -52,7 +52,7 @@ struct ContentView: View {
                     }
                     // MARK: - Web Content
                     ZStack {
-                        WebView(url: viewModel.currentArticle.url,
+                        WebView(url: viewModel.curURL,
                                 loader: viewModel.loader)
                         .ignoresSafeArea()
                         if viewModel.loading {
@@ -69,6 +69,9 @@ struct ContentView: View {
             }
             .navigationBarHidden(true)
         }
+        .onReceive(NotificationCenter.default.publisher(for: .updateWebView)) { _ in
+            viewModel.getArticle()
+        }
     }
     
     // MARK: - Menu Functions
@@ -83,7 +86,7 @@ struct ContentView: View {
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: ContentView.ContentViewModel())
             .previewInterfaceOrientation(.portrait)
     }
 }

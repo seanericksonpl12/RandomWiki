@@ -18,16 +18,18 @@ extension ContentView {
         @Published var settingsOpen: Bool = false
         @Published var loading: Bool = true
         
+        @AppStorage("url") var curURL: URL = UserDefaults.standard.currentURL()
+        
         // MARK: - Stored Properties
         var favoriteAction: ArticleClosure = {_ in}
         var loader: WebKitLoader = WebKitLoader()
-        
         // MARK: - Init
         init() {
             self.currentArticle =  Article(id: UUID(), url: URL(string: "https://en.wikipedia.org/wiki/Special:Random"), category: "", title: "")
             self.loader.loadedAction = { [weak self] details in
                 guard let self = self else { return }
                 self.currentArticle.title = details.title
+                self.curURL = details.url ?? URL(string: "https://en.wikipedia.org/wiki/Special:Random")!
                 self.currentArticle.url = details.url
                 self.currentArticle.description = details.description
                 self.loading = false
@@ -35,6 +37,7 @@ extension ContentView {
             self.favoriteAction = { [weak self] article in
                 guard let self = self else { return }
                 self.currentArticle = article
+                self.curURL = article.url ?? URL(string: "https://en.wikipedia.org/wiki/Special:Random")!
                 self.currentArticle.saved = true
                 self.loading = false
                 self.menuOpen = false
@@ -47,6 +50,7 @@ extension ContentView {
             self.loading = true
             self.loader.canGoBackWithRefresh = false
             currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
+            self.curURL = currentArticle.url ?? URL(string: "https://en.wikipedia.org/wiki/Special:Random")!
         }
         
         func save() {
