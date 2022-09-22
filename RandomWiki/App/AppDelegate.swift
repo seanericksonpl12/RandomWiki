@@ -7,9 +7,12 @@
 
 import Firebase
 import UserNotifications
+import SwiftUI
 import Lottie
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    var didReload: Bool = false
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -17,11 +20,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         LottieLogger.shared = .printToConsole
         Messaging.messaging().delegate = self
         
+        UserDefaults.standard.register(defaults: [
+            "fontSize" : 16,
+            "scaledFontEnabled" : true,
+            "notificationDate" : 1,
+            "notificationsEnabled" : true,
+            "reload" : false
+        ])
+        
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_,_ in})
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { response, error in
+                if response {
+                    NotificationHandler.main.setDailyRequest()
+                }
+            }
         } else {
             let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound],
                                                                                   categories: nil)
@@ -36,7 +51,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        print(userInfo)
+        NotificationCenter.default.post(.updateWebView)
         completionHandler(UIBackgroundFetchResult.newData)
     }
 }
@@ -61,13 +76,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
+        NotificationCenter.default.post(.updateWebView)
+        didReload = true
         print(userInfo)
-        
-        // Check User notification settings
-        if UserDefaults.standard.shouldRecieveNotification() {
-            completionHandler([[.banner, .badge, .sound]])
-        }
+        completionHandler([[.banner, .badge, .sound]])
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -86,7 +98,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID from userNotificationCenter didReceive: \(messageID)")
         }
-        
+        if !didReload {
+            NotificationCenter.default.post(.updateWebView)
+        }
+        didReload = false
         print(userInfo)
         
         completionHandler()

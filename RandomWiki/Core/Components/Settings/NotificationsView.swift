@@ -13,10 +13,8 @@ struct NotificationsView: View {
     var options: [NotificationOptions] = [.daily, .weekly]
     var day: [Int] = [1, 2, 3, 4, 5, 6, 7]
     
-    // MARK: - State Properties
-    @State var selectedOption: NotificationOptions = UserDefaults.standard.getNotificationOptions() ?? .daily
-    @AppStorage("notificationsEnabled") var notificationsAllowed: Bool = UserDefaults.standard.notificationsEnabled()
-    @AppStorage("notificationDate") var selectedDay: Int = UserDefaults.standard.getWeeklyNotification()
+    // MARK: - Dependency
+    @StateObject var viewModel: NotificationsViewModel = NotificationsViewModel()
     
     // MARK: - Testing
     internal let inspection = Inspection<Self>()
@@ -24,14 +22,17 @@ struct NotificationsView: View {
     // MARK: - Body
     var body: some View {
         List {
-            Toggle(isOn: $notificationsAllowed) {
+            Toggle(isOn: $viewModel.notificationsAllowed) {
                 Text("notifications.allowed".localized)
                     .scaledFont(name: "Montserrat-Medium", size:  16)
             }
+            .onChange(of: viewModel.notificationsAllowed) { val in
+                viewModel.update()
+            }
             // MARK: - Notification Selection
-            if notificationsAllowed {
+            if viewModel.notificationsAllowed {
                 Section {
-                    Picker(selection: $selectedOption) {
+                    Picker(selection: $viewModel.selectedOption) {
                         ForEach(options, id: \.self) {
                             Text($0.rawValue.capitalized)
                                 .scaledFont(name: "Montserrat-Medium", size:  16)
@@ -40,11 +41,11 @@ struct NotificationsView: View {
                         Text("notifications.title".localized)
                             .scaledFont(name: "Montserrat-Medium", size:  16)
                     }
-                    .onChange(of: selectedOption) {
-                        UserDefaults.standard.setNotifications(to: $0)
+                    .onChange(of: viewModel.selectedOption) { _ in
+                        viewModel.update()
                     }
-                    if selectedOption == .weekly {
-                        Picker(selection: $selectedDay) {
+                    if viewModel.selectedOption == .weekly {
+                        Picker(selection: $viewModel.selectedDay) {
                             ForEach(day, id: \.self) {
                                 Text("day.\(String($0))".localized)
                                     .scaledFont(name: "Montserrat-Medium", size:  16)
@@ -53,15 +54,15 @@ struct NotificationsView: View {
                             Text("day.dayOfWeek".localized)
                                 .scaledFont(name: "Montserrat-Medium", size:  16)
                         }
+                        .onChange(of: viewModel.selectedDay) { _ in
+                            viewModel.update()
+                        }
                     }
                 }
             }
         }
-        .onAppear() {
-            self.selectedOption = UserDefaults.standard.getNotificationOptions() ?? .daily
-        }
-        .animation(.easeIn, value: selectedOption == .weekly)
-        .animation(.easeIn, value: notificationsAllowed)
+        .animation(.easeIn, value: viewModel.selectedOption == .weekly)
+        .animation(.easeIn, value: viewModel.notificationsAllowed)
         .navigationTitle("Notifications")
         .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }

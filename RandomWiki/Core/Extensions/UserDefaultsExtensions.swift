@@ -86,3 +86,14 @@ extension UserDefaults {
         return bool(forKey: "notificationsEnabled")
     }
 }
+
+extension UserDefaults {
+    
+    func setCurrentURL(_ to: URL?) {
+        set(to, forKey: "url")
+    }
+    
+    func currentURL() -> URL {
+        return url(forKey: "url") ?? URL(string: "https://en.wikipedia.org/wiki/Special:Random")!
+    }
+}
