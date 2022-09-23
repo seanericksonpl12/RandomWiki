@@ -35,11 +35,29 @@ struct SettingsContentView: View {
                 // MARK: - Dropdown Menu
                 if selected {
                     VStack(spacing: 10) {
-                        MenuItem<NotificationsView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "notifications.title".localized, destination: {NotificationsView()})
+                        MenuItem<NotificationsView>(iconName: "bell.badge.fill",
+                                                    iconColor: .yellow,
+                                                    title: "notifications.title".localized,
+                                                    destination: {NotificationsView()})
                         Divider().padding(.leading)
-                        MenuItem<FontSizeView>(iconName: "textformat.size", iconColor: .blue, title: "font.size".localized, destination: {FontSizeView()})
+                        MenuItem<FontSizeView>(iconName: "textformat.size",
+                                               iconColor: .blue,
+                                               title: "font.size".localized,
+                                               destination: {FontSizeView()})
                         Divider().padding(.leading)
-                        MenuAlertItem(iconName: "trash.fill", iconColor: .gray, title: "settings.clear".localized, alertTitle: "settings.clearTitle".localized, alertAction: clearData)
+                        MenuAlertItem(iconName: "trash.fill",
+                                      iconColor: .gray,
+                                      title: "settings.clear".localized,
+                                      alertTitle: "settings.clearTitle".localized,
+                                      alertAction: clearData)
+                        Divider().padding(.leading)
+                        MenuAlertItem(iconName: "dollarsign.circle.fill",
+                                      iconColor: .green,
+                                      title: "Donate",
+                                      alertTitle: "Give me 2 dollars",
+                                      message: "I get 2 dollars and you get nothing. What a deal!",
+                                      yesOption: "$2.00",
+                                      alertAction: {})
                             .padding(.bottom)
                     }
                 }
