@@ -15,6 +15,7 @@
 
 // MARK: - Menu
 "menu.title" = "Daily Article";
+"menu.title.weekly" = "Weekly Article";
 "menu.self" = "Menu";
 
 // MARK: - Settings
@@ -30,6 +31,9 @@
 // MARK: - Notifications
 "notifications.title" = "Notifications";
 "notifications.allowed" = "Notifications Allowed";
+"notifications.header.daily" = "New Daily Article!";
+"notifications.header.weekly" = "New Weekly Article!";
+"notifications.body" = "This one might be cool, better check it out";
 
 // MARK: - Fonts
 "font.size" = "Font Size";

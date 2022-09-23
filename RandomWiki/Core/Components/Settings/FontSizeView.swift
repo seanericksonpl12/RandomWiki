@@ -27,6 +27,9 @@ struct FontSizeView: View {
                 Text("font.footer".localized)
                     .scaledFont(name: "Montserrat", size: 13)
             }
+            .onChange(of: fontToggle) { _ in
+                NotificationCenter.default.post(.updateWebView)
+            }
             if !fontToggle {
                 Section {
                     VStack {
@@ -40,6 +43,7 @@ struct FontSizeView: View {
                         CustomSlider(min: 10, max: 22, step: 2, value: $fontSize)
                             .padding(EdgeInsets(top: 25, leading: 40, bottom: 20, trailing: 40))
                             .onChange(of: fontSize) {
+                                NotificationCenter.default.post(.updateWebView)
                                 UserDefaults.standard.setFontSize($0)
                             }
                     }

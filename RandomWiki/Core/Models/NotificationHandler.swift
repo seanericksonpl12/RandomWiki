@@ -14,8 +14,8 @@ class NotificationHandler {
     func setDailyRequest() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         let content = UNMutableNotificationContent()
-        content.title = "New Daily Article!"
-        content.body = "This one might be cool, better check it out"
+        content.title = "notifications.header.daily".localized
+        content.body = "notifications.body".localized
         var components = DateComponents()
         components.hour = 10
         components.minute = 0
@@ -31,8 +31,8 @@ class NotificationHandler {
     func setWeekly(day: Int) {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         let content = UNMutableNotificationContent()
-        content.title = "New Weekly Article!"
-        content.body = "This one might be cool, better check it out"
+        content.title = "notifications.header.weekly".localized
+        content.body = "notifications.body".localized
         var components = DateComponents()
         components.calendar = Calendar.current
         components.hour = 10

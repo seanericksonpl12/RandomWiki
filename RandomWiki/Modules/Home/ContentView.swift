@@ -25,8 +25,8 @@ struct ContentView: View {
                 VStack {
                     HStack {
                         HStack {
-                            Text("menu.title".localized)
-                                .scaledFont(name: "Montserrat-Bold", size: 36)
+                            Text(UserDefaults.standard.getNotificationOptions() == .daily ? "menu.title".localized : "menu.title.weekly".localized)
+                                .scaledFont(name: "Montserrat-Bold", size: UserDefaults.standard.getNotificationOptions() == .daily ? 36 : 34)
                         }
                         .padding(.leading, 10)
                         Spacer()
