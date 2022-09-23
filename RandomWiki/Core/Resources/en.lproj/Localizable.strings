@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  RandomWiki
+
+  Created by Sean Erickson on 9/6/22.
+  
+*/
+// MARK: - Basic
+"yes.upper" = "Yes";
+"yes.lower" = "yes";
+"no.upper" = "No";
+"no.lower" = "no";
+"cancel.upper" = "Cancel";
+"cancel.lower" = "cancel";
+
+// MARK: - Menu
+"menu.title" = "Daily Article";
+"menu.self" = "Menu";
+
+// MARK: - Settings
+"settings.title" = "Settings";
+"settings.clear" = "Clear Data";
+"settings.clearTitle" = "Clear All Data?";
+
+// MARK: - Favorites
+"favorites.noDescription" = "Sorry, we couldn't seem to find a description.";
+"favorites.empty" = "Nothing here yet...";
+"favorites.title" = "Favorites";
+
+// MARK: - Notifications
+"notifications.title" = "Notifications";
+"notifications.allowed" = "Notifications Allowed";
+
+// MARK: - Fonts
+"font.size" = "Font Size";
+"font.adjust" = "Adjust to Scaled Font";
+"font.footer" = "Scales the font to your device's settings";
+"font.custom.footer" = "Set a custom font size";
+
+// MARK: - Days of the Week
+"day.dayOfWeek" = "Day of the Week";
+"day.1" = "Sunday";
+"day.2" = "Monday";
+"day.3" = "Tuesday";
+"day.4" = "Wednesday";
+"day.5" = "Thursday";
+"day.6" = "Friday";
+"day.7" = "Saturday";
