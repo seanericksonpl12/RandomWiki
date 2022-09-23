@@ -17,6 +17,8 @@ final class MockNavAction: WKNavigationAction {
 class WebLoaderTests: XCTestCase {
     var webView: WebView!
     var loader: WebKitLoader!
+    let navigation = WKNavigation()
+    let mockView = WKWebView()
     
     override func setUp() {
         super.setUp()
@@ -56,6 +58,15 @@ class WebLoaderTests: XCTestCase {
         await loader.webView(loader, decidePolicyFor: navigation, decisionHandler: {_ in})
         let val = await loader.canGoBack
         XCTAssertTrue(val)
+    }
+    
+    func testBackForwardNavigation() {
+        loader.canGoBackWithRefresh = true
+        loader.webView(mockView, didFinish: navigation)
+        XCTAssertTrue(mockView.allowsBackForwardNavigationGestures)
+        loader.canGoBackWithRefresh = false
+        loader.webView(mockView, didFinish: navigation)
+        XCTAssertFalse(mockView.allowsBackForwardNavigationGestures)
     }
     
     

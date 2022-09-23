@@ -17,8 +17,8 @@ class NotificationHandler {
         content.title = "New Daily Article!"
         content.body = "This one might be cool, better check it out"
         var components = DateComponents()
-        components.hour = 18
-        components.minute = 31
+        components.hour = 10
+        components.minute = 0
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let uuid = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
@@ -36,6 +36,7 @@ class NotificationHandler {
         var components = DateComponents()
         components.calendar = Calendar.current
         components.hour = 10
+        components.minute = 0
         components.day = day
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let uuid = UUID().uuidString
