@@ -2,9 +2,7 @@
 //  ScaledFont.swift
 //  RandomWiki
 //
-//  Code snippet created by Paul Hudson
-//  Twitter: @twostraws
-//  Starting Code from: https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-dynamic-type-with-a-custom-font
+//
 //
 
 import SwiftUI
@@ -28,7 +26,7 @@ struct ScaledFont: ViewModifier {
     }
 }
 
-@available(iOS 13, macCatalyst 13, tvOS 13, watchOS 6, *)
+@available(iOS 13, *)
 extension View {
     func scaledFont(name: String, size: Double) -> some View {
         return self.modifier(ScaledFont(name: name, size: size))

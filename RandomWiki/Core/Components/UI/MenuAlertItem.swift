@@ -49,8 +49,6 @@ struct MenuAlertItem: View {
                 Text(message)
             }
         }
-        
-        
     }
 }
 

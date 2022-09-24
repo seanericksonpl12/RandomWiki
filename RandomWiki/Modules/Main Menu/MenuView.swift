@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuView: View {
     // MARK: - Dependencies
     @StateObject var viewModel = MenuViewModel()
-    
+    @StateObject var store: StoreManager
     // MARK: - Properties
     let width: CGFloat
     let isOpen: Bool
@@ -42,7 +42,7 @@ struct MenuView: View {
                                 Divider()
                                 MenuContentsView(selected: viewModel.menuSelected, favoriteAction: favoritesAction)
                                     .modifier(MenuItemModifier(selected: $viewModel.menuSelected))
-                                SettingsContentView(selected: viewModel.settingsSelected)
+                                SettingsContentView(store: store, selected: viewModel.settingsSelected)
                                     .modifier(MenuItemModifier(selected: $viewModel.settingsSelected))
                             }
                             

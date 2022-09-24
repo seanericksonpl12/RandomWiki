@@ -12,6 +12,9 @@ struct SettingsContentView: View {
     @Environment(\.managedObjectContext) var context
     @FetchRequest(sortDescriptors: []) var favorites: FetchedResults<ArticleModel>
     
+    // MARK: - In-App Purchasing
+    @StateObject var store: StoreManager
+    
     // MARK: - Stored Properties
     var selected: Bool
     
@@ -53,12 +56,12 @@ struct SettingsContentView: View {
                         Divider().padding(.leading)
                         MenuAlertItem(iconName: "dollarsign.circle.fill",
                                       iconColor: .green,
-                                      title: "Donate",
-                                      alertTitle: "Give me 2 dollars",
-                                      message: "I get 2 dollars and you get nothing. What a deal!",
-                                      yesOption: "$2.00",
-                                      alertAction: {})
-                            .padding(.bottom)
+                                      title: "donation.title".localized,
+                                      alertTitle: "donation.alert.title".localized,
+                                      message: "donation.alert.message".localized,
+                                      yesOption: "donation.alert.button".localized,
+                                      alertAction: {store.buyProduct(product: store.myProduct)})
+                        .padding(.bottom)
                     }
                 }
             }

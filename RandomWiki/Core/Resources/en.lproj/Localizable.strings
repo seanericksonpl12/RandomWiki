@@ -50,3 +50,9 @@
 "day.5" = "Thursday";
 "day.6" = "Friday";
 "day.7" = "Saturday";
+
+// MARK: - In-App Purchases
+"donation.title" = "Donate";
+"donation.alert.title" = "Give me 2 dollars";
+"donation.alert.message" = "I get 2 dollars and you get nothing. What a deal!";
+"donation.alert.button" = "Waste $1.99";
