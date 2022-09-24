@@ -12,6 +12,9 @@ struct SettingsContentView: View {
     @Environment(\.managedObjectContext) var context
     @FetchRequest(sortDescriptors: []) var favorites: FetchedResults<ArticleModel>
     
+    // MARK: - In-App Purchasing
+    @StateObject var store: StoreManager
+    
     // MARK: - Stored Properties
     var selected: Bool
     
@@ -35,12 +38,30 @@ struct SettingsContentView: View {
                 // MARK: - Dropdown Menu
                 if selected {
                     VStack(spacing: 10) {
-                        MenuItem<NotificationsView>(iconName: "bell.badge.fill", iconColor: .yellow, title: "notifications.title".localized, destination: {NotificationsView()})
+                        MenuItem<NotificationsView>(iconName: "bell.badge.fill",
+                                                    iconColor: .yellow,
+                                                    title: "notifications.title".localized,
+                                                    destination: {NotificationsView()})
                         Divider().padding(.leading)
-                        MenuItem<FontSizeView>(iconName: "textformat.size", iconColor: .blue, title: "font.size".localized, destination: {FontSizeView()})
+                        MenuItem<FontSizeView>(iconName: "textformat.size",
+                                               iconColor: .blue,
+                                               title: "font.size".localized,
+                                               destination: {FontSizeView()})
                         Divider().padding(.leading)
-                        MenuAlertItem(iconName: "trash.fill", iconColor: .gray, title: "settings.clear".localized, alertTitle: "settings.clearTitle".localized, alertAction: clearData)
-                            .padding(.bottom)
+                        MenuAlertItem(iconName: "trash.fill",
+                                      iconColor: .gray,
+                                      title: "settings.clear".localized,
+                                      alertTitle: "settings.clearTitle".localized,
+                                      alertAction: clearData)
+                        Divider().padding(.leading)
+                        MenuAlertItem(iconName: "dollarsign.circle.fill",
+                                      iconColor: .green,
+                                      title: "donation.title".localized,
+                                      alertTitle: "donation.alert.title".localized,
+                                      message: "donation.alert.message".localized,
+                                      yesOption: "donation.alert.button".localized,
+                                      alertAction: {store.buyProduct(product: store.myProduct)})
+                        .padding(.bottom)
                     }
                 }
             }

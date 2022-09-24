@@ -18,6 +18,9 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(sortDescriptors: []) var favorites: FetchedResults<ArticleModel>
     
+    // MARK: - In-App Purchase Manager
+    @StateObject var store: StoreManager
+    
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -64,7 +67,7 @@ struct ContentView: View {
                 .background(Color("Background-Light"))
                 
                 // MARK: - Menu Side Panel
-                MenuView(width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction)
+                MenuView(store: store, width: 300, isOpen: viewModel.menuOpen, menuClose: self.openMenu, favoritesAction: viewModel.favoriteAction)
                     .animation(.easeInOut, value: viewModel.menuOpen)
             }
             .navigationBarHidden(true)
@@ -86,7 +89,7 @@ struct ContentView: View {
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentView.ContentViewModel())
+        ContentView(viewModel: ContentView.ContentViewModel(), store: StoreManager())
             .previewInterfaceOrientation(.portrait)
     }
 }

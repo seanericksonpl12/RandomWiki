@@ -16,6 +16,8 @@
 		923F72FD28DD255700259C01 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F72FC28DD255700259C01 /* NotificationNameExtension.swift */; };
 		92437DCF28D9F5F500E72D8E /* SettingsContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437DCE28D9F5F500E72D8E /* SettingsContentViewTests.swift */; };
 		92437DD328DA52C700E72D8E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437DD228DA52C700E72D8E /* CustomSlider.swift */; };
+		92476EFC28DF44C700152BE3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92476EFB28DF44C700152BE3 /* StoreKit.framework */; };
+		92476EFF28DF45CA00152BE3 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92476EFE28DF45CA00152BE3 /* StoreManager.swift */; };
 		927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */; };
 		927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB76128BAE4D800B6C07B /* ContentViewModel.swift */; };
 		927CB76428BBC84200B6C07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76328BBC84200B6C07B /* GoogleService-Info.plist */; };
@@ -168,6 +170,8 @@
 		923F72FC28DD255700259C01 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		92437DCE28D9F5F500E72D8E /* SettingsContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentViewTests.swift; sourceTree = "<group>"; };
 		92437DD228DA52C700E72D8E /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		92476EFB28DF44C700152BE3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		92476EFE28DF45CA00152BE3 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureTypes.swift; sourceTree = "<group>"; };
 		927CB76128BAE4D800B6C07B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		927CB76328BBC84200B6C07B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 				92FC7C1028C7ABE5005BBA16 /* Lottie in Frameworks */,
 				92E2005B28B99AA6009FDD4E /* FirebaseMessaging in Frameworks */,
 				92FC7C0128C66A27005BBA16 /* SwiftSoup in Frameworks */,
+				92476EFC28DF44C700152BE3 /* StoreKit.framework in Frameworks */,
 				92E2005728B99AA6009FDD4E /* FirebaseAnalytics in Frameworks */,
 				92E2005928B99AA6009FDD4E /* FirebaseAuth in Frameworks */,
 			);
@@ -276,6 +281,14 @@
 				9236FD2828C3B65000ADA10E /* WebKitLoader.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		92476EFA28DF44C700152BE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92476EFB28DF44C700152BE3 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		927CB75C28BADD9C00B6C07B /* Extensions */ = {
@@ -413,6 +426,7 @@
 				92E2003428B99487009FDD4E /* RandomWikiTests */,
 				92E2003E28B99487009FDD4E /* RandomWikiUITests */,
 				92E2002228B99486009FDD4E /* Products */,
+				92476EFA28DF44C700152BE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -518,6 +532,7 @@
 				92FC7C3228CBFB7A005BBA16 /* NotificationOptions.swift */,
 				92FC7C3A28CE2482005BBA16 /* ArticleDetails.swift */,
 				923F72F828DCA79300259C01 /* NotificationHandler.swift */,
+				92476EFE28DF45CA00152BE3 /* StoreManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -855,6 +870,7 @@
 				927CB7DB28BE692F00B6C07B /* MenuViewModel.swift in Sources */,
 				927CB76928BBDAA200B6C07B /* ScaledFont.swift in Sources */,
 				92FC7C3628CCB145005BBA16 /* DataStorage.xcdatamodeld in Sources */,
+				92476EFF28DF45CA00152BE3 /* StoreManager.swift in Sources */,
 				92FC7C0828C79599005BBA16 /* StringExtensions.swift in Sources */,
 				92FC7C2028C8DA01005BBA16 /* MenuItem.swift in Sources */,
 				92FC7C0D28C7A80D005BBA16 /* LoadingView.swift in Sources */,

@@ -14,6 +14,8 @@ struct MenuAlertItem: View {
     var iconColor: Color
     var title: String
     var alertTitle: String
+    var message: String?
+    var yesOption: String = "yes.upper".localized
     var alertAction: SimpleClosure
     
     // MARK: - State Properties
@@ -40,7 +42,12 @@ struct MenuAlertItem: View {
             alert = true
         }
         .alert(alertTitle, isPresented: $alert){
-            Button("yes.upper".localized, role: .destructive){ alertAction() }
+            Button(yesOption, role: .destructive){ alertAction() }
+        }
+        message: {
+            if let message = message {
+                Text(message)
+            }
         }
     }
 }

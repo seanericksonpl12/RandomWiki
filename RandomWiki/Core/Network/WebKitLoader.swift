@@ -34,7 +34,8 @@ extension WebKitLoader {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if navigationAction.navigationType == .linkActivated { self.canGoBackWithRefresh = true }
-        decisionHandler(.allow)
+        if !(navigationAction.request.url?.absoluteString.contains("wikipedia.org") ?? false) { decisionHandler(.cancel) }
+        else { decisionHandler(.allow) }
     }
     
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
