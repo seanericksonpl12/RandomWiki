@@ -12,6 +12,8 @@ import WebKit
 
 final class MockNavAction: WKNavigationAction {
     override var navigationType: WKNavigationType { WKNavigationType.linkActivated }
+    override var request: URLRequest { if validURL { return URLRequest(url: URL(string:"https://en.wikipedia.org")!)} else { return URLRequest(url: URL(string: "https://www.google.com")!)}}
+    var validURL: Bool = true
 }
 
 class WebLoaderTests: XCTestCase {
@@ -55,9 +57,14 @@ class WebLoaderTests: XCTestCase {
     
     func testNavPolicy() async {
         let navigation = MockNavAction()
-        await loader.webView(loader, decidePolicyFor: navigation, decisionHandler: {_ in})
-        let val = await loader.canGoBack
-        XCTAssertTrue(val)
+        navigation.validURL = false
+        var check = 0
+        await loader.webView(loader, decidePolicyFor: navigation, decisionHandler: {decision in if decision == .cancel { check+=1}})
+        XCTAssertEqual(check, 1)
+        check = 0
+        navigation.validURL = true
+        await loader.webView(loader, decidePolicyFor: navigation, decisionHandler: {decision in if decision == .allow { check+=1}})
+        XCTAssertEqual(check, 1)
     }
     
     func testBackForwardNavigation() {

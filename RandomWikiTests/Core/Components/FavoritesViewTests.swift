@@ -24,7 +24,7 @@ final class FavoritesViewTests: XCTestCase {
     override func setUp() {
         super.setUp()
         context = DataController(.inMemory)
-        content = ContentView()
+        content = ContentView(store: StoreManager())
         view = FavoritesView()
         // Cannot start with empty data stack or VI throws error
         let id = UUID()

@@ -24,8 +24,8 @@ class SettingsContentViewTests: XCTestCase {
         super.setUp()
         self.selected = true
         context = DataController(.inMemory)
-        content = ContentView()
-        view = SettingsContentView(selected: self.selected)
+        content = ContentView(store: StoreManager())
+        view = SettingsContentView(store: self.content.store, selected: self.selected)
         // Cannot start with empty data stack or VI throws error
         let id = UUID()
         let article = Article(id: id, title: "Test")

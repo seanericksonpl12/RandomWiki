@@ -19,7 +19,7 @@ final class CoreDataTests: XCTestCase {
     override func setUp() {
         super.setUp()
         coreDataStack = DataController(.inMemory)
-        view = ContentView()
+        view = ContentView(store: StoreManager())
         continueAfterFailure = false
     }
     

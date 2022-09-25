@@ -18,6 +18,7 @@
 		92437DD328DA52C700E72D8E /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437DD228DA52C700E72D8E /* CustomSlider.swift */; };
 		92476EFC28DF44C700152BE3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92476EFB28DF44C700152BE3 /* StoreKit.framework */; };
 		92476EFF28DF45CA00152BE3 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92476EFE28DF45CA00152BE3 /* StoreManager.swift */; };
+		9277C54A28E0B1BC00F8C951 /* StoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277C54928E0B1BC00F8C951 /* StoreManagerTests.swift */; };
 		927CB76028BAE1A100B6C07B /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */; };
 		927CB76228BAE4D800B6C07B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CB76128BAE4D800B6C07B /* ContentViewModel.swift */; };
 		927CB76428BBC84200B6C07B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 927CB76328BBC84200B6C07B /* GoogleService-Info.plist */; };
@@ -172,6 +173,7 @@
 		92437DD228DA52C700E72D8E /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		92476EFB28DF44C700152BE3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		92476EFE28DF45CA00152BE3 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		9277C54928E0B1BC00F8C951 /* StoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagerTests.swift; sourceTree = "<group>"; };
 		927CB75F28BAE1A100B6C07B /* ClosureTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureTypes.swift; sourceTree = "<group>"; };
 		927CB76128BAE4D800B6C07B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		927CB76328BBC84200B6C07B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -291,6 +293,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9277C54828E0B1AE00F8C951 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9277C54928E0B1BC00F8C951 /* StoreManagerTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		927CB75C28BADD9C00B6C07B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +377,7 @@
 		92AE03BA28D3EA9600C6305B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9277C54828E0B1AE00F8C951 /* Models */,
 				92AE03DB28D51C1000C6305B /* Storage */,
 				92AE03BF28D3EACA00C6305B /* Network */,
 				92AE03BD28D3EAB600C6305B /* Components */,
@@ -886,6 +897,7 @@
 			files = (
 				92AE03E728D8B05B00C6305B /* FavoritesViewTests.swift in Sources */,
 				92AE03C728D4DF5400C6305B /* NotificationOptions.swift in Sources */,
+				9277C54A28E0B1BC00F8C951 /* StoreManagerTests.swift in Sources */,
 				92AE03E128D555C300C6305B /* WebLoaderTests.swift in Sources */,
 				92AE03C828D4DF5400C6305B /* ArticleDetails.swift in Sources */,
 				92AE03EC28D8D39200C6305B /* NotificationViewTests.swift in Sources */,
