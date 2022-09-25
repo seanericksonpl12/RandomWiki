@@ -90,9 +90,3 @@ struct FavoritesView: View {
         .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
-
-//struct FavoritesView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FavoritesView(favorites: $[])
-//    }
-//}
