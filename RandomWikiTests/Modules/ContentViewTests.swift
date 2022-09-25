@@ -15,7 +15,7 @@ import XCTest
      override func setUp() {
          super.setUp()
         continueAfterFailure = false
-        view = ContentView()
+        view = ContentView(store: StoreManager())
     }
     
     func testInitialLoad() {

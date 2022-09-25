@@ -20,13 +20,13 @@ class MenuViewTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        view = MenuView(width: 300, isOpen: false, menuClose: {}, favoritesAction: {_ in})
+        view = MenuView(store: StoreManager(), width: 300, isOpen: false, menuClose: {}, favoritesAction: {_ in})
         continueAfterFailure = false
     }
     
     func testMenuOpen() {
         var check = 0
-        view = MenuView(width: 300, isOpen: true, menuClose: {check+=1}, favoritesAction: {_ in})
+        view = MenuView(store: StoreManager(), width: 300, isOpen: true, menuClose: {check+=1}, favoritesAction: {_ in})
         let exp = view.inspection.inspect { view in
             try view.vStack(0).zStack(0).geometryReader(0).callOnTapGesture()
         }
@@ -37,7 +37,7 @@ class MenuViewTests: XCTestCase {
     
     @MainActor func testMenuContents() {
         
-        view = MenuView(width: 300, isOpen: true, menuClose: {}, favoritesAction: {_ in})
+        view = MenuView(store: StoreManager(), width: 300, isOpen: true, menuClose: {}, favoritesAction: {_ in})
         let exp = view.inspection.inspect { view in
             try view.actualView().viewModel.menuSelected = false
             let arr = view.findAll(RandomWiki.MenuContentsView.self)
