@@ -12,21 +12,13 @@ import Lottie
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     
-    var didReload: Bool = false
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         LottieLogger.shared = .printToConsole
         Messaging.messaging().delegate = self
-        
-        UserDefaults.standard.register(defaults: [
-            "fontSize" : 16,
-            "scaledFontEnabled" : true,
-            "notificationDate" : 1,
-            "notificationsEnabled" : true,
-            "reload" : false
-        ])
+        setUserDefaults()
         
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
@@ -77,7 +69,6 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             print("Message ID: \(messageID)")
         }
         NotificationCenter.default.post(.updateWebView)
-        didReload = true
         print(userInfo)
         completionHandler([[.banner, .badge, .sound]])
     }
@@ -98,12 +89,28 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID from userNotificationCenter didReceive: \(messageID)")
         }
-        if !didReload {
-            NotificationCenter.default.post(.updateWebView)
-        }
-        didReload = false
+        NotificationCenter.default.post(.updateWebView)
         print(userInfo)
-        
         completionHandler()
+    }
+}
+
+// MARK: - Initial Setup
+extension AppDelegate {
+    
+    func setUserDefaults() {
+        var data: Data = Data()
+        let encoder = JSONEncoder()
+        do {
+            data = try encoder.encode(NotificationOptions.daily)
+        } catch { print(error.localizedDescription) }
+        
+        UserDefaults.standard.register(defaults: [
+            "fontSize" : 16,
+            "scaledFontEnabled" : true,
+            "notificationDate" : 1,
+            "notificationsEnabled" : true,
+            "notificationSettings" : data
+        ])
     }
 }
