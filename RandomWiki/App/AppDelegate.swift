@@ -36,6 +36,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
         
         application.registerForRemoteNotifications()
+        setNotificationActions()
         return true
     }
     
@@ -74,11 +75,9 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -89,7 +88,13 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID from userNotificationCenter didReceive: \(messageID)")
         }
-        NotificationCenter.default.post(.updateWebView)
+        if response.actionIdentifier == "open" {
+            NotificationCenter.default.post(.updateWebView)
+        }
+        else if response.actionIdentifier == "read" {
+            NotificationCenter.default.post(.readText)
+        }
+        
         print(userInfo)
         completionHandler()
     }
@@ -112,5 +117,22 @@ extension AppDelegate {
             "notificationsEnabled" : true,
             "notificationSettings" : data
         ])
+    }
+    
+    func setNotificationActions() {
+        let openAppAction = UNNotificationAction(identifier: "open", title: "Open in app", options: [.foreground])
+        let readDescription = UNNotificationAction(identifier: "read", title: "Play Reader")
+        let category = UNNotificationCategory(identifier: "notifications.local", actions: [openAppAction, readDescription], intentIdentifiers: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+//        let content = UNMutableNotificationContent()
+//        content.title = "Test"
+//        content.categoryIdentifier = "notifications.local"
+//        content.subtitle = "Testing ..."
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+//        let notificationCenter = UNUserNotificationCenter.current()
+//        notificationCenter.add(request) { error in
+//            if let error = error { print(error) }
+//        }
     }
 }
