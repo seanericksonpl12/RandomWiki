@@ -8,6 +8,7 @@
 import SwiftUI
 import UserNotifications
 import WebKit
+import AVFoundation
 
 struct ContentView: View {
     
@@ -39,6 +40,11 @@ struct ContentView: View {
                                 .foregroundColor(.yellow)
                                 .onTapGesture {
                                     viewModel.saveCoreData(viewModel.currentArticle, context: managedObjectContext, list: favorites)
+                                }
+                            Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill")
+                                .foregroundColor(.gray)
+                                .onTapGesture {
+                                    viewModel.readArticle()
                                 }
                             Image(systemName: "arrow.clockwise")
                                 .foregroundColor(.gray)
@@ -74,6 +80,9 @@ struct ContentView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: .updateWebView)) { _ in
             viewModel.getArticle()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .readText)) { _ in
+            viewModel.readArticle(inBackground: true)
         }
     }
     

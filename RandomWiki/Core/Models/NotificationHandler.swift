@@ -16,6 +16,7 @@ class NotificationHandler {
         let content = UNMutableNotificationContent()
         content.title = "notifications.header.daily".localized
         content.body = "notifications.body".localized
+        content.categoryIdentifier = "notifications.local"
         var components = DateComponents()
         components.hour = 10
         components.minute = 0
@@ -33,6 +34,7 @@ class NotificationHandler {
         let content = UNMutableNotificationContent()
         content.title = "notifications.header.weekly".localized
         content.body = "notifications.body".localized
+        content.categoryIdentifier = "notifications.local"
         var components = DateComponents()
         components.calendar = Calendar.current
         components.hour = 10
