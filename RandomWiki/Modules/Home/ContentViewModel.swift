@@ -102,8 +102,10 @@ extension ContentView {
                 guard let description = self.currentArticle.description else { return }
                 let line = self.currentArticle.title + ". " + description
                 if inBackground {
+                    speaker.currentArticleTitle = self.currentArticle.title
                     speaker.backgroundSpeak(line: line)
                 } else {
+                    speaker.currentArticleTitle = self.currentArticle.title
                     speaker.speak(line: line)
                 }
             }

@@ -14,6 +14,7 @@ open class SpeechHandler: NSObject {
     var synth: AVSpeechSynthesizer = AVSpeechSynthesizer()
     var completionHandler: SimpleClosure
     var startAction: SimpleClosure
+    var currentArticleTitle: String?
     
     override init() {
         self.completionHandler = {}
@@ -21,11 +22,12 @@ open class SpeechHandler: NSObject {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback,
                                                             mode: .voicePrompt,
-                                                            options: [.mixWithOthers, .allowAirPlay])
+                                                            options: [.allowAirPlay])
             try AVAudioSession.sharedInstance().setActive(true)
         } catch { print(error) }
         super.init()
         synth.delegate = self
+        setupCommandCenter()
     }
 }
 
@@ -61,9 +63,11 @@ extension SpeechHandler: AVSpeechSynthesizerDelegate {
     
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         completionHandler()
+        self.currentArticleTitle = nil
     }
     
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+        updateInfoCenter()
         startAction()
     }
     
@@ -77,5 +81,34 @@ extension SpeechHandler: AVSpeechSynthesizerDelegate {
     
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didContinue utterance: AVSpeechUtterance) {
         startAction()
+    }
+    
+    public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
+        updateInfoCenter()
+    }
+}
+
+// MARK: - Remote Command Center
+extension SpeechHandler: AVAudioPlayerDelegate {
+    
+    private func setupCommandCenter() {
+        let rcc = MPRemoteCommandCenter.shared()
+        rcc.playCommand.addTarget { [weak self] event in
+            guard let self = self else { return .commandFailed }
+            self.synth.continueSpeaking()
+            return .success
+        }
+        rcc.pauseCommand.addTarget { [weak self] event in
+            guard let self = self else { return .commandFailed }
+            self.synth.pauseSpeaking(at: .immediate)
+            return .success
+        }
+    }
+    
+    private func updateInfoCenter() {
+        let infoCenter = MPNowPlayingInfoCenter.default()
+        infoCenter.nowPlayingInfo = [MPMediaItemPropertyTitle: currentArticleTitle ?? "Wikipedia Article", MPMediaItemPropertyArtist: "Random Wiki", MPMediaItemPropertyAlbumTitle: "", MPMediaItemPropertyArtwork: MPMediaItemArtwork(boundsSize: CGSize(width: 120, height: 120), requestHandler: { (size) -> UIImage in
+            UIImage(named: "globe-logo") ?? UIImage()
+           })]
     }
 }
