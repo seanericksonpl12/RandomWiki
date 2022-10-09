@@ -11,6 +11,16 @@
 		9236FD2928C3B65000ADA10E /* WebKitLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236FD2828C3B65000ADA10E /* WebKitLoader.swift */; };
 		923CD6AB28D8E8830092A96C /* FontSizeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */; };
 		923CD6AD28D8F4640092A96C /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AC28D8F4640092A96C /* MenuItemTests.swift */; };
+		923F061328EC968A0000EC8F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923F061228EC968A0000EC8F /* WidgetKit.framework */; };
+		923F061528EC968A0000EC8F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923F061428EC968A0000EC8F /* SwiftUI.framework */; };
+		923F061828EC968A0000EC8F /* Random_Wiki_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F061728EC968A0000EC8F /* Random_Wiki_Widget.swift */; };
+		923F061A28EC968B0000EC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923F061928EC968B0000EC8F /* Assets.xcassets */; };
+		923F061E28EC968B0000EC8F /* Random Wiki WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 923F061128EC968A0000EC8F /* Random Wiki WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		923F062428EC980E0000EC8F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F062328EC980E0000EC8F /* Provider.swift */; };
+		923F062628EC982A0000EC8F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F062528EC982A0000EC8F /* Entry.swift */; };
+		923F062828EC987C0000EC8F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F062728EC987C0000EC8F /* EntryView.swift */; };
+		923F062D28EC9A8E0000EC8F /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F062C28EC9A8E0000EC8F /* LargeWidgetView.swift */; };
+		923F062F28EC9A9D0000EC8F /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F062E28EC9A9D0000EC8F /* MediumWidgetView.swift */; };
 		923F72F928DCA79300259C01 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F72F828DCA79300259C01 /* NotificationHandler.swift */; };
 		923F72FB28DCD02700259C01 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F72FA28DCD02700259C01 /* NotificationsViewModel.swift */; };
 		923F72FD28DD255700259C01 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F72FC28DD255700259C01 /* NotificationNameExtension.swift */; };
@@ -147,6 +157,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		923F061C28EC968B0000EC8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92E2001928B99486009FDD4E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 923F061028EC968A0000EC8F;
+			remoteInfo = "Random Wiki WidgetExtension";
+		};
 		92E2003228B99487009FDD4E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 92E2001928B99486009FDD4E /* Project object */;
@@ -163,11 +180,39 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		923F061F28EC968B0000EC8F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				923F061E28EC968B0000EC8F /* Random Wiki WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9236FD2428C3B1A300ADA10E /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		9236FD2828C3B65000ADA10E /* WebKitLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitLoader.swift; sourceTree = "<group>"; };
 		923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeViewTests.swift; sourceTree = "<group>"; };
 		923CD6AC28D8F4640092A96C /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
+		923F061128EC968A0000EC8F /* Random Wiki WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Random Wiki WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		923F061228EC968A0000EC8F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		923F061428EC968A0000EC8F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		923F061728EC968A0000EC8F /* Random_Wiki_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random_Wiki_Widget.swift; sourceTree = "<group>"; };
+		923F061928EC968B0000EC8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		923F061B28EC968B0000EC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		923F062328EC980E0000EC8F /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		923F062528EC982A0000EC8F /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		923F062728EC987C0000EC8F /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		923F062C28EC9A8E0000EC8F /* LargeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeWidgetView.swift; sourceTree = "<group>"; };
+		923F062E28EC9A9D0000EC8F /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
+		923F063028ECFEA50000EC8F /* RandomWikiRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandomWikiRelease.entitlements; sourceTree = "<group>"; };
+		923F063128ECFEDB0000EC8F /* Random Wiki WidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Random Wiki WidgetExtensionRelease.entitlements"; sourceTree = "<group>"; };
+		923F063228EF210F0000EC8F /* Random Wiki WidgetExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Random Wiki WidgetExtensionDebug.entitlements"; sourceTree = "<group>"; };
 		923F72F828DCA79300259C01 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		923F72FA28DCD02700259C01 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		923F72FC28DD255700259C01 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
@@ -249,6 +294,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		923F060E28EC968A0000EC8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				923F061528EC968A0000EC8F /* SwiftUI.framework in Frameworks */,
+				923F061328EC968A0000EC8F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92E2001E28B99486009FDD4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,10 +343,51 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		923F061628EC968A0000EC8F /* Random Wiki Widget */ = {
+			isa = PBXGroup;
+			children = (
+				923F061B28EC968B0000EC8F /* Info.plist */,
+				923F062A28EC9A5C0000EC8F /* Main */,
+				923F062B28EC9A780000EC8F /* Components */,
+				923F062928EC9A4B0000EC8F /* Resources */,
+			);
+			path = "Random Wiki Widget";
+			sourceTree = "<group>";
+		};
+		923F062928EC9A4B0000EC8F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				923F061928EC968B0000EC8F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		923F062A28EC9A5C0000EC8F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				923F062728EC987C0000EC8F /* EntryView.swift */,
+				923F062528EC982A0000EC8F /* Entry.swift */,
+				923F062328EC980E0000EC8F /* Provider.swift */,
+				923F061728EC968A0000EC8F /* Random_Wiki_Widget.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		923F062B28EC9A780000EC8F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				923F062C28EC9A8E0000EC8F /* LargeWidgetView.swift */,
+				923F062E28EC9A9D0000EC8F /* MediumWidgetView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		92476EFA28DF44C700152BE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				92476EFB28DF44C700152BE3 /* StoreKit.framework */,
+				923F061228EC968A0000EC8F /* WidgetKit.framework */,
+				923F061428EC968A0000EC8F /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -437,9 +532,12 @@
 		92E2001828B99486009FDD4E = {
 			isa = PBXGroup;
 			children = (
+				923F063228EF210F0000EC8F /* Random Wiki WidgetExtensionDebug.entitlements */,
+				923F063128ECFEDB0000EC8F /* Random Wiki WidgetExtensionRelease.entitlements */,
 				92E2002328B99486009FDD4E /* RandomWiki */,
 				92E2003428B99487009FDD4E /* RandomWikiTests */,
 				92E2003E28B99487009FDD4E /* RandomWikiUITests */,
+				923F061628EC968A0000EC8F /* Random Wiki Widget */,
 				92E2002228B99486009FDD4E /* Products */,
 				92476EFA28DF44C700152BE3 /* Frameworks */,
 			);
@@ -451,6 +549,7 @@
 				92E2002128B99486009FDD4E /* RandomWiki.app */,
 				92E2003128B99487009FDD4E /* RandomWikiTests.xctest */,
 				92E2003B28B99487009FDD4E /* RandomWikiUITests.xctest */,
+				923F061128EC968A0000EC8F /* Random Wiki WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -458,6 +557,7 @@
 		92E2002328B99486009FDD4E /* RandomWiki */ = {
 			isa = PBXGroup;
 			children = (
+				923F063028ECFEA50000EC8F /* RandomWikiRelease.entitlements */,
 				927CB76728BBC9D800B6C07B /* RandomWiki.entitlements */,
 				927CB76328BBC84200B6C07B /* GoogleService-Info.plist */,
 				92E2005428B99715009FDD4E /* Info.plist */,
@@ -643,6 +743,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		923F061028EC968A0000EC8F /* Random Wiki WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 923F062228EC968B0000EC8F /* Build configuration list for PBXNativeTarget "Random Wiki WidgetExtension" */;
+			buildPhases = (
+				923F060D28EC968A0000EC8F /* Sources */,
+				923F060E28EC968A0000EC8F /* Frameworks */,
+				923F060F28EC968A0000EC8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Random Wiki WidgetExtension";
+			productName = "Random Wiki WidgetExtension";
+			productReference = 923F061128EC968A0000EC8F /* Random Wiki WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		92E2002028B99486009FDD4E /* RandomWiki */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92E2004528B99487009FDD4E /* Build configuration list for PBXNativeTarget "RandomWiki" */;
@@ -650,10 +767,12 @@
 				92E2001D28B99486009FDD4E /* Sources */,
 				92E2001E28B99486009FDD4E /* Frameworks */,
 				92E2001F28B99486009FDD4E /* Resources */,
+				923F061F28EC968B0000EC8F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				923F061D28EC968B0000EC8F /* PBXTargetDependency */,
 			);
 			name = RandomWiki;
 			packageProductDependencies = (
@@ -713,9 +832,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					923F061028EC968A0000EC8F = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
 					92E2002028B99486009FDD4E = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -751,11 +873,20 @@
 				92E2002028B99486009FDD4E /* RandomWiki */,
 				92E2003028B99487009FDD4E /* RandomWikiTests */,
 				92E2003A28B99487009FDD4E /* RandomWikiUITests */,
+				923F061028EC968A0000EC8F /* Random Wiki WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		923F060F28EC968A0000EC8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				923F061A28EC968B0000EC8F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92E2001F28B99486009FDD4E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -857,6 +988,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		923F060D28EC968A0000EC8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				923F062628EC982A0000EC8F /* Entry.swift in Sources */,
+				923F062428EC980E0000EC8F /* Provider.swift in Sources */,
+				923F061828EC968A0000EC8F /* Random_Wiki_Widget.swift in Sources */,
+				923F062F28EC9A9D0000EC8F /* MediumWidgetView.swift in Sources */,
+				923F062828EC987C0000EC8F /* EntryView.swift in Sources */,
+				923F062D28EC9A8E0000EC8F /* LargeWidgetView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92E2001D28B99486009FDD4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -934,6 +1078,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		923F061D28EC968B0000EC8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 923F061028EC968A0000EC8F /* Random Wiki WidgetExtension */;
+			targetProxy = 923F061C28EC968B0000EC8F /* PBXContainerItemProxy */;
+		};
 		92E2003328B99487009FDD4E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 92E2002028B99486009FDD4E /* RandomWiki */;
@@ -958,6 +1107,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		923F062028EC968B0000EC8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Random Wiki WidgetExtensionDebug.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LT8F54FWJ7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Random Wiki Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Random Wiki Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seane.RandomWiki.Random-Wiki-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		923F062128EC968B0000EC8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Random Wiki WidgetExtensionRelease.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LT8F54FWJ7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Random Wiki Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Random Wiki Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seane.RandomWiki.Random-Wiki-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		92E2004328B99487009FDD4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1075,6 +1284,7 @@
 		92E2004628B99487009FDD4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RandomWiki/RandomWiki.entitlements;
@@ -1106,9 +1316,10 @@
 		92E2004728B99487009FDD4E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = RandomWiki/RandomWiki.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RandomWiki/RandomWikiRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RandomWiki/Preview Content\"";
@@ -1213,6 +1424,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		923F062228EC968B0000EC8F /* Build configuration list for PBXNativeTarget "Random Wiki WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				923F062028EC968B0000EC8F /* Debug */,
+				923F062128EC968B0000EC8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		92E2001C28B99486009FDD4E /* Build configuration list for PBXProject "RandomWiki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

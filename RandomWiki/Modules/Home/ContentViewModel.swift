@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 import WebKit
 import CoreData
+import WidgetKit
 
 extension ContentView {
     @MainActor class ContentViewModel: ObservableObject {
@@ -36,6 +37,12 @@ extension ContentView {
                 self.currentArticle.url = details.url
                 self.currentArticle.description = details.description
                 self.loading = false
+                print(self.curURL.absoluteString)
+                UserDefaults(suiteName: "group.com.RandomWikiWidget")!.set(details.title, forKey: "articleTitle")
+                if let desc = details.description {
+                    UserDefaults(suiteName: "group.com.RandomWikiWidget")!.set(desc, forKey: "articleDescription")
+                }
+                WidgetCenter.shared.reloadAllTimelines()
             }
             self.favoriteAction = { [weak self] article in
                 guard let self = self else { return }
@@ -110,5 +117,7 @@ extension ContentView {
                 }
             }
         }
+        
+        
     }
 }

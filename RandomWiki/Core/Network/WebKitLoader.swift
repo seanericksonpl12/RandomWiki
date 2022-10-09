@@ -64,6 +64,16 @@ extension WebKitLoader {
         var doc: Document
         do { doc = try SwiftSoup.parse(html) } catch { return("", "") }
         do { title = try doc.title() } catch { print(error) }
+        do { let imgs = try doc.select("img").array()
+            var urls: [String] = []
+            for image in imgs {
+                let url = try image.attr("src")
+                if url.hasPrefix("//upload") {
+                    urls.append(url)
+                    print(url[url.index(url.startIndex, offsetBy: 2)...])
+                }
+            }
+        } catch {print("images not found")}
         do {
             let text: Elements = try doc.select("p")
             if text.count > 0 {
@@ -81,5 +91,12 @@ extension WebKitLoader {
             let jsString = "var style=document.createElement('style');style.innerHTML=\(css);document.head.appendChild(style);"
             webView.callAsyncJavaScript(jsString, in: self.frameInfo, in: WKContentWorld.page)
         } catch { print(error) }
+    }
+}
+
+extension WebKitLoader {
+    
+    func getPageImage(url: URL, completionHandler: (URL) -> Void) {
+        
     }
 }

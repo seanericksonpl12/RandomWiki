@@ -9,6 +9,7 @@ import Firebase
 import UserNotifications
 import SwiftUI
 import Lottie
+import WidgetKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -117,6 +118,16 @@ extension AppDelegate {
             "notificationsEnabled" : true,
             "notificationSettings" : data
         ])
+        
+        if let ud = UserDefaults(suiteName: "group.com.RandomWikiWidget") {
+            ud.register(defaults: [
+                "articleTitle": "myTitle",
+                "articleDescription": "myDescription"
+            ])
+            ud.set("mytitle", forKey: "articleTitle")
+            ud.set("mydesc", forKey: "articleDescription")
+        }
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func setNotificationActions() {

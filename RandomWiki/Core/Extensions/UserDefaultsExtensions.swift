@@ -97,3 +97,13 @@ extension UserDefaults {
         return url(forKey: "url") ?? URL(string: "https://en.wikipedia.org/wiki/Special:Random")!
     }
 }
+
+// MARK: - Widget
+extension UserDefaults {
+    
+    func setWidgetInfo(to: Float) {
+        if let ud = UserDefaults(suiteName: "group.com.RandomWikiWidget") {
+            ud.set(to, forKey: "widgetFloat")
+        }
+    }
+}

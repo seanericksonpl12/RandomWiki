@@ -81,6 +81,9 @@ struct ContentView: View {
         .onReceive(NotificationCenter.default.publisher(for: .updateWebView)) { _ in
             viewModel.getArticle()
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
+            viewModel.getArticle()
+        }
         .onReceive(NotificationCenter.default.publisher(for: .readText)) { _ in
             viewModel.readArticle(inBackground: true)
         }
