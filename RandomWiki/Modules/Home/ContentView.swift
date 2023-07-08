@@ -77,6 +77,11 @@ struct ContentView: View {
                     .animation(.easeInOut, value: viewModel.menuOpen)
             }
             .navigationBarHidden(true)
+            .onAppear {
+                print("Favorites List:")
+                //print(favorites[0].id)
+                viewModel.checkCurrentArticle(context: managedObjectContext, list: favorites)
+            }
         }
         .onReceive(NotificationCenter.default.publisher(for: .updateWebView)) { _ in
             viewModel.getArticle()
@@ -86,6 +91,10 @@ struct ContentView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: .readText)) { _ in
             viewModel.readArticle(inBackground: true)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .checkCurrentArticle)) { _ in
+            print("checking...")
+            viewModel.checkCurrentArticle(context: managedObjectContext, list: favorites)
         }
     }
     

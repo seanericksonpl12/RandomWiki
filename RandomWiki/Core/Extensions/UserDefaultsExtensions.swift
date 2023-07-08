@@ -89,6 +89,27 @@ extension UserDefaults {
 
 extension UserDefaults {
     
+    func setCurrentUUID(_ id: UUID) {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(id)
+            set(data, forKey: "currentArticleId")
+        } catch { print(error) }
+    }
+    
+    func currentUUID() -> UUID? {
+        guard let data = data(forKey: "currentArticleId") else { return nil }
+        
+        do {
+            let decoder = JSONDecoder()
+            let id = try decoder.decode(UUID.self, from: data)
+            return id
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
     func setCurrentURL(_ to: URL?) {
         set(to, forKey: "url")
     }
