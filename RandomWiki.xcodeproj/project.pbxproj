@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9236FD2528C3B1A300ADA10E /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236FD2428C3B1A300ADA10E /* FavoritesView.swift */; };
 		9236FD2928C3B65000ADA10E /* WebKitLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9236FD2828C3B65000ADA10E /* WebKitLoader.swift */; };
+		923858E928FD88F6006F5B4A /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923858E828FD88F6006F5B4A /* CustomTextView.swift */; };
 		923CD6AB28D8E8830092A96C /* FontSizeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */; };
 		923CD6AD28D8F4640092A96C /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CD6AC28D8F4640092A96C /* MenuItemTests.swift */; };
 		923F061328EC968A0000EC8F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923F061228EC968A0000EC8F /* WidgetKit.framework */; };
@@ -197,6 +198,7 @@
 /* Begin PBXFileReference section */
 		9236FD2428C3B1A300ADA10E /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		9236FD2828C3B65000ADA10E /* WebKitLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitLoader.swift; sourceTree = "<group>"; };
+		923858E828FD88F6006F5B4A /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		923CD6AA28D8E8830092A96C /* FontSizeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeViewTests.swift; sourceTree = "<group>"; };
 		923CD6AC28D8F4640092A96C /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 		923F061128EC968A0000EC8F /* Random Wiki WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Random Wiki WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,6 +380,7 @@
 			children = (
 				923F062C28EC9A8E0000EC8F /* LargeWidgetView.swift */,
 				923F062E28EC9A9D0000EC8F /* MediumWidgetView.swift */,
+				923858E828FD88F6006F5B4A /* CustomTextView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -756,6 +759,8 @@
 			dependencies = (
 			);
 			name = "Random Wiki WidgetExtension";
+			packageProductDependencies = (
+			);
 			productName = "Random Wiki WidgetExtension";
 			productReference = 923F061128EC968A0000EC8F /* Random Wiki WidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -996,6 +1001,7 @@
 				923F062428EC980E0000EC8F /* Provider.swift in Sources */,
 				923F061828EC968A0000EC8F /* Random_Wiki_Widget.swift in Sources */,
 				923F062F28EC9A9D0000EC8F /* MediumWidgetView.swift in Sources */,
+				923858E928FD88F6006F5B4A /* CustomTextView.swift in Sources */,
 				923F062828EC987C0000EC8F /* EntryView.swift in Sources */,
 				923F062D28EC9A8E0000EC8F /* LargeWidgetView.swift in Sources */,
 			);

@@ -24,7 +24,7 @@ struct Random_Wiki_Widget: Widget {
 
 struct Random_Wiki_Widget_Previews: PreviewProvider {
     static var previews: some View {
-        EntryView(entry: SimpleEntry(date: Date(), title: "fdsfgsd", description: "fjdksf"))
+        EntryView(entry: SimpleEntry(date: Date(), title: "fdsfgsd", description: "fjdksf", image: nil, imageFrame: nil))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

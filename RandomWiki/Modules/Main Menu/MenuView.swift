@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuView: View {
     // MARK: - Dependencies
     @StateObject var viewModel = MenuViewModel()
-    @StateObject var store: StoreManager
+    @ObservedObject var store: StoreManager
     // MARK: - Properties
     let width: CGFloat
     let isOpen: Bool

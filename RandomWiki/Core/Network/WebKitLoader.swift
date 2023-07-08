@@ -64,13 +64,14 @@ extension WebKitLoader {
         var doc: Document
         do { doc = try SwiftSoup.parse(html) } catch { return("", "") }
         do { title = try doc.title() } catch { print(error) }
-        do { let imgs = try doc.select("img").array()
-            var urls: [String] = []
-            for image in imgs {
-                let url = try image.attr("src")
-                if url.hasPrefix("//upload") {
-                    urls.append(url)
-                    print(url[url.index(url.startIndex, offsetBy: 2)...])
+        do {
+            let imgs = try doc.select("img").array()
+            let img = try imgs.first(where: { try $0.attr("src").hasPrefix("//upload")})
+            if let imgString = try img?.attr("src") {
+                if let ud = UserDefaults(suiteName: "group.com.RandomWikiWidget") {
+                    let fullUrl = "https:" + imgString
+                    ud.set(fullUrl, forKey: "storedImage")
+                    print(fullUrl)
                 }
             }
         } catch {print("images not found")}

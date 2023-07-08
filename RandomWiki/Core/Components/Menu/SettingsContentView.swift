@@ -13,7 +13,7 @@ struct SettingsContentView: View {
     @FetchRequest(sortDescriptors: []) var favorites: FetchedResults<ArticleModel>
     
     // MARK: - In-App Purchasing
-    @StateObject var store: StoreManager
+    @ObservedObject var store: StoreManager
     
     // MARK: - Stored Properties
     var selected: Bool

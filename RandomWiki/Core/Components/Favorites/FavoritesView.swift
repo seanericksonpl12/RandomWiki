@@ -12,7 +12,7 @@ struct FavoritesView: View {
     @State var itemSelected: ArticleModel?
     @State var isShowing: Bool = false
     @FetchRequest(sortDescriptors: []) var favoritesList: FetchedResults<ArticleModel>
-    @Environment(\.managedObjectContext) var context
+    //@Environment(\.managedObjectContext) var context
     
     // MARK: - Actions
     var onTap: ArticleClosure = {_ in}

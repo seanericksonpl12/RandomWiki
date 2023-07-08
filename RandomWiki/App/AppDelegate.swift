@@ -120,12 +120,8 @@ extension AppDelegate {
         ])
         
         if let ud = UserDefaults(suiteName: "group.com.RandomWikiWidget") {
-            ud.register(defaults: [
-                "articleTitle": "myTitle",
-                "articleDescription": "myDescription"
-            ])
-            ud.set("mytitle", forKey: "articleTitle")
-            ud.set("mydesc", forKey: "articleDescription")
+            ud.set("...", forKey: "articleTitle")
+            ud.set("...", forKey: "articleDescription")
         }
         WidgetCenter.shared.reloadAllTimelines()
     }
@@ -135,15 +131,5 @@ extension AppDelegate {
         let readDescription = UNNotificationAction(identifier: "read", title: "Play Reader")
         let category = UNNotificationCategory(identifier: "notifications.local", actions: [openAppAction, readDescription], intentIdentifiers: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
-//        let content = UNMutableNotificationContent()
-//        content.title = "Test"
-//        content.categoryIdentifier = "notifications.local"
-//        content.subtitle = "Testing ..."
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//        let notificationCenter = UNUserNotificationCenter.current()
-//        notificationCenter.add(request) { error in
-//            if let error = error { print(error) }
-//        }
     }
 }
