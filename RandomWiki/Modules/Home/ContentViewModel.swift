@@ -29,7 +29,7 @@ extension ContentView {
         
         // MARK: - Init
         init() {
-            self.currentArticle =  Article(id: UUID(), url: URL(string: "https://en.wikipedia.org/wiki/Special:Random"), category: "", title: "")
+            self.currentArticle =  Article(id: UserDefaults.standard.currentUUID() ?? UUID(), url: URL(string: "https://en.wikipedia.org/wiki/Special:Random"), category: "", title: "")
             self.loader.loadedAction = { [weak self] details in
                 guard let self = self else { return }
                 self.currentArticle.title = details.title
@@ -68,6 +68,7 @@ extension ContentView {
             self.loading = true
             self.loader.canGoBackWithRefresh = false
             currentArticle = Article(id: UUID(), url: url, saved: false, category: "", title: "")
+            UserDefaults.standard.setCurrentUUID(currentArticle.id)
             self.curURL = currentArticle.url ?? URL(string: "https://en.wikipedia.org/wiki/Special:Random")!
         }
         
@@ -83,10 +84,8 @@ extension ContentView {
         func saveCoreData(_ save: Article, context: NSManagedObjectContext, list: FetchedResults<ArticleModel>) {
             do {
                 // Check if item is already in favorites list
-                if save.saved {
-                    if let item = list.first(where: { $0.id == save.id}) {
-                        context.delete(item)
-                    } else { print("Error: Duplicate item not found") }
+                if let item = list.first(where: { $0.id == save.id}) {
+                    context.delete(item)
                 }
                 else {
                     let article = ArticleModel(context: context)
@@ -101,7 +100,6 @@ extension ContentView {
                 self.save()
             } catch { print(error.localizedDescription) }
         }
-        
         // MARK: - Text to Speech
         func readArticle(inBackground: Bool = false) {
             if isPlaying == true { speaker.synth.pauseSpeaking(at: .immediate) }

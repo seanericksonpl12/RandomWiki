@@ -36,7 +36,7 @@ struct ContentView: View {
                         Spacer()
                         // MARK: - Icon Bar
                         HStack(spacing: 20) {
-                            Image(systemName: viewModel.currentArticle.saved ? "star.fill" : "star")
+                            Image(systemName: favorites.contains {$0.id == viewModel.currentArticle.id} ? "star.fill" : "star" )
                                 .foregroundColor(.yellow)
                                 .onTapGesture {
                                     viewModel.saveCoreData(viewModel.currentArticle, context: managedObjectContext, list: favorites)
