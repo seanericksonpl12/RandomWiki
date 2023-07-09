@@ -102,15 +102,6 @@ extension ContentView {
                 self.save()
             } catch { print(error.localizedDescription) }
         }
-        
-        func checkCurrentArticle(context: NSManagedObjectContext, list: FetchedResults<ArticleModel>) {
-            if list.first(where: {$0.id == currentArticle.id}) != nil {
-                    currentArticle.saved = true
-                } else {
-                    currentArticle.saved = false
-                }
-        }
-        
         // MARK: - Text to Speech
         func readArticle(inBackground: Bool = false) {
             if isPlaying == true { speaker.synth.pauseSpeaking(at: .immediate) }
