@@ -84,10 +84,8 @@ extension ContentView {
         func saveCoreData(_ save: Article, context: NSManagedObjectContext, list: FetchedResults<ArticleModel>) {
             do {
                 // Check if item is already in favorites list
-                if save.saved {
-                    if let item = list.first(where: { $0.id == save.id}) {
-                        context.delete(item)
-                    } else { print("Error: Duplicate item not found") }
+                if let item = list.first(where: { $0.id == save.id}) {
+                    context.delete(item)
                 }
                 else {
                     let article = ArticleModel(context: context)
